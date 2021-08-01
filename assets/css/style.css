@@ -1,0 +1,50 @@
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&family=Sriracha&display=swap');
+
+/* ----------------------------------Default-------------------------------- */
+/* set the margin, padding and border to 0 for best practice*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'Sriracha', 'cursive', 'roboto';
+    font-weight: 300;
+}
+
+button {
+    font-family: 'Poppins', 'sans-serif';
+    font-weight: 400;
+}
+
+/* ----------------------------------/Default-------------------------------- */
+/* -------------------------------Navbar setup----------------------------- */
+.game-logo {
+    width: 8rem;
+    height: 8rem;
+}
+
+.navbar-nav {
+    height: 9rem;
+    width: 100%;
+}
+/* -------------------------------/Navbar setup----------------------------- */
+/* -------------------------------Media Queries----------------------------- */
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+    /* Navbar setup */
+    .game-logo {
+        width: 5rem;
+        height: 5rem;
+    }
+    
+    .navbar-nav {
+        height: 6rem;
+        width: 100%;
+    }
+}
+/* -------------------------------/Media Queries----------------------------- */
