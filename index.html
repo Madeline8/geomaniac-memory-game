@@ -43,8 +43,23 @@
       </a>
   </div>
 
+  <!-- Easy Level Game Area -->
+<div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="easy-level">
+    <h4 class="window-header">Easy Level</h4>
+</div>
+
+  <!-- Medium Level Game Area -->
+<div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="medium-level">
+    <h4 class="window-header">Easy Level</h4>
+</div>
+
+  <!-- Easy Level Game Area -->
+<div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="easy-level">
+    <h4 class="window-header">Advanced Level</h4>
+</div>
+
 <!-- Contact Us Modal Window -->
-  <div class=" invisible container home-page-window flex-column d-flex align-items-center flex-column" id="contact-page-window" id="div-contact">
+  <div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="contact-page-window" >
     <h4 class="window-header">ANY QUESTIONS? JUST ASK!</h4>
       <div class="form-group">
         <label for="name">Name:</label>
@@ -58,15 +73,18 @@
         <label for="question">Your Question</label>
         <textarea id="question" name="personsquestion" class="form-control form-style"  rows="3" required></textarea>
       </div>
-      <button type="submit" class="btn">Submit</button>
+      <span><a href="">
+        <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-contact-back"> Go Back</i>
+      </a>
+      <button type="submit" class="btn">Submit</button></span>
 </div>
 <!-- Rules Modal Window -->
 <div class="invisible container home-page-window flex-column d-flex align-items-center  flex-column" id="div-rules">
-  <button class= "btn btn-block home-button ">PLAY</button>
-  <button class= "btn btn-block home-button" id="rules-btn">RULES</button>
-  
-  <button class= "btn btn-block home-button">SOUNDS</button>
-  <button class= "btn btn-block home-button">CONTACT US</button>
+  <h4 class="window-header" id="rules-btn">RULES<h4>
+  <p>Rules to be added at a later stage</p>
+  <a href="">
+    <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-rules-back"> Go Back</i>
+  </a>
 </div>
 
   <!-- Sounds Modal Window -->
@@ -83,6 +101,9 @@
         <label for="vol-slider"><strong>Volume:</strong></label>
         <input type="range" min="0" max="100" value="50">
         <button id="sound-btn" class="btn btn-block home-button">OFF</button>
+        <a href="">
+          <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-sound-back"> Go Back</i>
+        </a>
     </div>
   </div>
   </main>

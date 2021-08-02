@@ -78,6 +78,12 @@ button {
 .window-header {
     margin-top: 3px;
 }
+
+.go-back-btn-other {
+    color: #323232;
+    font-size: 14px;
+    margin-top: 3px;
+}
 /* -------------------/General settings - Window Modal ------------------ */
 /* -----------------Choose Level of Difficulty - Window Modal---------------- */
 .go-back-btn {
