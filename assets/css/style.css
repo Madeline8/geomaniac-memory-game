@@ -79,14 +79,18 @@ button {
     margin-top: 3px;
 }
 /* -------------------/General settings - Window Modal ------------------ */
-/* -------------------Choose Level of Difficulty - Window------------------ */
+/* -----------------Choose Level of Difficulty - Window Modal---------------- */
 .go-back-btn {
     color: #323232;
     font-size: 19px;
     margin-top: 3px;
 }
-/* -------------------/Choose Level of Difficulty - Window------------------ */
-
+/* ---------------/Choose Level of Difficulty - Window Modal---------------- */
+/* -------------------/Contact Us - Window Modal------------------ */
+.form-style {
+    width: 17em;
+}
+/* -------------------/Contact Us - Window Modal------------------ */
 /* -------------------------------/Footer----------------------------- */
 .main-footer {
     line-height: 50px;
@@ -128,6 +132,11 @@ button {
     .window-header {
         font-size: 20px;
     }
+
+    #contact-page-window {
+        height: 25rem;
+        margin-top: 7rem;
+    }    
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
