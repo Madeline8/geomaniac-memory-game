@@ -5,9 +5,9 @@
 /* ----------------------------------Default-------------------------------- */
 /* set the margin, padding and border to 0 for best practice*/
 * {
-    margin: 0;
-    padding: 0;
     border: 0;
+    margin: 0;
+    padding: 0;   
 }
 
 body {
@@ -20,6 +20,14 @@ button {
     font-weight: 400;
 }
 
+ .background-image { 
+    background-image: url('../images/background-image.jpg');
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+} 
+
 /* ----------------------------------/Default-------------------------------- */
 /* -------------------------------Navbar setup----------------------------- */
 .game-logo {
@@ -28,25 +36,26 @@ button {
 }
 
 .navbar-nav {
+    background-color: white;
     height: 9rem;
     width: 100%;
 }
 /* -------------------------------/Navbar setup----------------------------- */
-/* ----------------------------Home Page - Window------------------------- */
+/* -------------------General settings - Window Modal ------------------ */
 
 /* This resource has been used to center a div in the middle of the page: https://stackoverflow.com/questions/39085355/bootstrap-center-a-div-in-the-middle */
 .home-page-window {
+    border-radius: 15%;
     text-align: center;
     background-color: #b5e7b5;
-    width: 21rem;
     height: 22rem;
+    width: 21rem;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
-    border-radius: 15%;
+    margin: auto;   
 }
 
 .home-button {
@@ -62,8 +71,22 @@ button {
     border-color: #E5EAE5;
 }
 
+.home-button:hover {
+    background-color: #009900;
+}
 
-/* ----------------------------/Home Page - Window------------------------- */
+.window-header {
+    margin-top: 3px;
+}
+/* -------------------/General settings - Window Modal ------------------ */
+/* -------------------Choose Level of Difficulty - Window------------------ */
+.go-back-btn {
+    color: #323232;
+    font-size: 19px;
+    margin-top: 3px;
+}
+/* -------------------/Choose Level of Difficulty - Window------------------ */
+
 /* -------------------------------/Footer----------------------------- */
 .main-footer {
     line-height: 50px;
@@ -100,34 +123,68 @@ button {
         height: 6rem;
         width: 100%;
     }
+
+    /* set smaller font size for smaller devices */
+    .window-header {
+        font-size: 20px;
+    }
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
 
-    /* align home modal on an iphone 5/SE */
+    /* align home window modal on an iphone 5/SE */
     .home-page-window {
         width: 19rem;
         height: 20rem;
     }
 
     .home-button {
-        margin-top: 1.5em;
+        margin-top: 0;
     }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
 
+    /* adjust position of home window modal */
     .home-page-window {
         width: 25rem;
         height: 25rem;
+        margin-top: 11rem;
     }
 
     .home-button {
-        margin-top: 2.5em;
+        margin-top: 1.5em;
         margin-bottom: 10px;
         width: 11em;
     }
+
 }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    
+    /* Set position of difficulty window on an IPad */
+    .home-page-window {
+        margin-top: 18rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+    
+    /* Set position of difficulty window on an IPad */
+    .home-page-window {
+        margin-top: 25rem;
+    }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+
+    .window-header {
+        margin-top: 1em;
+    }
+}
+
 /* -------------------------------/Media Queries----------------------------- */

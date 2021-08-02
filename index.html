@@ -15,8 +15,7 @@
   <!-- Other styling -->
   <script src="https://kit.fontawesome.com/48c5969d7a.js" crossorigin="anonymous"></script>
 </head>
-
-<body>
+<body class="background-image">
   <header>
     <nav class="navbar navbar-nav text-center">
       <a class="navbar-brand" href="index.html">
@@ -24,16 +23,25 @@
     </a>   
     </nav>
   </header>
-
   <main>
+<!-- Home Page Modal Window -->
+      <div class="container home-page-window flex-column d-flex align-items-center  flex-column">
+          <button class= "btn btn-block home-button ">PLAY</button>
+          <button class= "btn btn-block home-button">RULES</button>
+          <button class= "btn btn-block home-button">SOUNDS</button>
+          <button class= "btn btn-block home-button">CONTACT US</button>
+      </div>
 
-    <div class="container home-page-window flex-column d-flex align-items-center  flex-column">
-        <button class= "btn btn-block home-button ">PLAY</button>
-        <button class= "btn btn-block home-button">RULES</button>
-        <button class= "btn btn-block home-button">SOUNDS</button>
-        <button class= "btn btn-block home-button">CONTACT US</button>
+<!-- Difficulty Level Modal Window -->
+      <div class="container home-page-window flex-column d-flex align-items-center flex-column">
+        <h4 class="window-header">CHOOSE LEVEL OF DIFICULTY</h4>
+        <button class= "btn btn-block home-button ">EASY</button>
+        <button class= "btn btn-block home-button">MEDIUM</button>
+        <button class= "btn btn-block home-button">ADVANCED</button>
+        <a href="">
+          <i class="fas fa-arrow-circle-left go-back-btn"> Go Back</i>
+        </a>
     </div>
-
   </main>
   
   <footer class="containter-fluid fixed-bottom main-footer">
@@ -41,7 +49,7 @@
         <div class="col"></div>
         <div class="col" id="footer-links">
             <a target="_blank" rel="noreferrer" href="https://github.com/Madeline8/geomaniac-memory-game"><i class="fab fa-github footer-icon" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
-            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/magdalena-slapek/"><i class="fab fa-linkedin-in footer-icon" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
+            <a target="_blank" href="https://www.linkedin.com/in/magdalena-slapek/"><i class="fab fa-linkedin-in footer-icon" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
         </div>
         <div class="col d-none d-sm-block" id="copyright-text-align">
             <i class="far fa-copyright footer-icon"aria-hidden="true">2021 Magdalena Slapek</i> 
@@ -52,3 +60,4 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="script.js"></script> 
 </body>
+</html>
