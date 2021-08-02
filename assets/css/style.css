@@ -32,7 +32,61 @@ button {
     width: 100%;
 }
 /* -------------------------------/Navbar setup----------------------------- */
+/* ----------------------------Home Page - Window------------------------- */
+
+/* This resource has been used to center a div in the middle of the page: https://stackoverflow.com/questions/39085355/bootstrap-center-a-div-in-the-middle */
+.home-page-window {
+    text-align: center;
+    background-color: #b5e7b5;
+    width: 21rem;
+    height: 22rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 15%;
+}
+
+.home-button {
+    font-size: 25px;
+    border: 1px solid black;
+    margin-top: 2em;
+    border-width: 2px;
+    background-color: #003300;
+    position: relative;
+    margin-bottom: 4px;
+    width: 10em;
+    color: #E5EAE5;
+    border-color: #E5EAE5;
+}
+
+
+/* ----------------------------/Home Page - Window------------------------- */
+/* -------------------------------/Footer----------------------------- */
+.main-footer {
+    line-height: 50px;
+    background-color: #b5e7b5;
+}
+
+.footer-icon {
+    margin-left: 15px;
+    color: #323232;
+}
+
+#copyright-text-align {
+    text-align: right;
+    margin-right: 35px;
+}
+
+#footer-links {
+    text-align: center;
+}
+
+/* -------------------------------/Footer----------------------------- */
 /* -------------------------------Media Queries----------------------------- */
+
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
 
@@ -45,6 +99,35 @@ button {
     .navbar-nav {
         height: 6rem;
         width: 100%;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+    /* align home modal on an iphone 5/SE */
+    .home-page-window {
+        width: 19rem;
+        height: 20rem;
+    }
+
+    .home-button {
+        margin-top: 1.5em;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+    .home-page-window {
+        width: 25rem;
+        height: 25rem;
+    }
+
+    .home-button {
+        margin-top: 2.5em;
+        margin-bottom: 10px;
+        width: 11em;
     }
 }
 /* -------------------------------/Media Queries----------------------------- */
