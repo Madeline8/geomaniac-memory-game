@@ -14,18 +14,22 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
   <!-- Other styling -->
   <script src="https://kit.fontawesome.com/48c5969d7a.js" crossorigin="anonymous"></script>
+  <!-- javascript and jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="assets/js/script.js"></script> 
+  <script src="assets/js/game.js"></script>
 </head>
 <body class="background-image">
   <header>
     <nav class="navbar navbar-nav text-center">
       <a class="navbar-brand" href="index.html">
-        <img class="game-logo" src="assets/images/geomaniac-logo.png" alt="Geomaniac Logo">
+        <img class="game-logo" src="assets/images/geomaniac-logo1.png" alt="Geomaniac Logo">
     </a>   
     </nav>
   </header>
   <main>
 <!-- Home Page Modal Window -->
-    <div class="container home-page-window flex-column d-flex align-items-center flex-column">
+    <div class="invisible container home-page-window flex-column d-flex align-items-center flex-column">
       <button class= "btn btn-block home-button" id="btn-play">PLAY</button>
       <button class= "btn btn-block home-button" id="btn-rules">RULES</button>
       <button class= "btn btn-block home-button" id="btn-sounds">SOUNDS</button>
@@ -35,28 +39,13 @@
 <!-- Difficulty Level Modal Window -->
     <div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="div-difficulty">
       <h4 class="window-header">CHOOSE LEVEL OF DIFICULTY</h4>
-      <button class= "btn btn-block home-button ">EASY</button>
+      <button class= "btn btn-block home-button">EASY</button>
       <button class= "btn btn-block home-button">MEDIUM</button>
       <button class= "btn btn-block home-button">ADVANCED</button>
       <a href="">
         <i class="fas fa-arrow-circle-left go-back-btn"> Go Back</i>
       </a>
   </div>
-
-  <!-- Easy Level Game Area -->
-<div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="easy-level">
-    <h4 class="window-header">Easy Level</h4>
-</div>
-
-  <!-- Medium Level Game Area -->
-<div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="medium-level">
-    <h4 class="window-header">Easy Level</h4>
-</div>
-
-  <!-- Easy Level Game Area -->
-<div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="easy-level">
-    <h4 class="window-header">Advanced Level</h4>
-</div>
 
 <!-- Contact Us Modal Window -->
   <div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="contact-page-window" >
@@ -80,7 +69,7 @@
 </div>
 <!-- Rules Modal Window -->
 <div class="invisible container home-page-window flex-column d-flex align-items-center  flex-column" id="div-rules">
-  <h4 class="window-header" id="rules-btn">RULES<h4>
+  <h4>class="window-header" id="rules-btn">RULES</h4>
   <p>Rules to be added at a later stage</p>
   <a href="">
     <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-rules-back"> Go Back</i>
@@ -107,6 +96,33 @@
     </div>
   </div>
   </main>
+
+    <!-- Easy Level Game Area -->
+<!-- <div class="visible container home-page-window flex-column d-flex align-items-center flex-column" id="easy-level"></div> -->
+<div class="visible container-fluid background-img-game">
+  <div class="container">
+  <h4 class="window-header text-center"> <span> Time: <span id="time-span"></span></span> 
+    <span> Round: <span id="round-span"></span></span>
+  </h4>
+    <div class="conainer">
+      <div class="row justify-content-center text-center">
+        <div class="col-12">
+          <img class="main-game-image" id="main-game-image" src="assets/images/game-images/img1.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-sm-3 col-3"><img class ="small-game-image" id = "img-choice-0" src="assets/images/game-images/globe-icon.jpg" alt=""></div>
+      <div class="col-sm-3 col-3"><img class ="small-game-image" id = "img-choice-1" src="assets/images/game-images/globe-icon.jpg" alt=""></div>
+      <div class="col-sm-3 col-3"><img class ="small-game-image" id = "img-choice-2" src="assets/images/game-images/globe-icon.jpg" alt=""></div>
+      <div class="col-sm-3 col-3"><img class ="small-game-image" id = "img-choice-3" src="assets/images/game-images/globe-icon.jpg" alt=""></div>
+    </div>
+  </div>
+
+</div>
   
   <footer class="containter-fluid fixed-bottom main-footer">
     <div class="row">
@@ -121,7 +137,6 @@
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="assets/js/script.js"></script> 
+
 </body>
 </html>

@@ -31,13 +31,13 @@ button {
 /* ----------------------------------/Default-------------------------------- */
 /* -------------------------------Navbar setup----------------------------- */
 .game-logo {
-    width: 8rem;
-    height: 8rem;
+    width: 5rem;
+    height: 5rem;
 }
 
 .navbar-nav {
     background-color: white;
-    height: 9rem;
+    height: 6rem;
     width: 100%;
 }
 /* -------------------------------/Navbar setup----------------------------- */
@@ -92,6 +92,39 @@ button {
     margin-top: 3px;
 }
 /* ---------------/Choose Level of Difficulty - Window Modal---------------- */
+/* Game area - set background image */
+.background-img-game {
+    background-image: url('../images/background-img-game.jpg');
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.main-game-image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+
+/* Style time and round span */
+#time-span {
+    margin-right: 10rem;
+}
+
+
+/* Settings for Easy Level */
+/* /Settings for Easy Level */
+
+/* Settings for Medium Level */
+/* /Settings for Medium Level */
+
+/* Settings for Advanced Level */
+/* /Settings for Advanced Level */
+
+
 /* -------------------/Contact Us - Window Modal------------------ */
 .form-style {
     width: 17em;
@@ -142,7 +175,13 @@ button {
     #contact-page-window {
         height: 25rem;
         margin-top: 7rem;
-    }    
+    }
+
+    /* Adjust images in the game area */
+    .small-game-image {
+        height: 80px;
+        width: 80px;
+    }
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -156,6 +195,19 @@ button {
 
     .home-button {
         margin-top: 0;
+    }
+
+    /* Adjust images in the game area */
+    .small-game-image {
+        height: 60px;
+        width: 60px;
+    }
+
+    .main-game-image {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+        margin-left: 20px;
     }
 }
 
@@ -173,6 +225,20 @@ button {
         margin-top: 1.5em;
         margin-bottom: 10px;
         width: 11em;
+    }
+
+    /* Adjust images in the game area */
+    .small-game-image {
+        height: 150px;
+        width: 150px;
+    }
+
+    .main-game-image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 50px;
+        margin-left: 200px;
+        margin-top: 50px;
     }
 
 }
@@ -202,4 +268,20 @@ button {
     }
 }
 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* Adjust images in the game area */
+    .small-game-image {
+        height: 200px;
+        width: 200px;
+    }
+
+    .main-game-image {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 50px;
+        margin-left: 30px;
+        margin-top: 50px;
+    }
+}
 /* -------------------------------/Media Queries----------------------------- */
