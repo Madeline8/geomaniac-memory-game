@@ -27,77 +27,78 @@
     </a>   
     </nav>
   </header>
-  <main>
-<!-- Home Page Modal Window -->
-    <div class="invisible container home-page-window flex-column d-flex align-items-center flex-column">
-      <button class= "btn btn-block home-button" id="btn-play">PLAY</button>
-      <button class= "btn btn-block home-button" id="btn-rules">RULES</button>
-      <button class= "btn btn-block home-button" id="btn-sounds">SOUNDS</button>
-      <button class= "btn btn-block home-button" id="btn-contact">CONTACT US</button>
-    </div>
 
-<!-- Difficulty Level Modal Window -->
-    <div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="div-difficulty">
-      <h4 class="window-header">CHOOSE LEVEL OF DIFICULTY</h4>
-      <button class= "btn btn-block home-button">EASY</button>
-      <button class= "btn btn-block home-button">MEDIUM</button>
-      <button class= "btn btn-block home-button">ADVANCED</button>
-      <a href="">
-        <i class="fas fa-arrow-circle-left go-back-btn"> Go Back</i>
-      </a>
+<main>
+<!-- Home Page Modal Window -->
+  <div class="invisible container home-page-window flex-column d-flex     align-items-center flex-column">
+    <button class= "btn btn-block home-button" id="btn-play">PLAY</button>
+    <button class= "btn btn-block home-button" id="btn-rules">RULES</button>
+    <button class= "btn btn-block home-button" id="btn-sounds">SOUNDS</button>
+    <button class= "btn btn-block home-button" id="btn-contact">CONTACT US</button>
   </div>
 
+<!-- Difficulty Level Modal Window -->
+  <div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="div-difficulty">
+    <h4 class="window-header">CHOOSE LEVEL OF DIFFICULTY</h4>
+    <button class= "btn btn-block home-button">EASY</button>
+    <button class= "btn btn-block home-button">MEDIUM</button>
+    <button class= "btn btn-block home-button">ADVANCED</button>
+    <a href="">
+      <i class="fas fa-arrow-circle-left go-back-btn"> Go Back</i>
+    </a>
+</div>
+
 <!-- Contact Us Modal Window -->
-  <div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="contact-page-window" >
-    <h4 class="window-header">ANY QUESTIONS? JUST ASK!</h4>
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input id="name" name="name" type="text" class="form-control form-style" placeholder="Your name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email address:</label>
-        <input id="email" name="emailaddress" type="email" class="form-control form-style" placeholder="Your email"required>
-      </div>
-      <div class="form-group">
-        <label for="question">Your Question</label>
-        <textarea id="question" name="personsquestion" class="form-control form-style"  rows="3" required></textarea>
-      </div>
-      <span><a href="">
-        <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-contact-back"> Go Back</i>
-      </a>
-      <button type="submit" class="btn">Submit</button></span>
+<div class="invisible container home-page-window flex-column d-flex align-items-center flex-column" id="contact-page-window" >
+  <h4 class="window-header">ANY QUESTIONS? JUST ASK!</h4>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text" class="form-control form-style" placeholder="Your name" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input id="email" name="emailaddress" type="email" class="form-control form-style" placeholder="Your email"required>
+  </div>
+  <div class="form-group">
+    <label for="question">Your Question</label>
+    <textarea id="question" name="personsquestion" class="form-control form-style"  rows="3" required></textarea>
+  </div>
+  <span><a href="">
+    <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-contact-back"> Go Back</i>
+  </a>
+  <button type="submit" class="btn">Submit</button></span>
 </div>
 <!-- Rules Modal Window -->
 <div class="invisible container home-page-window flex-column d-flex align-items-center  flex-column" id="div-rules">
-  <h4>class="window-header" id="rules-btn">RULES</h4>
+  <h4 class="window-header" id="rules-btn">RULES</h4>
   <p>Rules to be added at a later stage</p>
   <a href="">
     <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-rules-back"> Go Back</i>
   </a>
 </div>
 
-  <!-- Sounds Modal Window -->
-  <!-- Used this resource: https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
-  <div class="invisible container home-page-window flex-column d-flex          align-items-center flex-column" id="div-sounds">   
-    <div class="slidecontainer">
-        <h4>SOUND EFFECT</h4>
-        <label for="vol-slider"><strong>Volume:</strong></label>
-        <input type="range" min="0" max="100" value="50">     
-        <button id="sound-btn" class="btn btn-block home-button">OFF</button>
-    </div>
-    <div class="slidecontainer">
-        <h4>MUSIC BACKGROUND</h4>
-        <label for="vol-slider"><strong>Volume:</strong></label>
-        <input type="range" min="0" max="100" value="50">
-        <button id="sound-btn" class="btn btn-block home-button">OFF</button>
-        <a href="">
-          <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-sound-back"> Go Back</i>
-        </a>
-    </div>
+<!-- Sounds Modal Window -->
+<!-- Used this resource: https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
+<div class="invisible container home-page-window flex-column d-flex          align-items-center flex-column" id="div-sounds">   
+  <div class="slidecontainer">
+      <h4>SOUND EFFECT</h4>
+      <label for="vol-slider"><strong>Volume:</strong></label>
+      <input type="range" min="0" max="100" value="50">     
+      <button id="sound-btn" class="btn btn-block home-button">OFF</button>
   </div>
-  </main>
+  <div class="slidecontainer">
+      <h4>MUSIC BACKGROUND</h4>
+      <label for="vol-slider"><strong>Volume:</strong></label>
+      <input type="range" min="0" max="100" value="50">
+      <button id="sound-btn" class="btn btn-block home-button">OFF</button>
+      <a href="">
+        <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-sound-back"> Go Back</i>
+      </a>
+  </div>
+</div>
+</main>
 
-    <!-- Easy Level Game Area -->
+  <!-- Easy Level Game Area -->
 <!-- <div class="visible container home-page-window flex-column d-flex align-items-center flex-column" id="easy-level"></div> -->
 <div class="visible container-fluid background-img-game">
   <div class="container">
