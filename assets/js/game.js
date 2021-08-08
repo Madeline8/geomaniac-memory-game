@@ -1,3 +1,5 @@
+
+
 let gameVars = {
     imageArray : [], //array of randomised image numbers
     maxImages :45, //how many images I have on file in game images
@@ -17,9 +19,9 @@ let gameVars = {
 
 // Functions to log to console with a timestamp
 function log(txt) {
-    let c = new Date();
-    let t = c.getHours() + ":" + c.getMinutes() + ":" + c.getSeconds() + "." + c.getMilliseconds();
-    console.log(t + ": " + txt);
+    let currentDateTime = new Date();
+    let formattedTime = currentDateTime.getHours() + ":" + currentDateTime.getMinutes() + ":" + currentDateTime.getSeconds() + "." + currentDateTime.getMilliseconds();
+    console.log(formattedTime + ": " + txt);
 }
 
 
@@ -221,4 +223,20 @@ function nextImage(i) {
         }
     }
 }
+
+// User initiates action by clicking "ready to start"? (once clicked on 'easy-level')
+
+
+// One the sequence of main images has been completed, player gets a notification: 'Now, your turn!'
+
+// User gets a notification when he correctly guesses the sequence
+
+// fail notifications (player can fail twice within one game)
+
+
+// setInterval and setTimer. Use them both to display the elapsed time on the screen and to force and end to the game if the player is taking too long.
+
+// anonymous functions
+
+// Divs to show the countdown to the game starting and to show the result.
 

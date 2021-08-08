@@ -21,12 +21,20 @@ button {
 }
 
  .background-image { 
-    background-image: url('../images/background-image.jpg');
+    background-image: url('../images/background-image1.jpg');
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    height:100vh;
 } 
+
+/* .background-image {
+height:100vh;
+background: url('../images/background-image1.jpg') no-repeat center bottom;
+background-size: cover;
+position: relative;
+}; */
 
 /* ----------------------------------/Default-------------------------------- */
 /* -------------------------------Navbar setup----------------------------- */
@@ -45,9 +53,9 @@ button {
 
 /* This resource has been used to center a div in the middle of the page: https://stackoverflow.com/questions/39085355/bootstrap-center-a-div-in-the-middle */
 .home-page-window {
-    border-radius: 15%;
+    /* border-radius: 15%; */
     text-align: center;
-    background-color: #b5e7b5;
+    /* background-color: #b5e7b5; */
     height: 22rem;
     width: 21rem;
     position: absolute;
@@ -93,13 +101,13 @@ button {
 }
 /* ---------------/Choose Level of Difficulty - Window Modal---------------- */
 /* Game area - set background image */
-.background-img-game {
+/* .background-img-game {
     background-image: url('../images/background-img-game.jpg');
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-}
+} */
 
 .main-game-image {
     width: 200px;
@@ -148,6 +156,24 @@ button {
 
 #footer-links {
     text-align: center;
+}
+
+/* User notifications */
+
+.user-notification {
+    background-color: #003300;
+    color: #F8fbf8;
+    opacity: 0.7;
+    height: 6rem;
+    width: 27rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;  
+
 }
 
 /* -------------------------------/Footer----------------------------- */

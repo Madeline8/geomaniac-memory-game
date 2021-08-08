@@ -1,3 +1,4 @@
+
 // Play Button
 document.getElementById("btn-play").addEventListener("click", event => {
     closeAllModals();
@@ -43,6 +44,14 @@ document.getElementById("btn-play").addEventListener("click", event => {
   document.getElementById("btn-rules-back").addEventListener("click", event => {
     document.getElementById("div-rules").classList.add("invisible");
   });
+
+  // Play --> Choose level
+  document.getElementById("easy-level-button").addEventListener("click", event => {
+    // soundClick();
+    closeAllModals();
+    document.getElementById("div-difficulty").classList.remove("invisible");
+    document.getElementById("easy-level-game").classList.add("visible");
+  });
  
   function closeAllModals() {
     document.getElementById("div-rules").classList.remove('visible');
@@ -68,6 +77,19 @@ document.getElementById("btn-play").addEventListener("click", event => {
   function soundClick(){
     audio.click.play();
   }
+
+
+  // Logic for starting the game
+
+  // logic for the timer
+
+  //display of the results
+
+  //logic for number of retries 
+
+  // saving results and for showing the results table
+  
+  //Audio related functions
 
 
   
