@@ -22,8 +22,7 @@
   <!-- javascript and jquery -->
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/game.js"></script>
+
 </head>
 
 <body class="background-image">
@@ -37,11 +36,11 @@
 
   <main>
     <!-- Home Page Modal Window -->
-    <div class="invisible container home-page-window flex-column d-flex     align-items-center">
+    <div class="container home-page-window flex-column d-flex     align-items-center " id="home-page-modal">
       <button class="btn btn-block home-button" id="btn-play">PLAY</button>
       <button class="btn btn-block home-button" id="btn-rules">RULES</button>
       <button class="btn btn-block home-button" id="btn-sounds">SOUNDS</button>
-      <button class="btn btn-block home-button" id="btn-contact">CONTACT US</button>
+      <!-- <button class="btn btn-block home-button" id="btn-contact">CONTACT US</button> -->
     </div>
     <!-- Difficulty Level Modal Window. It appears once player clicks on the 'Play' button -->
     <div class="invisible container home-page-window flex-column d-flex align-items-center" id="div-difficulty">
@@ -53,7 +52,7 @@
       <button class="btn btn-block home-button" id="advanced-level-button"
         onclick="chooseLevel(this); gamePlay()">ADVANCED</button>
       <a href="">
-        <i class="fas fa-arrow-circle-left go-back-btn"> Go Back</i>
+        <i class="fas fa-arrow-circle-left go-back-btn" id="diff-level-go-back"> Go Back</i>
       </a>
     </div>
     <!-- Rules Modal Window -->
@@ -108,7 +107,7 @@
     </div>
   </main>
   <!-- Easy Level Game Area -->
-  <div class=" container-fluid background-img-game easy-level-game">
+  <div class="invisible container-fluid background-img-game" id="easy-level-game">
     <div class="container">
       <h4 class="window-header text-center"> <span> Time: <span id="time-span"></span></span>
         <span> Round: <span id="round-span"></span></span>
@@ -194,7 +193,8 @@
       </div>
     </div>
   </footer>
-
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/game.js"></script>
 </body>
 
 </html>
