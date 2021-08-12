@@ -138,6 +138,34 @@ position: relative;
     width: 17em;
 }
 /* -------------------/Contact Us - Window Modal------------------ */
+/* -------------------In - game styles ------------------ */
+
+.in-game-button {
+    color: antiquewhite;
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #323232;
+    opacity: 0.75;
+    align-items: center;
+    font-size: 30px;
+}
+
+.in-game-button:hover {
+    color: #3ae13a;
+}
+
+.in-game-div {
+    background-color: orange;
+    background-size: cover;
+}
+
+/* -------------------/In - game styles ------------------ */
 /* -------------------------------/Footer----------------------------- */
 .main-footer {
     line-height: 50px;

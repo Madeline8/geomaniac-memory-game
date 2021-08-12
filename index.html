@@ -19,6 +19,8 @@
   </script>
   <!-- Other styling -->
   <script src="https://kit.fontawesome.com/48c5969d7a.js" crossorigin="anonymous"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" type="text/css" />
   <!-- javascript and jquery -->
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
@@ -168,17 +170,56 @@
     </div>
   </div> -->
 
+    <!--
+  the following divs need to be created
+  Ready?go! button x8Rounds
+  It's your turn! button x8
+
+  Oops, you've got two more tries! Ready? button
+  Oops, you've got one more try! Ready? button
+  (When it gets to 0 tries) You've failed! Want to try again? (div with options to: go to the next level / play again; return home;)
+
+  Well done! Click to move on to the next round. button
+  You've won! It took you <time> to complete this level! Want to beat your time? (choice to play the same level, go to the next level, or return home)
+  -->
+
+  <!-- Ready?Go! - Start game button-->
+  <div class="invisible" id="ready-play"><button class="
+     btn in-game-button text-cente hvr-glow">Ready? Go!</button>
+  </div>
+
+    <!-- "Now it's your turn!" - If a player clicks on this button, they need to make a guess of image sequence-->
+    <div class="invisible" id="ready-go"><button class="
+      btn in-game-button text-cente hvr-glow">It's your turn!</button>
+   </div>
+
+    <!-- "Oops, you've two more tries! Ready to repeat this round?" - When a player fails for the first time, this button appears -->
+    <div class="invisible in-game-div" id="first-fail"><button class="
+      btn in-game-button text-cente hvr-glow">Oops, you've got two more tries! <br> Ready to repeat this round?</button>
+    </div>
+
+    <!-- "Oops, you've got one more try! Ready?" - When a player fails for the second time, this button appears -->
+    <div class="invisible in-game-div" id="second-fail"><button class="
+      btn in-game-button text-cente hvr-glow">Oops, you've got one more try! <br> Ready to repeat this round?</button>
+    </div>
+
   <!-- Notification - how long it has taken the user to complete the game -->
-  <div class="invisible container user-notification flex-column d-flex align-items-center" id="div-time-notify">
-    <h4 class="window-header">Well Done! You completed this level in <span id="time-completed"></span>. Want to beat
-      your score?</h4>
+  <div class="invisible container user-notification flex-column d-flex align-items-center" id="game-success">
+    <h4 class="window-header">You've won! It took you <span id="time-completed"></span> to complete this level! Want to beat your time?</h4>
     <button class="btn btn-block home-button">PLAY AGAIN</button>
     <button class="btn btn-block home-button">TAKE ME HOME</button>
   </div>
 
-  <!-- Notification - failed round -->
-  <div class="invisible container user-notification flex-column d-flex align-items-center" id="div-failedround-notify">
-    <h4 class="window-header">Awww... You haven't made it this time! <br> Want to try again?</h4>
+  <!-- Notification - game over -->
+  <div class="invisible container user-notification flex-column d-flex align-items-center" id="game-fail">
+    <h4 class="window-header"> You've failed! Want to try again? </h4>
+    <button class="btn btn-block home-button">PLAY AGAIN</button>
+    <button class="btn btn-block home-button">TAKE ME HOME</button>
+  </div>
+
+  <!-- Notification - game over - player has been inactive fr an x amount of time -->
+  <div class="invisible container user-notification flex-column d-flex align-items-center" id="game-fail-nomove">
+    <h4 class="window-header"> Game over! You haven't done any move. <br> Still want to play? </h4>
     <button class="btn btn-block home-button">PLAY AGAIN</button>
     <button class="btn btn-block home-button">TAKE ME HOME</button>
   </div>
@@ -204,12 +245,4 @@
 
 </html>
 
-<!--
-the following divs need to be created
-Ready steady go
-Now it's your turn
-successful round
-player has won
-player failed a round
-player has failed the game
--->
+
