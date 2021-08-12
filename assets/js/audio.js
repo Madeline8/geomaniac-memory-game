@@ -111,12 +111,11 @@ function playMusic() {
 function stopMusic() {
   audio.music.pause();
   audio.music.currentTime = 0;
-
 }
 
 //set default volume
 function defaultVol() {
-  audio.music.volume = audio.musicVolAdj.defaultValue / 0.3;
+  audio.music.volume = audio.musicVolAdj.defaultValue / 50;
   audio.click.volume = audio.soundVolAdj.defaultValue / 100;
   audio.inRoundSuccess.volume = audio.soundVolAdj.defaultValue / 100;
   audio.fail.volume = audio.soundVolAdj.defaultValue / 100;

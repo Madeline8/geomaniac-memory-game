@@ -1,21 +1,29 @@
+// The two constants below make reading the functions easier to understand
+const passed = true;
+const failed = false;
 
 let gameVars = {
-  imageArray : [], //array of randomised image numbers
-  maxImages :45, //how many images I have on file in game images
-  pauseTime :  2000, // intervals between images shown in milliseconds
-  choices : 4,    // Number of images player can choose from
-  maxRounds : 8,  // Maximum number of rounds
-  usedImages : [], // An array of unique images used in the game
-  round : 0,      // Current round being played
-  failed : false, // Set to true if the user gets the wrong image
-  failCount : 0,  // How many times has the user failed in this round?
+  imageArray : [],    //array of randomised image numbers
+  maxImages  :  45,   //how many images I have on file in game images
+  pauseTime  :  2000, // intervals between images shown in milliseconds
+  choices    : 4,     // Number of images player can choose from
+  maxRounds  : 8,     // Maximum number of rounds
+  usedImages : [],    // An array of unique images used in the game
+  round      : 0,     // Current round being played
+  failed     : false, // Set to true if the user gets the wrong image
+  failCount  : 0,     // How many times has the user failed in this round?
+  maxRoundAttempts : 3,  // How many time can a round be attempted?
+  level      : 0,     // Current game level
+  startTimer : 0,     // In game time
+  noMoveTime : 60,    // If player makes no move - then after this time it fails
+  lastMoveTime : 0,   // Time the player last clicked a button
+  failedReason : "",  // The reason the player failed
   lastImageClicked : -1,  // What was the last image the user clicked?
-  maxFailCount : 3,   //
-  expectedResult : [],// What is the image number (0-3 for easy, 0-5 medium etc.) order expected
-  choiceNumber : 0,   // Which sequence number user has clicked on
-  level : 0,        // Current game level
+  maxFailCount     : 3,   //
+  expectedResult   : [],// What is the image number (0-3 for easy, 0-5 medium etc.) order expected
+  choiceNumber     : 0,   // Which sequence number user has clicked on
+  timeDisplayInterval : 0,
 };
-
 
 function clearMainImage() {
   document.getElementById("main-game-image").src = "assets/images/game-images/globe-icon.jpg";
@@ -125,7 +133,9 @@ function setGameLevel(n) {
 function imageClicked() {
   let imgId = this.id;
   let choice = parseInt(imgId.substr(11));
+  soundClick();
   log("Clicked on " + choice);
+  gameVars.lastMoveTime = Date.now();
   gameVars.lastImageClicked = choice;
   if(choice == gameVars.expectedResult[gameVars.choiceNumber]) {
       // All is OK so far
@@ -139,8 +149,12 @@ function imageClicked() {
       }
   }
   else {
-      // Failed
-      alert("Failed --- Try again");
+      // Failed this round
+      if(++gameVars.failCount >= gameVars.maxRoundAttempts) {
+        gameVars.failReason = 'Failed! You have exceeded maximum number of attempts';
+        endGame(failed);
+      }
+      alert("Failed - try this round again!");
       continueGame(gameVars.level);
   }
 }
@@ -153,12 +167,6 @@ function enableImageChoiceClickEvents() {
       let imageId = "img-choice-" + i;
       console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
       document.getElementById(imageId).addEventListener("click", imageClicked);
-      //document.getElementById(imageId).addEventListener("click", event => {
-      //   let imgId = this.id;
-      //   let choice = parseInt(imgId.substr(10,1));
-      //   console.log("Clicked on " + choice);
-      //   gameVars.lastImageClicked = choice;
-      //});
   }
 }
 
@@ -172,6 +180,35 @@ function disableClickEvents() {
   }
 }
 
+// start the display timer
+function startTimer() {
+  gameVars.lastMoveTime = gameVars.startTime = Date.now();
+  gameVars.timeDisplayInterval = setInterval(displayTime, 1000);
+}
+
+//display the timer on the screen
+//check that a player has clicked an image in the last 'noMoveTime' seconds
+function displayTime() {
+  let seconds = Math.floor((Date.now() - gameVars.startTime) / 1000);
+  document.getElementById('time-span').innerHTML = fmtTime(seconds);
+  // If the game timer has expired, then endGame(failed)
+  if(((Date.now() - gameVars.lastMoveTime) / 1000) > gameVars.noMoveTime) {
+    gameVars.failedReason = `You haven't done any move for more than ${gameVars.noMoveTime} seconds`;
+    endGame(failed);
+  }
+
+}
+//convert time in second into a string of minutes and seconds
+function fmtTime(t) {
+    let m = Math.floor(t / 60);
+    let s = t - m * 60;
+    if(s < 10) {
+        s = "0" + s;
+    } 
+    let str = `${m}:${s}`;
+    return(str);
+}
+
 // playGame
 function playGame(level) {
   clearMainImage();
@@ -179,8 +216,12 @@ function playGame(level) {
   setGameLevel(level);
   randomiseImages();
   gameVars.round = 1;
+  gameVars.failCount = 0;
+  // Display the Round number
+  document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
   setGameLevel(level);
   fillImageChoices(gameVars.choices);
+  startTimer();
   setTimeout(nextImage, gameVars.pauseTime, 0);
 }
 
@@ -190,7 +231,21 @@ function continueGame(level) {
   clearMainImage();
   disableClickEvents();
   fillImageChoices(gameVars.choices);
+  // Display the Round number
+  document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
   setTimeout(nextImage, gameVars.pauseTime, 0);
+}
+
+//end the game for either a win or a loose
+function endGame(result) {  // result can be failed or passed
+  if(result == passed) {
+    clearInterval(gameVars.timeDisplayInterval);
+    // The player won the game
+  } else {
+    // The player failed the game
+    // We get the faied reason from gameVars.failedReason
+    // Cancel the display timer dependent on a reason for a fail
+  }
 }
 
 function nextImage(i) {
@@ -231,4 +286,3 @@ function nextImage(i) {
 // anonymous functions
 
 // Divs to show the countdown to the game starting and to show the result.
-
