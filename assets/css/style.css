@@ -140,6 +140,14 @@ position: relative;
 /* -------------------/Contact Us - Window Modal------------------ */
 /* -------------------In - game styles ------------------ */
 
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .in-game-button {
     color: antiquewhite;
     height: fit-content;
@@ -221,15 +229,26 @@ position: relative;
         width: 100%;
     }
 
+    .home-button {
+        font-size: 20px;
+        border-width: 2px;
+        background-color: #003300;
+        position: relative;
+        margin-bottom: 4px;
+        width: 13rem;
+        color: #E5EAE5;
+        border-color: #E5EAE5;
+    }
+
     /* set smaller font size for smaller devices */
     .window-header {
         font-size: 20px;
     }
 
-    #contact-page-window {
+    /* #contact-page-window {
         height: 25rem;
         margin-top: 7rem;
-    }
+    } */
 
     /* Adjust images in the game area */
     .small-game-image {
@@ -243,13 +262,15 @@ position: relative;
 
     /* align home window modal on an iphone 5/SE */
     .home-page-window {
-        width: 19rem;
-        height: 20rem;
+        /* width: 19rem;
+        height: 20rem; */
+        margin-top: 5;
+        font-size: 16px!important;
     }
 
-    .home-button {
+    /* .home-button {
         margin-top: 0;
-    }
+    } */
 
     /* Adjust images in the game area */
     .small-game-image {
@@ -310,7 +331,7 @@ position: relative;
     
     /* Set position of difficulty window on an IPad */
     .home-page-window {
-        margin-top: 25rem;
+        margin-top: 15rem;
     }
 }
 
