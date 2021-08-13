@@ -1,6 +1,7 @@
+
 // The two constants below make reading the functions easier to understand
-const passed = true;
-const failed = false;
+// const passed = true;
+// const failed = false;
 
 let gameVars = {
   imageArray : [],    //array of randomised image numbers
@@ -152,7 +153,7 @@ function imageClicked() {
       // Failed this round
       if(++gameVars.failCount >= gameVars.maxRoundAttempts) {
         gameVars.failReason = 'Failed! You have exceeded maximum number of attempts';
-        endGame(failed);
+        endGame(false);
       }
       alert("Failed - try this round again!");
       continueGame(gameVars.level);
@@ -194,7 +195,7 @@ function displayTime() {
   // If the game timer has expired, then endGame(failed)
   if(((Date.now() - gameVars.lastMoveTime) / 1000) > gameVars.noMoveTime) {
     gameVars.failedReason = `You haven't done any move for more than ${gameVars.noMoveTime} seconds`;
-    endGame(failed);
+    endGame(false);
   }
 
 }
@@ -217,13 +218,20 @@ function playGame(level) {
   randomiseImages();
   gameVars.round = 1;
   gameVars.failCount = 0;
-  // Display the Round number
-  document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
   setGameLevel(level);
   fillImageChoices(gameVars.choices);
+  document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
+  setTimeout(nextImage, gameVars.pauseTime, 0);
+
+}
+  
+function getPlayerInput() {
+  log("getPlayerInput clicked");
+  showHide(false, "ready-go");
+  document.getElementById("ready-go").removeEventListener("click", getPlayerInput);
   startTimer();
   setTimeout(nextImage, gameVars.pauseTime, 0);
-}
+};
 
 // continueGame
 function continueGame(level) {
@@ -231,14 +239,12 @@ function continueGame(level) {
   clearMainImage();
   disableClickEvents();
   fillImageChoices(gameVars.choices);
-  // Display the Round number
   document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
-  setTimeout(nextImage, gameVars.pauseTime, 0);
 }
 
 //end the game for either a win or a loose
 function endGame(result) {  // result can be failed or passed
-  if(result == passed) {
+  if(result == true) {
     clearInterval(gameVars.timeDisplayInterval);
     // The player won the game
   } else {
@@ -255,6 +261,8 @@ function nextImage(i) {
       clearMainImage();
       enableImageChoiceClickEvents();
       gameVars.choiceNumber = 0;
+      showHide(true, "ready-go");
+      document.getElementById("ready-go").addEventListener("click", getPlayerInput);
       return;
   }
   else {

@@ -1,5 +1,5 @@
-// Audio setup
 
+// Audio setup
   let audio = {
     soundBtn:       document.getElementById("sound-btn"),
     musicBtn:       document.getElementById("music-btn"),
