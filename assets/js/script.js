@@ -12,12 +12,44 @@ document.getElementById("btn-play").addEventListener("click", () => {
   showHide(true, 'div-difficulty');
 });
 
+var gameLevel = 0;
+var levelDiv = 'easy-level-game';
+
 // Play --> Choose difficulty level -> easy
 document.getElementById("easy-level-button").addEventListener("click", event => {
   soundClick();
   closeAllModals();
-  showHide(true, 'easy-level-game');
+  gameLevel = 0;
+  levelDiv = 'easy-level-game';
+  showHide(true, 'ready-play');
 });
+
+// Play --> Choose difficulty level -> medium
+document.getElementById("medium-level-button").addEventListener("click", event => {
+  soundClick();
+  closeAllModals();
+  gameLevel = 1;
+  levelDiv = 'medium-level-game';
+  showHide(true, 'ready-play');
+});
+
+// Play --> Choose difficulty level -> advanced
+document.getElementById("advanced-level-button").addEventListener("click", event => {
+  soundClick();
+  closeAllModals();
+  gameLevel = 2;
+  levelDiv = 'advanced-level-game';
+  showHide(true, 'ready-play');
+});
+
+// Ready-play button clicked
+document.getElementById('ready-play').addEventListener('click', event => {
+  soundClick();
+  showHide(false, 'ready-play');
+  showHide(true, levelDiv);
+  playGame(gameLevel);
+});
+
 
 // Difficulty level - Go Back
 document.getElementById("diff-level-go-back").addEventListener("click", event => {
@@ -82,7 +114,7 @@ function closeAllModals() {
 function showHide(show, div) {
   let elm = document.getElementById(div);
   if(!elm) {
-    log("Cannot set element - not found; " + div);
+    log("Cannot set element - not found: " + div);
     return;
   }
   if(show) {
@@ -104,3 +136,16 @@ document.getElementById("music-btn").addEventListener("click", event => {
   soundClick();
   musicManager();
 });
+
+
+// Logic for starting the game
+
+// logic for the timer
+
+//display of the results
+
+//logic for number of retries 
+
+// saving results and for showing the results table
+
+//Audio related functions
