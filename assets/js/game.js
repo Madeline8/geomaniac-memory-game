@@ -301,7 +301,23 @@ function displayFail() {
   } else if(gameVars.failCount == 2) {
     failbtn = 'second-fail';
   } else if(gameVars.failCount == 3) {
-    failbtn= 'game-fail';
+    setTimeout(closeAllModals, 1000);
+    showHide(true, "game-fail");
+    document.getElementById("play-again").addEventListener("click", event => {
+      soundClick();
+      showHide(false, "game-fail");
+      // endGame(true);
+      showHide(true, 'div-difficulty');
+      
+    });
+    document.getElementById("take-me-home").addEventListener("click", event => {
+      soundClick();
+      closeAllModals();
+      showHide(false, "game-fail");
+      //endGame(false);
+      showHide(true, 'home-page-modal');
+    });
+    return;
   }
   showHide(true, failbtn);
   document.getElementById(failbtn).addEventListener('click', event => {

@@ -105,10 +105,22 @@ document.getElementById("btn-sound-back").addEventListener("click", event => {
 
 function closeAllModals() {
   //let divs = [ 'home-page-modal', 'div-rules', 'div-sounds', 'contact-page-window',  'div-difficulty' ];
-  let divs = [ 'home-page-modal', 'div-rules', 'div-sounds', 'div-difficulty' ];
-  for(let i = 0; i < divs.length; i++)
+  let divs = [ 
+  'home-page-modal', 
+  'div-rules', 
+  'div-sounds', 
+  'div-difficulty', 
+  'easy-level-game', 
+  //'medium-level-game', 
+  //'advanced-level-game', 
+  //'game-fail-nomove'
+];
+  for(let i = 0; i < divs.length; i++) {
+   log(`Hiding ${divs[i]}`);
     showHide(false, divs[i]);
+  }
 }
+
 
 // Show or hide a div (show == true will show it, show == false will hide it)
 function showHide(show, div) {
