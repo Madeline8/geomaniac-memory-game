@@ -1,6 +1,7 @@
 // The two constants below make reading the functions easier to understand
 // const passed = true;
 // const failed = false;
+"use strict";
 
 let gameVars = {
   imageArray : [],    //array of randomised image numbers
@@ -23,6 +24,9 @@ let gameVars = {
   expectedResult   : [],// What is the image number (0-3 for easy, 0-5 medium etc.) order expected
   choiceNumber     : 0,   // Which sequence number user has clicked on
   timeDisplayInterval : 0,
+  maxTimeBetweenActions : 60 * 1000, // 1 minute in miliseconds
+  userTimeoutInterval : '',
+  lastUserInteraction : 0, //Last time player did something
 };
 
 function clearMainImage() {
@@ -84,17 +88,18 @@ function randomiseImages() {
   // imageArray[] can repeat images in the list of 4 availabale images
   // but not the previous image
   let lastImage = -1;
+  var imageNumber;
   for (let i = 0; i < gameVars.maxRounds; i++) {
       let n = -1;
       //log("i = " + i);
       while(n == lastImage || n == -1) {
-          p = Math.floor(Math.random() * gameVars.choices);
-          n = gameVars.usedImages[p];
+          imageNumber = Math.floor(Math.random() * gameVars.choices);
+          n = gameVars.usedImages[imageNumber];
           //log("n is " + n);
       }
       //log("i: " + i + ", n: " + n + ", lastImage: " + lastImage);
       gameVars.imageArray[i] = n;
-      gameVars.expectedResult[i] = p;
+      gameVars.expectedResult[i] = imageNumber;
       //log("Saved to array at " + i + ", n: " + n + ", lastImage was: " + lastImage);
       lastImage = n;
   }
@@ -110,17 +115,17 @@ function randomiseImages() {
 // n = 2 Hard
 function setGameLevel(n) {
   if(n == 0) {
-      pauseTime = 2000;        // intervals between images shown in milliseconds
+      gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
       gameVars.choices = 4;    // Number of images player can choose from
       gameVars.maxRounds = 8;  // Maximum number of rounds
   }
   else if(n == 1) {
-      pauseTime = 2000;        // intervals between images shown in milliseconds
+    gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
       gameVars.choices = 8;    // Number of images player can choose from
       gameVars.maxRounds = 8;  // Maximum number of rounds
   }
   else {
-      pauseTime = 2000;        // intervals between images shown in milliseconds
+    gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
       gameVars.choices = 10;    // Number of images player can choose from
       gameVars.maxRounds = 8;  // Maximum number of rounds
       
@@ -135,6 +140,7 @@ function imageClicked() {
   let choice = parseInt(imgId.substr(11));
   showMainImage(gameVars.usedImages[choice]);
   soundClick();
+  gameVars.lastImageClicked = Date.now();
   log("Clicked on " + choice);
   log("Display image: " + gameVars.usedImages[choice]);
   gameVars.lastMoveTime = Date.now();
@@ -189,6 +195,8 @@ function disableClickEvents() {
 function startTimer() {
   gameVars.lastMoveTime = gameVars.startTime = Date.now();
   gameVars.timeDisplayInterval = setInterval(displayTime, 1000);
+  gameVars.lastUserInteraction = Date.now();
+  gameVars.userTimeoutInterval = setInterval(checkUserTimeout, 1000);
 }
 
 //display the timer on the screen
@@ -232,16 +240,17 @@ function playGame(level) {
   
 function getPlayerInput() {
   log("getPlayerInput clicked");
+  gameVars.lastUserInteraction = Date.now();
   showHide(false, "your-turn");
   document.getElementById("your-turn").removeEventListener("click", getPlayerInput);
   enableImageChoiceClickEvents();
   //startTimer();
   //setTimeout(nextImage, gameVars.pauseTime, 0);
-};
-
+}
 // continueGame
 function continueGame(level) {
   log("Continue " + gameVars.round);
+  gameVars.lastUserInteraction = Date.now();
   clearMainImage();
   disableClickEvents();
   fillImageChoices(gameVars.choices);
@@ -287,7 +296,7 @@ function nextImage(i) {
 
 function displayWellDone() {
   showHide(true, 'well-done');
-  document.getElementById('well-done').addEventListener('click', event => {
+   document.getElementById('well-done').addEventListener('click', event => {
     soundClick();
     showHide(false, 'well-done');
     continueGame(gameVars.level);
@@ -300,15 +309,20 @@ function displayFail() {
     failbtn = 'first-fail';
   } else if(gameVars.failCount == 2) {
     failbtn = 'second-fail';
-  } else if(gameVars.failCount == 3) {
+  } else if(gameVars.failCount == 3 || gameVars.failCount == 4) {
+    clearInterval(gameVars.userTimeoutInterval);
     setTimeout(closeAllModals, 1000);
+    if(gameVars.failCount == 3) {
+      document.getElementById("fail-reason").innerHTML = "You've failed! Want to try again?";
+    } else if(gameVars.failCount == 4) {
+      document.getElementById("fail-reason").innerHTML = "Game over! You haven't done any move. <br> Still want to play?";
+    }
     showHide(true, "game-fail");
     document.getElementById("play-again").addEventListener("click", event => {
       soundClick();
       showHide(false, "game-fail");
       // endGame(true);
       showHide(true, 'div-difficulty');
-      
     });
     document.getElementById("take-me-home").addEventListener("click", event => {
       soundClick();
@@ -329,6 +343,15 @@ function displayFail() {
       endGame();
     }
   });
+}
+
+function checkUserTimeout() {
+  let elapsed = Date.now() - gameVars.lastUserInteraction;
+  //log(`checkUserTimout - elaped = ${elapsed}`);
+  if ((Date.now() - gameVars.lastUserInteraction) > gameVars.maxTimeBetweenActions) {
+    gameVars.failCount = 4; //this is a failure for timeout
+    displayFail();
+  }
 }
 // User initiates action by clicking "ready to start"? (once clicked on 'easy-level')
 

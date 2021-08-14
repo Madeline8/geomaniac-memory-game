@@ -111,9 +111,11 @@ function closeAllModals() {
   'div-sounds', 
   'div-difficulty', 
   'easy-level-game', 
+  'ready-go',
+  'your-turn',
+  'well-done',
   //'medium-level-game', 
   //'advanced-level-game', 
-  //'game-fail-nomove'
 ];
   for(let i = 0; i < divs.length; i++) {
    log(`Hiding ${divs[i]}`);
