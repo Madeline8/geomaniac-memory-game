@@ -27,6 +27,9 @@ let gameVars = {
   maxTimeBetweenActions : 60 * 1000, // 1 minute in miliseconds
   userTimeoutInterval : '',
   lastUserInteraction : 0, //Last time player did something
+  easyResults : [], // record the times for player completions during easy level game
+  mediumResults : [], // record the times for player completions during medium level game
+  advancedResults : [], // record the times for player completions during advanced level game
 };
 
 function clearMainImage() {
@@ -325,6 +328,16 @@ function stringFormatTime(s) {
 function displaySuccess() {
   let seconds = Math.floor((Date.now() - gameVars.startTime) / 1000);
   document.getElementById("time-completed").innerHTML = stringFormatTime(seconds);
+  if (gameVars.level == 0) {
+    gameVars.easyResults.push(seconds);
+    gameVars.Vars.easyResults.sort(compareNumbers);
+  } else if(gameVars.level == 1) {
+    gameVars.mediumResults.push(seconds);
+    gameVars.Vars.mediumResults.sort(compareNumbers);
+  } else {
+    gameVars.advancedResults.push(seconds);
+    gameVars.Vars.advancedResults.sort(compareNumbers);
+  } 
   showHide(true, "game-success");
   clearInterval(gameVars.userTimeoutInterval);
   closeAllModals();
@@ -338,6 +351,11 @@ function displaySuccess() {
     showHide(true, "home-modal");
     showHide(false, "game-success");
   });
+}
+
+// Allows sort to compare numerically 
+function compareNumbers(a, b) {
+  return(a - b);
 }
 
 function displayFail() {
