@@ -155,7 +155,11 @@ function imageClicked() {
           // so start a new round
           //alert("Congratulations - Click OK to start next round");
           gameVars.round++;
-          setTimeout(displayWellDone, 1000);
+          if (gameVars.round > gameVars.maxRounds) {
+            setTimeout(displaySuccess, 1000);
+          } else {
+            setTimeout(displayWellDone, 1000);
+          }        
       }
   }
   else {
@@ -214,12 +218,11 @@ function displayTime() {
 //convert time in second into a string of minutes and seconds
 function fmtTime(t) {
     let m = Math.floor(t / 60);
-    let s = t - m * 60;
+    let s = t %60;
     if(s < 10) {
         s = "0" + s;
     } 
-    let str = `${m}:${s}`;
-    return(str);
+    return(`${m}:${s}`);
 }
 
 // playGame
@@ -303,6 +306,40 @@ function displayWellDone() {
   });
 }
 
+function stringFormatTime(s) {
+  let m = Math.floor(s / 60);
+  s = s % 60;
+  let seconds = '';
+  if(s == 0)
+    seconds = ``;
+  else if(s == 1)
+    seconds = 'and 1 second';
+  else
+    seconds = `and ${s} seconds`;
+  let plural = '';
+  if(m > 1)
+    plural = 's';
+  return(`${m} minute${plural} ${seconds}`);
+}
+
+function displaySuccess() {
+  let seconds = Math.floor((Date.now() - gameVars.startTime) / 1000);
+  document.getElementById("time-completed").innerHTML = stringFormatTime(seconds);
+  showHide(true, "game-success");
+  clearInterval(gameVars.userTimeoutInterval);
+  closeAllModals();
+  document.getElementById("success-play-again").addEventListener("click", event => {
+    soundClick();
+    showHide(true, "div-difficulty");
+    showHide(false, "game-success");
+  });
+  document.getElementById("success-take-me-home").addEventListener("click", event => {
+    soundClick();
+    showHide(true, "home-modal");
+    showHide(false, "game-success");
+  });
+}
+
 function displayFail() {
   let failbtn = '';
   if(gameVars.failCount == 1) {
@@ -353,18 +390,11 @@ function checkUserTimeout() {
     displayFail();
   }
 }
-// User initiates action by clicking "ready to start"? (once clicked on 'easy-level')
 
-
-// One the sequence of main images has been completed, player gets a notification: 'Now, your turn!'
-
-// User gets a notification when he correctly guesses the sequence
-
-// fail notifications (player can fail twice within one game)
-
-
-// setInterval and setTimer. Use them both to display the elapsed time on the screen and to force and end to the game if the player is taking too long.
-
+// User initiates action by clicking "ready to start"? (once clicked on 'easy-level') DONE
+// Once the sequence of main images has been completed, player gets a notification: 'Now, your turn!' DONE
+// User gets a notification when he correctly guesses the sequence DONE
+// fail notifications (player can fail twice within one game) DONE
+// setInterval and setTimer. Use them both to display the elapsed time on the screen and to force and end to the game if the player is taking too long. DONE
 // anonymous functions
 
-// Divs to show the countdown to the game starting and to show the result.

@@ -1,3 +1,5 @@
+"use strict";
+
 // Functions to log to console with a timestamp
 function log(txt) {
   let currentDateTime = new Date();
