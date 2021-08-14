@@ -228,6 +228,7 @@ function playGame(level) {
 function getPlayerInput() {
   log("getPlayerInput clicked");
   showHide(false, "ready-go");
+  enableImageChoiceClickEvents();
   document.getElementById("ready-go").removeEventListener("click", getPlayerInput);
   startTimer();
   setTimeout(nextImage, gameVars.pauseTime, 0);
@@ -259,7 +260,6 @@ function nextImage(i) {
       let currentTime = new Date();
       log("Showing globe and not setting a timeout");
       clearMainImage();
-      enableImageChoiceClickEvents();
       gameVars.choiceNumber = 0;
       showHide(true, "ready-go");
       document.getElementById("ready-go").addEventListener("click", getPlayerInput);
