@@ -1,4 +1,3 @@
-
 // The two constants below make reading the functions easier to understand
 // const passed = true;
 // const failed = false;
@@ -134,19 +133,23 @@ function setGameLevel(n) {
 function imageClicked() {
   let imgId = this.id;
   let choice = parseInt(imgId.substr(11));
+  showMainImage(gameVars.usedImages[choice]);
   soundClick();
   log("Clicked on " + choice);
+  log("Display image: " + gameVars.usedImages[choice]);
   gameVars.lastMoveTime = Date.now();
   gameVars.lastImageClicked = choice;
-  if(choice == gameVars.expectedResult[gameVars.choiceNumber]) {
+  let expected = gameVars.expectedResult[gameVars.choiceNumber];
+  log(`Clicked on ${choice} : Expected ${expected}`);
+  if(choice == expected) {
       // All is OK so far
       // Have we clicked on all the images required?
       if(++gameVars.choiceNumber >= gameVars.round) {
           // In this case, we have won this round
           // so start a new round
-          alert("Congratulations - Click OK to start next round");
+          //alert("Congratulations - Click OK to start next round");
           gameVars.round++;
-          continueGame(gameVars.level);
+          setTimeout(displayWellDone, 1000);
       }
   }
   else {
@@ -155,8 +158,9 @@ function imageClicked() {
         gameVars.failReason = 'Failed! You have exceeded maximum number of attempts';
         endGame(false);
       }
-      alert("Failed - try this round again!");
-      continueGame(gameVars.level);
+      //alert("Failed - try this round again!");
+      setTimeout(displayFail, 1000);
+      //setTimeout(continueGame, 1000, gameVars.level);
   }
 }
 
@@ -222,16 +226,17 @@ function playGame(level) {
   fillImageChoices(gameVars.choices);
   document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
   setTimeout(nextImage, gameVars.pauseTime, 0);
+  startTimer();
 
 }
   
 function getPlayerInput() {
   log("getPlayerInput clicked");
-  showHide(false, "ready-go");
+  showHide(false, "your-turn");
+  document.getElementById("your-turn").removeEventListener("click", getPlayerInput);
   enableImageChoiceClickEvents();
-  document.getElementById("ready-go").removeEventListener("click", getPlayerInput);
-  startTimer();
-  setTimeout(nextImage, gameVars.pauseTime, 0);
+  //startTimer();
+  //setTimeout(nextImage, gameVars.pauseTime, 0);
 };
 
 // continueGame
@@ -241,6 +246,7 @@ function continueGame(level) {
   disableClickEvents();
   fillImageChoices(gameVars.choices);
   document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
+  setTimeout(nextImage, gameVars.pauseTime, 0);
 }
 
 //end the game for either a win or a loose
@@ -261,8 +267,8 @@ function nextImage(i) {
       log("Showing globe and not setting a timeout");
       clearMainImage();
       gameVars.choiceNumber = 0;
-      showHide(true, "ready-go");
-      document.getElementById("ready-go").addEventListener("click", getPlayerInput);
+      showHide(true, "your-turn");
+      document.getElementById("your-turn").addEventListener("click", getPlayerInput);
       return;
   }
   else {
@@ -279,6 +285,35 @@ function nextImage(i) {
   }
 }
 
+function displayWellDone() {
+  showHide(true, 'well-done');
+  document.getElementById('well-done').addEventListener('click', event => {
+    soundClick();
+    showHide(false, 'well-done');
+    continueGame(gameVars.level);
+  });
+}
+
+function displayFail() {
+  let failbtn = '';
+  if(gameVars.failCount == 1) {
+    failbtn = 'first-fail';
+  } else if(gameVars.failCount == 2) {
+    failbtn = 'second-fail';
+  } else if(gameVars.failCount == 3) {
+    failbtn= 'game-fail';
+  }
+  showHide(true, failbtn);
+  document.getElementById(failbtn).addEventListener('click', event => {
+    soundClick();
+    showHide(false, failbtn);
+    if(gameVars.failCount < 3) {
+      continueGame(gameVars.level);
+    } else {
+      endGame();
+    }
+  });
+}
 // User initiates action by clicking "ready to start"? (once clicked on 'easy-level')
 
 
