@@ -34,11 +34,13 @@ let gameVars = {
 };
 
 function clearMainImage() {
-  document.getElementById("main-game-image").src = "assets/images/game-images/globe-icon.jpg";
+  let imageId = `main-game-image-${gameVars.level}`;
+  document.getElementById(imageId).src = "assets/images/game-images/globe-icon.jpg";
   log("Set Main Image to Globe");
 }
 
 function showMainImage(n) { //showMainImage('03')
+  let imageId = `main-game-image-${gameVars.level}`;
   let fileName = "";
   if(n == -1) {
       fileName = "assets/images/game-images/globe-icon.jpg";
@@ -47,7 +49,7 @@ function showMainImage(n) { //showMainImage('03')
       fileName = "assets/images/game-images/img" + n + ".jpg";
   }
   log("Display Main Image: [" + fileName + "]");
-  document.getElementById("main-game-image").src = fileName;
+  document.getElementById(imageId).src = fileName;
 }
 
 // Adds the image choices to the image placeholders

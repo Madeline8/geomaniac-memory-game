@@ -124,13 +124,21 @@ position: relative;
 
 /* Settings for Easy Level */
 .easy-game-div {
-    margin: 10px;
+    position: absolute;
+    top: 9rem;
 }
 /* /Settings for Easy Level */
 
 /* Settings for Medium Level */
 .medium-game-div {
-    
+    position: absolute;
+    top: 9rem;
+}
+
+/* Settings for Advanced Level */
+.advanced-game-div {
+    position: absolute;
+    top: 9rem;
 }
 
 /* .main-div-style {
