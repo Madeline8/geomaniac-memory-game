@@ -26,7 +26,7 @@ let gameVars = {
   choiceNumber     : 0,   // Which sequence number user has clicked on
   timeDisplayInterval : 0,
   maxTimeBetweenActions : 60 * 1000, // 1 minute in miliseconds
-  userTimeoutInterval : '',
+  userTimeoutInterval : "",
   lastUserInteraction : 0, //Last time player did something
   easyResults : [], // record the times for player completions during easy level game
   mediumResults : [], // record the times for player completions during medium level game
@@ -52,7 +52,7 @@ function showMainImage(n) { //showMainImage('03')
 
 // Adds the image choices to the image placeholders
 function fillImageChoices(n) {
-  for(let i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
       // Generate the correct id for the image
       let id = "img-choice-" + i;
       log("id: " + id);
@@ -130,9 +130,8 @@ function setGameLevel(n) {
   }
   else {
     gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
-      gameVars.choices = 10;    // Number of images player can choose from
-      gameVars.maxRounds = 8;  // Maximum number of rounds
-      
+    gameVars.choices = 10;    // Number of images player can choose from
+    gameVars.maxRounds = 8;  // Maximum number of rounds
   }
   clearMainImage();
 }
@@ -152,29 +151,28 @@ function imageClicked() {
   let expected = gameVars.expectedResult[gameVars.choiceNumber];
   log(`Clicked on ${choice} : Expected ${expected}`);
   if(choice == expected) {
-      // All is OK so far
-      // Have we clicked on all the images required?
-      if(++gameVars.choiceNumber >= gameVars.round) {
-          // In this case, we have won this round
-          // so start a new round
-          //alert("Congratulations - Click OK to start next round");
-          gameVars.round++;
-          if (gameVars.round > gameVars.maxRounds) {
-            setTimeout(displaySuccess, 1000);
-          } else {
-            setTimeout(displayWellDone, 1000);
-          }        
+    // All is OK so far
+    // Have we clicked on all the images required?
+    if(++gameVars.choiceNumber >= gameVars.round) {
+      // In this case, we have won this round
+      // so start a new round
+      //alert("Congratulations - Click OK to start next round");
+      gameVars.round++;
+      if (gameVars.round > gameVars.maxRounds) {
+        setTimeout(displaySuccess, 1000);
+      } else {
+        setTimeout(displayWellDone, 1000);
       }
-  }
-  else {
-      // Failed this round
-      if(++gameVars.failCount >= gameVars.maxRoundAttempts) {
-        gameVars.failReason = 'Failed! You have exceeded maximum number of attempts';
-        endGame(false);
-      }
-      //alert("Failed - try this round again!");
-      setTimeout(displayFail, 1000);
-      //setTimeout(continueGame, 1000, gameVars.level);
+    }
+  } else {
+    // Failed this round
+    if(++gameVars.failCount >= gameVars.maxRoundAttempts) {
+      gameVars.failReason = "Failed! You have exceeded maximum number of attempts";
+      endGame(false);
+    }
+    //alert("Failed - try this round again!");
+    setTimeout(displayFail, 1000);
+    //setTimeout(continueGame, 1000, gameVars.level);
   }
 }
 
@@ -182,10 +180,10 @@ function imageClicked() {
 // Enable the click events on the user choices
 function enableImageChoiceClickEvents() {
   for(let i = 0; i < gameVars.choices; i++) {
-      // img-choice-2
-      let imageId = "img-choice-" + i;
-      console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
-      document.getElementById(imageId).addEventListener("click", imageClicked);
+    // img-choice-2
+    let imageId = "img-choice-" + i;
+    console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
+    document.getElementById(imageId).addEventListener("click", imageClicked);
   }
 }
 
@@ -193,9 +191,9 @@ function enableImageChoiceClickEvents() {
 // Remove the click event handlers on the user choices
 function disableClickEvents() {
   for(let i = 0; i < gameVars.choices; i++) {
-      // img-choice-2
-      let imageId = "img-choice-" + i;
-      document.getElementById(imageId).removeEventListener("click", imageClicked);
+    // img-choice-2
+    let imageId = "img-choice-" + i;
+    document.getElementById(imageId).removeEventListener("click", imageClicked);
   }
 }
 
@@ -211,7 +209,7 @@ function startTimer() {
 //check that a player has clicked an image in the last 'noMoveTime' seconds
 function displayTime() {
   let seconds = Math.floor((Date.now() - gameVars.startTime) / 1000);
-  document.getElementById('time-span').innerHTML = fmtTime(seconds);
+  document.getElementById("time-span").innerHTML = fmtTime(seconds);
   // If the game timer has expired, then endGame(failed)
   if(((Date.now() - gameVars.lastMoveTime) / 1000) > gameVars.noMoveTime) {
     gameVars.failedReason = `You haven't done any move for more than ${gameVars.noMoveTime} seconds`;
@@ -221,12 +219,11 @@ function displayTime() {
 }
 //convert time in second into a string of minutes and seconds
 function fmtTime(t) {
-    let m = Math.floor(t / 60);
-    let s = t %60;
-    if(s < 10) {
-        s = "0" + s;
-    } 
-    return(`${m}:${s}`);
+  let m = Math.floor(t / 60);
+  let s = t %60;
+  if(s < 10)
+    s = "0" + s;
+  return(`${m}:${s}`);
 }
 
 // playGame
@@ -242,9 +239,8 @@ function playGame(level) {
   document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
   setTimeout(nextImage, gameVars.pauseTime, 0);
   startTimer();
-
 }
-  
+
 function getPlayerInput() {
   log("getPlayerInput clicked");
   gameVars.lastUserInteraction = Date.now();
@@ -279,7 +275,6 @@ function endGame(result) {  // result can be failed or passed
 
 function nextImage(i) {
   if(i == -1) {
-      let currentTime = new Date();
       log("Showing globe and not setting a timeout");
       clearMainImage();
       gameVars.choiceNumber = 0;
@@ -302,10 +297,10 @@ function nextImage(i) {
 }
 
 function displayWellDone() {
-  showHide(true, 'well-done');
-   document.getElementById('well-done').addEventListener('click', event => {
+  showHide(true, "well-done");
+   document.getElementById("well-done").addEventListener("click", event => {
     soundClick();
-    showHide(false, 'well-done');
+    showHide(false, "well-done");
     continueGame(gameVars.level);
   });
 }
@@ -313,16 +308,16 @@ function displayWellDone() {
 function stringFormatTime(s) {
   let m = Math.floor(s / 60);
   s = s % 60;
-  let seconds = '';
+  let seconds = "";
   if(s == 0)
-    seconds = ``;
+    seconds = "";
   else if(s == 1)
-    seconds = 'and 1 second';
+    seconds = "and 1 second";
   else
     seconds = `and ${s} seconds`;
-  let plural = '';
+  let plural = "";
   if(m > 1)
-    plural = 's';
+    plural = "s";
   return(`${m} minute${plural} ${seconds}`);
 }
 
@@ -335,7 +330,7 @@ function displaySuccess() {
     gameVars.mediumResults.push(seconds);
   } else {
     gameVars.advancedResults.push(seconds);
-  } 
+  }
   showHide(true, "game-success");
   clearInterval(gameVars.userTimeoutInterval);
   closeAllModals();
@@ -371,11 +366,11 @@ function compareNumbers(a, b) {
 }
 
 function displayFail() {
-  let failbtn = '';
+  let failbtn = "";
   if(gameVars.failCount == 1) {
-    failbtn = 'first-fail';
+    failbtn = "first-fail";
   } else if(gameVars.failCount == 2) {
-    failbtn = 'second-fail';
+    failbtn = "second-fail";
   } else if(gameVars.failCount == 3 || gameVars.failCount == 4) {
     clearInterval(gameVars.userTimeoutInterval);
     setTimeout(closeAllModals, 1000);
@@ -389,19 +384,19 @@ function displayFail() {
       soundClick();
       showHide(false, "game-fail");
       // endGame(true);
-      showHide(true, 'div-difficulty');
+      showHide(true, "div-difficulty");
     });
     document.getElementById("take-me-home").addEventListener("click", event => {
       soundClick();
       closeAllModals();
       showHide(false, "game-fail");
       //endGame(false);
-      showHide(true, 'home-page-modal');
+      showHide(true, "home-page-modal");
     });
     return;
   }
   showHide(true, failbtn);
-  document.getElementById(failbtn).addEventListener('click', event => {
+  document.getElementById(failbtn).addEventListener("click", event => {
     soundClick();
     showHide(false, failbtn);
     if(gameVars.failCount < 3) {
@@ -415,7 +410,7 @@ function displayFail() {
 function checkUserTimeout() {
   let elapsed = Date.now() - gameVars.lastUserInteraction;
   //log(`checkUserTimout - elaped = ${elapsed}`);
-  if ((Date.now() - gameVars.lastUserInteraction) > gameVars.maxTimeBetweenActions) {
+  if (elapsed > gameVars.maxTimeBetweenActions) {
     gameVars.failCount = 4; //this is a failure for timeout
     displayFail();
   }

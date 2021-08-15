@@ -19,11 +19,11 @@
 
 // Sound click rule
 function soundClick() {
-  log ("soundClick()")
+  log ("soundClick()");
   if (audio.soundMuted === false) {
     audio.click.play();
   }
-};
+}
 
 // Sound is played when a player successfully completes all rounds of the game 
 function success() {
