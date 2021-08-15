@@ -24,7 +24,7 @@ document.getElementById("easy-level-button").addEventListener("click", event => 
   setGameLevel(0);
   levelDiv = 'easy-level-game';
   showHide(true, 'ready-play');
-});
+ });
 
 // Play --> Choose difficulty level -> medium
 document.getElementById("medium-level-button").addEventListener("click", event => {
@@ -43,6 +43,10 @@ document.getElementById("advanced-level-button").addEventListener("click", event
   levelDiv = 'advanced-level-game';
   showHide(true, 'ready-play');
 });
+
+function continueAfterLoad() {
+
+}
 
 // Ready-play button clicked
 document.getElementById('ready-play').addEventListener('click', event => {
@@ -118,7 +122,7 @@ function closeAllModals() {
   'your-turn',
   'well-done',
   'medium-level-game', 
-  //'advanced-level-game', 
+  'advanced-level-game', 
 ];
   for(let i = 0; i < divs.length; i++) {
    log(`Hiding ${divs[i]}`);

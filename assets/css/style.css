@@ -109,33 +109,49 @@ position: relative;
     -o-background-size: cover;
 } */
 
-.main-game-image {
-    width: 180px;
-    height: 180px;
-    margin-top: 10px;
-
-}
-
 /* Style time and round span */
 #time-span {
-    margin-right: 10rem;
+    margin-right: 12rem;
 }
 
+.timer-div-style {
+   margin: 0px;
+}
 
-/* Settings for Easy Level */
+/* ---------------------------Styles for Easy Level---------------------- */
 .easy-game-div {
     position: absolute;
     top: 9rem;
 }
-/* /Settings for Easy Level */
 
-/* Settings for Medium Level */
+.main-game-image-easy {
+    width: 200px;
+    height: 200px;
+    margin: 10px 0 15px 0;
+    border: 2px solid white;
+}
+
+.small-game-image-easy {
+    border: 2px solid white;
+    height: 180px;
+    width: 180px;
+    padding: 2px;
+}
+
+/* ----------------------------/Styles for Easy Level -------------------*/
+
+/* -------------------------Styles for Medium Level---------------------- */
 .medium-game-div {
     position: absolute;
     top: 9rem;
 }
 
-/* Settings for Advanced Level */
+.main-game-image-md {
+    height: 30px;
+}
+/* -------------------------/Styles for Medium Level---------------------- */
+
+/* ----------------------Styles for Advanced Level ----------------------*/
 .advanced-game-div {
     position: absolute;
     top: 9rem;
@@ -145,12 +161,8 @@ position: relative;
     background-color: aqua;
     text-align: center;
 } */
-/* /Settings for Medium Level */
 
-/* Settings for Advanced Level */
-/* /Settings for Advanced Level */
-
-
+/* ----------------------Styles for Advanced Level ----------------------*/
 /* -------------------/Contact Us - Window Modal------------------ */
 .form-style {
     width: 17em;
@@ -284,10 +296,10 @@ position: relative;
     } */
 
     /* Adjust images in the game area */
-    .small-game-image {
+    /* .small-game-image {
         height: 80px;
         width: 80px;
-    }
+    } */
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -306,16 +318,16 @@ position: relative;
     } */
 
     /* Adjust images in the game area */
-    .small-game-image {
+    /* .small-game-image {
         height: 60px;
         width: 60px;
-    }
+    } */
 
-    .main-game-image {
+    /* .main-game-image {
         width: 150px;
         height: 150px;
         margin-top: 10px;
-    }
+    } */
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -334,19 +346,36 @@ position: relative;
     }
 
     /* Adjust images in the game area */
-    .small-game-image {
+    /* .small-game-image {
         height: 150px;
         width: 150px;
-    }
+    } */
 
-    .main-game-image {
+    /* .main-game-image {
         width: 180px;
         height: 180px;
         margin-bottom: 50px;
         margin-top: 10px;
-    }
+    } */
 
 }
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { 
+
+    .small-game-image-easy {
+        border: 2px solid white;
+        height: 150px;
+        width: 150px;
+        margin: 10px 0 0 0;
+        padding: 2px;
+    }
+
+    .small-img-col-easy {
+        width: 50px;
+    }
+}
+
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -354,6 +383,58 @@ position: relative;
     /* Set position of difficulty window on an IPad */
     .home-page-window {
         margin-top: 18rem;
+    }
+/* Set styles for easy level on an iPad - medium devices */
+    .easy-game-div {
+        position: absolute;
+        top:11rem;
+    }
+    
+    .main-game-image-easy {
+        width: 200px;
+        height: 200px;
+        margin: 10px 0 20px 0;
+        border: 2px solid white;
+    }
+    
+    .small-game-image-easy {
+        border: 2px solid white;
+        height: 190px;
+        width: 190px;
+        padding: 2px;
+        margin-top: 20px;
+    }
+}
+
+
+/* Styles for iPad Pro*/
+@media (min-width: 1024px) and (max-width: 1366px) {
+    
+    /* Set up easy level styles for iPad Pro */
+
+    /* Set position of difficulty window on an IPad */
+    /* .home-page-window {
+        margin-top: 18rem;
+    } */
+/* Set styles for easy level on an iPad - medium devices */
+    .easy-game-div {
+        position: absolute;
+        top:15rem;
+    }
+    
+    .main-game-image-easy {
+        width: 220px;
+        height: 220px;
+        margin: 10px 0 30px 0;
+        border: 2px solid white;
+    }
+    
+    .small-game-image-easy {
+        border: 2px solid white;
+        height: 200px;
+        width: 200px;
+        padding: 2px;
+        margin-top: 20px;
     }
 }
 
@@ -376,17 +457,17 @@ position: relative;
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     /* Adjust images in the game area */
-    .small-game-image {
+    /* .small-game-image {
         height: 200px;
         width: 200px;
-    }
+    } */
 
-    .main-game-image {
+    /* .main-game-image {
         width: 250px;
         height: 250px;
         margin-bottom: 50px;
         margin-left: 30px;
         margin-top: 10px;
-    }
+    } */
 }
 /* -------------------------------/Media Queries----------------------------- */

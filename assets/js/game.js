@@ -35,6 +35,7 @@ let gameVars = {
 
 function clearMainImage() {
   let imageId = `main-game-image-${gameVars.level}`;
+  log(`imageId: ${imageId}`);
   document.getElementById(imageId).src = "assets/images/game-images/globe-icon.jpg";
   log("Set Main Image to Globe");
 }
@@ -48,7 +49,7 @@ function showMainImage(n) { //showMainImage('03')
   else {
       fileName = "assets/images/game-images/img" + n + ".jpg";
   }
-  log("Display Main Image: [" + fileName + "]");
+  log(`Display Main Image: ${fileName} to ${imageId}`);
   document.getElementById(imageId).src = fileName;
 }
 
@@ -128,13 +129,13 @@ function setGameLevel(n) {
   else if(n == 1) {
     gameVars.level = 1;
     gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
-    gameVars.choices = 8;    // Number of images player can choose from
+    gameVars.choices = 6;    // Number of images player can choose from
     gameVars.maxRounds = 8;  // Maximum number of rounds
   }
   else {
     gameVars.level = 2;
     gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
-    gameVars.choices = 10;    // Number of images player can choose from
+    gameVars.choices = 8;    // Number of images player can choose from
     gameVars.maxRounds = 8;  // Maximum number of rounds
   }
   clearMainImage();
