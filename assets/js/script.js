@@ -21,7 +21,7 @@ var levelDiv = 'easy-level-game';
 document.getElementById("easy-level-button").addEventListener("click", event => {
   soundClick();
   closeAllModals();
-  gameLevel = 0;
+  setGameLevel(0);
   levelDiv = 'easy-level-game';
   showHide(true, 'ready-play');
 });
@@ -30,7 +30,7 @@ document.getElementById("easy-level-button").addEventListener("click", event => 
 document.getElementById("medium-level-button").addEventListener("click", event => {
   soundClick();
   closeAllModals();
-  gameLevel = 1;
+  setGameLevel(1);
   levelDiv = 'medium-level-game';
   showHide(true, 'ready-play');
 });
@@ -39,7 +39,7 @@ document.getElementById("medium-level-button").addEventListener("click", event =
 document.getElementById("advanced-level-button").addEventListener("click", event => {
   soundClick();
   closeAllModals();
-  gameLevel = 2;
+  setGameLevel(2);
   levelDiv = 'advanced-level-game';
   showHide(true, 'ready-play');
 });
@@ -49,7 +49,7 @@ document.getElementById('ready-play').addEventListener('click', event => {
   soundClick();
   showHide(false, 'ready-play');
   showHide(true, levelDiv);
-  playGame(gameLevel);
+  playGame(gameVars.level);
 });
 
 
@@ -112,11 +112,11 @@ function closeAllModals() {
   'div-rules', 
   'div-sounds', 
   'div-difficulty', 
-  'easy-level-game', 
+  'easy-level-game',
   'ready-go',
   'your-turn',
   'well-done',
-  //'medium-level-game', 
+  'medium-level-game', 
   //'advanced-level-game', 
 ];
   for(let i = 0; i < divs.length; i++) {

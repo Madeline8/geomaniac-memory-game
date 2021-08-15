@@ -33,7 +33,7 @@
       </a>
     </nav>
   </header>
-  <main>
+  <main class="main-div-style">
     <!-- Home Page Modal Window -->
     <div class="visible container home-page-window flex-column d-flex   align-items-center text-center" id="home-page-modal">
       <button class="btn btn-block home-button text-center" id="btn-play">PLAY</button>
@@ -89,32 +89,81 @@
       </audio>
       </div>
     </div>
-
+    
   <!-- Easy Level Game Area -->
-  <div class="invisible container-fluid background-img-game" id="easy-level-game">
-    <div class="container">
+  <div class="invisible container-fluid background-img-game easy-game-div" id="easy-level-game">
       <h4 class="window-header text-center"> <span> Time: <span id="time-span"></span></span>
         <span> Round: <span id="round-span"></span></span>
       </h4>
-      <div class="conainer">
+      <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-12">
             <img class="main-game-image" id="main-game-image" src="assets/images/game-images/img1.jpg" alt="">
           </div>
         </div>
-      </div>
-    
-    
+      
       <div class="row justify-content-center text-center">
-        <div class="col-sm-3 col-lg-3"><img class="small-game-image" id="img-choice-0"
-            src="assets/images/game-images/globe-icon.jpg" alt=""></div>
-        <div class="col-sm-3 col-lg-3"><img class="small-game-image" id="img-choice-1"
-            src="assets/images/game-images/globe-icon.jpg" alt=""></div>
-        <div class="col-sm-3 col-lg-3"><img class="small-game-image" id="img-choice-2"
-            src="assets/images/game-images/globe-icon.jpg" alt=""></div>
-        <div class="col-sm-3 col-3-lg"><img class="small-game-image" id="img-choice-3"
-            src="assets/images/game-images/globe-icon.jpg" alt=""></div>
+        <div class="col-sm-3 col-lg-3"><img class="small-game-image" id="img-choice-0-0"
+            src="assets/images/game-images/globe-icon.jpg" alt="">
+        </div>
+        <div class="col-sm-3 col-lg-3"><img class="small-game-image" id="img-choice-0-1"
+            src="assets/images/game-images/globe-icon.jpg" alt="">
+        </div>
+        <div class="col-sm-3 col-lg-3"><img class="small-game-image" id="img-choice-0-2"
+            src="assets/images/game-images/globe-icon.jpg" alt="">
+        </div>
+        <div class="col-sm-3 col-3-lg"><img class="small-game-image" id="img-choice-0-3"
+            src="assets/images/game-images/globe-icon.jpg" alt="">
+        </div>
       </div>
+    </div> 
+    </div>
+
+    <!-- Medium level game area -->
+    <div class="invisible container-fluid medium-game-div" id="medium-level-game">
+      <div class="container">
+      <h4 class="window-header text-center"> <span> Time: <span id="time-span"></span></span> 
+        <span> Round: <span id="round-span"></span></span>
+      </h4>
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-12">
+              <img class="main-game-image" id="main-game-image" src="assets/images/game-images/img1.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-lg-3"><img class ="small-game-image" id = "img-choice-1-0" src="assets/images/game-images/globe-icon.jpg">
+            </div>
+            <div class="col-lg-3"><img class="small-game-image" id="img-choice-1-1"
+              src="assets/images/game-images/globe-icon.jpg">
+            </div>
+            <div class="col-lg-3"><img class="small-game-image" id="img-choice-1-2"
+              src="assets/images/game-images/globe-icon.jpg">
+            </div>
+            <div class="col-lg-3"><img class="small-game-image" id="img-choice-1-3"
+              src="assets/images/game-images/globe-icon.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-lg-3"><img class="small-game-image" id="img-choice-1-4"
+              src="assets/images/game-images/globe-icon.jpg">
+            </div>
+            <div class="col-lg-3"><img class="small-game-image" id="img-choice-1-5"
+              src="assets/images/game-images/globe-icon.jpg">
+            </div>
+            <div class="col-lg-3"><img class="small-game-image" id="img-choice-1-6"
+              src="assets/images/game-images/globe-icon.jpg">
+            </div>
+            <div class="col-lg-3"><img class="small-game-image" id="img-choice-1-7"
+              src="assets/images/game-images/globe-icon.jpg">
+            </div>
+          </div>
+      </div>
+    </div>
     </div>
 
     <!-- Ready?Go! - Start game button-->

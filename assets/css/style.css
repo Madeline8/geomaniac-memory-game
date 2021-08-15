@@ -123,9 +123,20 @@ position: relative;
 
 
 /* Settings for Easy Level */
+.easy-game-div {
+    margin: 10px;
+}
 /* /Settings for Easy Level */
 
 /* Settings for Medium Level */
+.medium-game-div {
+    
+}
+
+/* .main-div-style {
+    background-color: aqua;
+    text-align: center;
+} */
 /* /Settings for Medium Level */
 
 /* Settings for Advanced Level */
@@ -145,6 +156,7 @@ position: relative;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 10px;
 }
 
 .in-game-button {

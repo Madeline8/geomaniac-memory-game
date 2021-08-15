@@ -54,11 +54,10 @@ function showMainImage(n) { //showMainImage('03')
 function fillImageChoices(n) {
   for (let i = 0; i < n; i++) {
       // Generate the correct id for the image
-      let id = "img-choice-" + i;
-      log("id: " + id);
+      let id =`img-choice-${gameVars.level}-${i}`;
       // Generate the image filename
       let imageFile = "assets/images/game-images/img" + gameVars.usedImages[i] + ".jpg";
-      log("imageFile: " + imageFile);
+      log(`fillImageChoices: n: ${n}, id: ${id}, imageFile: ${imageFile}`);
       // Update the DOM with the new image
       document.getElementById(id).src = imageFile;
   }
@@ -119,16 +118,19 @@ function randomiseImages() {
 // n = 2 Hard
 function setGameLevel(n) {
   if(n == 0) {
-      gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
-      gameVars.choices = 4;    // Number of images player can choose from
-      gameVars.maxRounds = 8;  // Maximum number of rounds
+    gameVars.level = 0;
+    gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
+    gameVars.choices = 4;    // Number of images player can choose from
+    gameVars.maxRounds = 8;  // Maximum number of rounds
   }
   else if(n == 1) {
+    gameVars.level = 1;
     gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
-      gameVars.choices = 8;    // Number of images player can choose from
-      gameVars.maxRounds = 8;  // Maximum number of rounds
+    gameVars.choices = 8;    // Number of images player can choose from
+    gameVars.maxRounds = 8;  // Maximum number of rounds
   }
   else {
+    gameVars.level = 2;
     gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
     gameVars.choices = 10;    // Number of images player can choose from
     gameVars.maxRounds = 8;  // Maximum number of rounds
@@ -181,7 +183,7 @@ function imageClicked() {
 function enableImageChoiceClickEvents() {
   for(let i = 0; i < gameVars.choices; i++) {
     // img-choice-2
-    let imageId = "img-choice-" + i;
+    let imageId = `img-choice-${gameVars.level}-${1}`;
     console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
     document.getElementById(imageId).addEventListener("click", imageClicked);
   }
@@ -192,7 +194,7 @@ function enableImageChoiceClickEvents() {
 function disableClickEvents() {
   for(let i = 0; i < gameVars.choices; i++) {
     // img-choice-2
-    let imageId = "img-choice-" + i;
+    let imageId = `img-choice-${gameVars.level}-${1}`;
     document.getElementById(imageId).removeEventListener("click", imageClicked);
   }
 }
@@ -228,6 +230,7 @@ function fmtTime(t) {
 
 // playGame
 function playGame(level) {
+  log(`playGame(${level}: choices: ${gameVars.choices}, level: ${gameVars.level}`);
   clearMainImage();
   disableClickEvents();
   setGameLevel(level);
