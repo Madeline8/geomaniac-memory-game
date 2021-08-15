@@ -6,11 +6,11 @@
 let gameVars = {
   imageArray : [],    //array of randomised image numbers
   maxImages  :  45,   //how many images I have on file in game images
-  pauseTime  :  2000, // intervals between images shown in milliseconds
   choices    : 4,     // Number of images player can choose from
   maxRounds  : 8,     // Maximum number of rounds
-  usedImages : [],    // An array of unique images used in the game
+  pauseTime  :  2000, // intervals between images shown in milliseconds
   round      : 0,     // Current round being played
+  usedImages : [],    // An array of unique images used in the game
   failed     : false, // Set to true if the user gets the wrong image
   failCount  : 0,     // How many times has the user failed in this round?
   maxRoundAttempts : 3,  // How many time can a round be attempted?
@@ -21,7 +21,8 @@ let gameVars = {
   failedReason : "",  // The reason the player failed
   lastImageClicked : -1,  // What was the last image the user clicked?
   maxFailCount     : 3,   //
-  expectedResult   : [],// What is the image number (0-3 for easy, 0-5 medium etc.) order expected
+  expectedResult   : [],
+  // What is the image number (0-3 for easy, 0-5 medium etc.) order expected
   choiceNumber     : 0,   // Which sequence number user has clicked on
   timeDisplayInterval : 0,
   maxTimeBetweenActions : 60 * 1000, // 1 minute in miliseconds
@@ -29,13 +30,13 @@ let gameVars = {
   lastUserInteraction : 0, //Last time player did something
   easyResults : [], // record the times for player completions during easy level game
   mediumResults : [], // record the times for player completions during medium level game
-  advancedResults : [], // record the times for player completions during advanced level game
+  advancedResults : [] // record the times for player completions during advanced level game
 };
 
 function clearMainImage() {
   document.getElementById("main-game-image").src = "assets/images/game-images/globe-icon.jpg";
   log("Set Main Image to Globe");
-};
+}
 
 function showMainImage(n) { //showMainImage('03')
   let fileName = "";
@@ -330,17 +331,17 @@ function displaySuccess() {
   document.getElementById("time-completed").innerHTML = stringFormatTime(seconds);
   if (gameVars.level == 0) {
     gameVars.easyResults.push(seconds);
-    gameVars.Vars.easyResults.sort(compareNumbers);
   } else if(gameVars.level == 1) {
     gameVars.mediumResults.push(seconds);
-    gameVars.Vars.mediumResults.sort(compareNumbers);
   } else {
     gameVars.advancedResults.push(seconds);
-    gameVars.Vars.advancedResults.sort(compareNumbers);
   } 
   showHide(true, "game-success");
   clearInterval(gameVars.userTimeoutInterval);
   closeAllModals();
+  document.getElementById("eTimeRecords").innerHTML = formatResults(gameVars.easyResults);
+  document.getElementById("mTimeRecords").innerHTML = formatResults(gameVars.mediumResults);
+  document.getElementById("aTimeRecords").innerHTML = formatResults(gameVars.advancedResults);
   document.getElementById("success-play-again").addEventListener("click", event => {
     soundClick();
     showHide(true, "div-difficulty");
@@ -353,9 +354,20 @@ function displaySuccess() {
   });
 }
 
-// Allows sort to compare numerically 
+// formatted the time to show player results
+function formatResults(results) {
+  results.sort(compareNumbers);
+  let output = "<ul>\n";
+  for (let i = 0; i < results.length; i++) {
+    output += `<li>${fmtTime(results[i])}</li>`;
+  }
+  output += "</ul>\n";
+  return (output);
+}
+
+// Allows sort to compare numerically reverse
 function compareNumbers(a, b) {
-  return(a - b);
+  return(b - a);
 }
 
 function displayFail() {
