@@ -336,6 +336,7 @@ function displaySuccess() {
   }
   showHide(true, "game-success");
   clearInterval(gameVars.userTimeoutInterval);
+  showHide(false, "timer-div");
   closeAllModals();
   document.getElementById("eTimeRecords").innerHTML = formatResults(gameVars.easyResults);
   document.getElementById("mTimeRecords").innerHTML = formatResults(gameVars.mediumResults);
@@ -376,6 +377,7 @@ function displayFail() {
     failbtn = "second-fail";
   } else if(gameVars.failCount == 3 || gameVars.failCount == 4) {
     clearInterval(gameVars.userTimeoutInterval);
+    showHide(false, "timer-div");
     setTimeout(closeAllModals, 1000);
     if(gameVars.failCount == 3) {
       document.getElementById("fail-reason").innerHTML = "You've failed! Want to try again?";
@@ -418,11 +420,4 @@ function checkUserTimeout() {
     displayFail();
   }
 }
-
-// User initiates action by clicking "ready to start"? (once clicked on 'easy-level') DONE
-// Once the sequence of main images has been completed, player gets a notification: 'Now, your turn!' DONE
-// User gets a notification when he correctly guesses the sequence DONE
-// fail notifications (player can fail twice within one game) DONE
-// setInterval and setTimer. Use them both to display the elapsed time on the screen and to force and end to the game if the player is taking too long. DONE
-// anonymous functions
 

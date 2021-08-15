@@ -49,6 +49,7 @@ document.getElementById('ready-play').addEventListener('click', event => {
   soundClick();
   showHide(false, 'ready-play');
   showHide(true, levelDiv);
+  showHide(true, "timer-div");
   playGame(gameVars.level);
 });
 
@@ -152,16 +153,3 @@ document.getElementById("music-btn").addEventListener("click", event => {
   soundClick();
   musicManager();
 });
-
-
-// Logic for starting the game
-
-// logic for the timer
-
-//display of the results
-
-//logic for number of retries 
-
-// saving results and for showing the results table
-
-//Audio related functions
