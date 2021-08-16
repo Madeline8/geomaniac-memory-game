@@ -118,7 +118,11 @@ position: relative;
    margin: 0px;
 }
 
-/* ---------------------------Styles for Easy Level---------------------- */
+/* ---------------------General styles for all game levels---------------- */
+
+
+/* ---------------------/General styles for all game levels---------------- */
+/* ---------------------------Styles for EASY Level---------------------- */
 .easy-game-div {
     position: absolute;
     top: 9rem;
@@ -133,34 +137,54 @@ position: relative;
 
 .small-game-image-easy {
     border: 2px solid white;
-    height: 180px;
-    width: 180px;
+    height: 190px;
+    margin-top: 10px;
+    width: 190px;
     padding: 2px;
 }
 
 /* ----------------------------/Styles for Easy Level -------------------*/
 
-/* -------------------------Styles for Medium Level---------------------- */
+/* -------------------------Styles for MEDIUM Level---------------------- */
 .medium-game-div {
     position: absolute;
     top: 9rem;
 }
 
 .main-game-image-md {
-    height: 30px;
+    width: 180px;
+    height: 180px;
+    margin: 10px 0 15px 0;
+    border: 2px solid white;
+}
+
+.small-game-image-easy {
+    border: 2px solid white;
+    height: 160px;
+    width: 160px;
+    padding: 2px;
 }
 /* -------------------------/Styles for Medium Level---------------------- */
-
-/* ----------------------Styles for Advanced Level ----------------------*/
+/* ----------------------Styles for ADVANCED Level ----------------------*/
 .advanced-game-div {
     position: absolute;
     top: 9rem;
 }
 
-/* .main-div-style {
-    background-color: aqua;
-    text-align: center;
-} */
+.main-game-image-adv {
+    width: 180px;
+    height: 180px;
+    margin: 10px 0 15px 0;
+    border: 2px solid white;
+}
+
+.small-game-image-adv {
+    border: 2px solid white;
+    height: 150px;
+    width: 150px;
+    padding: 2px;
+}
+
 
 /* ----------------------Styles for Advanced Level ----------------------*/
 /* -------------------/Contact Us - Window Modal------------------ */
@@ -176,7 +200,7 @@ position: relative;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 10px;
+    
 }
 
 .in-game-button {
@@ -206,12 +230,16 @@ position: relative;
 
 /* -------------------/In - game styles ------------------ */
 
+.row {
+    margin: 0
+}
+
+
 .time-records-div {
     background-color: #003300;
     color: #F8fbf8;
     opacity: 0.7;
-    width: 27rem;
-    position: absolute;
+    max-width: 27rem;
     top: 0;
     bottom: 0;
     left: 0;
@@ -246,8 +274,7 @@ position: relative;
     color: #F8fbf8;
     opacity: 0.7;
     height: 6rem;
-    width: 27rem;
-    position: absolute;
+    max-width: 27rem;
     top: 0;
     bottom: 0;
     left: 0;
@@ -425,7 +452,7 @@ position: relative;
     .main-game-image-easy {
         width: 220px;
         height: 220px;
-        margin: 10px 0 30px 0;
+        margin: 50px 0 30px 0;
         border: 2px solid white;
     }
     
@@ -434,8 +461,50 @@ position: relative;
         height: 200px;
         width: 200px;
         padding: 2px;
-        margin-top: 20px;
+        margin-top: 30px;
     }
+
+    /* Set styles for medium level on an iPad - medium devices */
+    .medium-game-div {
+        position: absolute;
+        top:15rem;
+    }
+    
+    .main-game-image-md {
+        width: 220px;
+        height: 220px;
+        margin: 50px 0 30px 0;
+        border: 2px solid white;
+    }
+    
+    .small-game-image-md {
+        border: 2px solid white;
+        height: 200px;
+        width: 200px;
+        padding: 2px;
+        margin-top: 30px;
+    }
+
+        /* Set styles for advanced level on an iPad - medium devices */
+        .advanced-game-div {
+            position: absolute;
+            top:15rem;
+        }
+        
+        .main-game-image-adv {
+            width: 220px;
+            height: 220px;
+            margin: 50px 0 30px 0;
+            border: 2px solid white;
+        }
+        
+        .small-game-image-adv {
+            border: 2px solid white;
+            height: 200px;
+            width: 200px;
+            padding: 2px;
+            margin-top: 30px;
+        }
 }
 
 @media (min-width: 1024px) and (max-width: 1366px) {
