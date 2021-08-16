@@ -3,12 +3,11 @@
   let audio = {
     soundBtn:       document.getElementById("sound-btn"),
     musicBtn:       document.getElementById("music-btn"),
-    musicMuted:     false,
+    musicMuted:     true,
     soundMuted:     false,
     musicVolAdj:    document.getElementById("vol-music"),
     soundVolAdj:    document.getElementById("vol-sounds"),
     music:          document.getElementById("music"),
-    gameOn:         false,
     click:          new Audio("assets/audio/click-sound.wav"),
     success:        new Audio("assets/audio/game-end-success.wav"),
     inRoundSuccess: new Audio("assets/audio/game-round-success.mp3"),
@@ -26,40 +25,42 @@ function soundClick() {
 }
 
 // Sound is played when a player successfully completes all rounds of the game 
-function success() {
-  stopMusic();
+function soundSuccess() {
+  let vol = audio.music.volume;
+  audio.music.volume = 0;
   if (audio.soundMuted === false) {
       audio.success.play();
   }
+  fadeIn(audio.music, vol, 2000, 2000, 10);
 }
 
 // Sound is played when a player successfully completes each round of the game
-function inRoundSuccess() {
-  stopMusic();
+function soundInRoundSuccess() {
   if (audio.soundMuted === false) {
     audio.inRoundSuccess.play();
   }
 }
 
 //Sound is played when a player fails the game
-function fail() {
-  stopMusic();
+function soundFail() {
+  let vol = audio.music.volume;
+  audio.music.volume = 0;
   if (audio.soundMuted === false) {
     audio.fail.play();
   }
+  fadeIn(audio.music,vol,2000, 2000, 10);
 }
 
 //Sound is played when a player fails one of the game rounds
-function roundFail() {
-  stopMusic();
+function soundRoundFail() {
+  log("SoundRoundFail");
   if (audio.soundMuted === false) {
     audio.roundFail.play();
   }
 }
 
 //Sound is played when a the main images are shown to the player 
-function flip() {
-  stopMusic();
+function soundImageSeq() {
   if (audio.soundMuted === false) {
     audio.flip.play();
   }
@@ -89,19 +90,9 @@ function musicManager() {
     }
 }
 
-//Is the game active or not active?
-function gameOn() {
-  if (gameVars.level !== "") 
-      audio.gameOn = true;
-   else 
-      audio.gameOn = false;
-  
-}
-
 // play music function
 function playMusic() {
-  gameOn();
-  if (audio.gameOn !== false && audio.musicMuted !== true) {
+  if (audio.musicMuted !== true) {
       audio.music.play();
       audio.music.loop = true;
   }
@@ -144,6 +135,23 @@ audio.soundVolAdj.addEventListener("change", event => {
   audio.flip.volume = audio.soundVolAdj.value / 100;
   audio.success.volume = audio.soundVolAdj.value / 100;
 });
+
+// https://stackoverflow.com/questions/7451508/html5-audio-playback-with-fade-in-and-fade-out
+// this helped me design the function
+function fadeIn(audioElement, maxVol, startDelay, fadeInTime, steps) {
+  let i = 0;
+  let interval = fadeInTime / steps;
+  setTimeout(function () {
+    log("start fade-in");
+    let intervalId = setInterval(function() {
+      let volume = (maxVol / steps) * i;
+      audioElement.volume = volume;
+      log(`Volume set to ${volume}`);
+      if(++i >= steps)
+        clearInterval(intervalId);
+    }, interval);
+  }, startDelay);
+}
 
 
 

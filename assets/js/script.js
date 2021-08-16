@@ -1,5 +1,7 @@
 "use strict";
 
+// defaultVol(); // reset volumes to the default
+
 // Functions to log to console with a timestamp
 function log(txt) {
   let currentDateTime = new Date();

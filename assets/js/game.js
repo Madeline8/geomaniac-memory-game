@@ -126,13 +126,13 @@ function setGameLevel(n) {
   }
   else if(n == 1) {
     gameVars.level = 1;
-    gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
+    gameVars.pauseTime = 1600;        // intervals between images shown in milliseconds
     gameVars.choices = 6;    // Number of images player can choose from
     gameVars.maxRounds = 8;  // Maximum number of rounds
   }
   else {
     gameVars.level = 2;
-    gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
+    gameVars.pauseTime = 1400;        // intervals between images shown in milliseconds
     gameVars.choices = 8;    // Number of images player can choose from
     gameVars.maxRounds = 8;  // Maximum number of rounds
   }
@@ -292,6 +292,7 @@ function nextImage(i) {
   else {
       log("Display image " + i);
       showMainImage(gameVars.imageArray[i]);
+      soundImageSeq();
       if(++i >= gameVars.round) {
           log("All images shown : next image is -1 : globe");
           setTimeout(nextImage, gameVars.pauseTime, -1);
@@ -305,6 +306,7 @@ function nextImage(i) {
 
 function displayWellDone() {
   showHide(true, "well-done");
+  soundInRoundSuccess();
    document.getElementById("well-done").addEventListener("click", event => {
     soundClick();
     showHide(false, "well-done");
@@ -339,6 +341,7 @@ function displaySuccess() {
     gameVars.advancedResults.push(seconds);
   }
   showHide(true, "game-success");
+  soundSuccess();
   clearInterval(gameVars.userTimeoutInterval);
   showHide(false, "timer-div");
   closeAllModals();
@@ -377,9 +380,12 @@ function displayFail() {
   let failbtn = "";
   if(gameVars.failCount == 1) {
     failbtn = "first-fail";
+    soundRoundFail();
   } else if(gameVars.failCount == 2) {
     failbtn = "second-fail";
+    soundRoundFail();
   } else if(gameVars.failCount == 3 || gameVars.failCount == 4) {
+    soundFail();
     clearInterval(gameVars.userTimeoutInterval);
     showHide(false, "timer-div");
     setTimeout(closeAllModals, 1000);
