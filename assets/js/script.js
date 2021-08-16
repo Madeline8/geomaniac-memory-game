@@ -14,15 +14,12 @@ document.getElementById("btn-play").addEventListener("click", () => {
   showHide(true, 'div-difficulty');
 });
 
-var gameLevel = 0;
-var levelDiv = 'easy-level-game';
-
 // Play --> Choose difficulty level -> easy
 document.getElementById("easy-level-button").addEventListener("click", event => {
   soundClick();
   closeAllModals();
   setGameLevel(0);
-  levelDiv = 'easy-level-game';
+  gameVars.levelDiv = 'easy-level-game';
   showHide(true, 'ready-play');
  });
 
@@ -31,7 +28,7 @@ document.getElementById("medium-level-button").addEventListener("click", event =
   soundClick();
   closeAllModals();
   setGameLevel(1);
-  levelDiv = 'medium-level-game';
+  gameVars.levelDiv = 'medium-level-game';
   showHide(true, 'ready-play');
 });
 
@@ -40,19 +37,15 @@ document.getElementById("advanced-level-button").addEventListener("click", event
   soundClick();
   closeAllModals();
   setGameLevel(2);
-  levelDiv = 'advanced-level-game';
+  gameVars.levelDiv = 'advanced-level-game';
   showHide(true, 'ready-play');
 });
-
-function continueAfterLoad() {
-
-}
 
 // Ready-play button clicked
 document.getElementById('ready-play').addEventListener('click', event => {
   soundClick();
   showHide(false, 'ready-play');
-  showHide(true, levelDiv);
+  showHide(true, gameVars.levelDiv);
   showHide(true, "timer-div");
   playGame(gameVars.level);
 });

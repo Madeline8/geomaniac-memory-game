@@ -83,8 +83,8 @@
         <a href="#">
           <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-sound-back"> Go Back</i>
         </a>
-        <audio id="music">
-          <source src="/assets/audio/water-melody.mp3" type="audio/mp3">
+        <audio loop id="music">
+          <source src="assets/audio/water-melody.mp3" type="audio/mp3">
           <p>Your browser doesn't support HTML5 audio.</p>
       </audio>
       </div>
@@ -250,7 +250,7 @@
   </div>
 
   <!-- Notification - game over -->
-  <div class="invisible container user-notification flex-column d-flex align-items-center" id="game-fail">
+  <div class="invisible container user-notification flex-column d-flex align-items-center game-fail-div" id="game-fail">
     <h4 class="window-header" id="fail-reason"> You've failed! Want to try again? </h4>
     <button class="btn btn-block home-button" id="play-again">PLAY AGAIN</button>
     <button class="btn btn-block home-button" id="take-me-home">TAKE ME HOME</button>

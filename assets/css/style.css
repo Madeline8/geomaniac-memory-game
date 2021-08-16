@@ -120,6 +120,12 @@ position: relative;
 
 /* ---------------------General styles for all game levels---------------- */
 
+.game-fail-div {
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 15px;
+    position: absolute;
+}
 
 /* ---------------------/General styles for all game levels---------------- */
 /* ---------------------------Styles for EASY Level---------------------- */

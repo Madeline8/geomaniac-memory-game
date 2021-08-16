@@ -1,6 +1,3 @@
-// The two constants below make reading the functions easier to understand
-// const passed = true;
-// const failed = false;
 "use strict";
 
 let gameVars = {
@@ -20,7 +17,8 @@ let gameVars = {
   lastMoveTime : 0,   // Time the player last clicked a button
   failedReason : "",  // The reason the player failed
   lastImageClicked : -1,  // What was the last image the user clicked?
-  maxFailCount     : 3,   //
+  maxFailCount     : 3,
+  levelDiv : "", // the div to use for chosen level
   expectedResult   : [],
   // What is the image number (0-3 for easy, 0-5 medium etc.) order expected
   choiceNumber     : 0,   // Which sequence number user has clicked on
@@ -354,7 +352,7 @@ function displaySuccess() {
   });
   document.getElementById("success-take-me-home").addEventListener("click", event => {
     soundClick();
-    showHide(true, "home-modal");
+    showHide(true, "home-page-modal");
     showHide(false, "game-success");
   });
 }
