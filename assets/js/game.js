@@ -145,7 +145,10 @@ function setGameLevel(n) {
 // The choiceImages ClickEvent Handler
 function imageClicked() {
   let imgId = this.id;
-  let choice = parseInt(imgId.substr(11));
+  // imgId looks like "img-choice-x-y"
+  // x = game level, y - choice number
+  // choice is the last character in imgId
+  let choice = parseInt(imgId.substr(imgId.length - 1));
   showMainImage(gameVars.usedImages[choice]);
   soundClick();
   gameVars.lastImageClicked = Date.now();
@@ -186,7 +189,7 @@ function imageClicked() {
 function enableImageChoiceClickEvents() {
   for(let i = 0; i < gameVars.choices; i++) {
     // img-choice-2
-    let imageId = `img-choice-${gameVars.level}-${1}`;
+    let imageId = `img-choice-${gameVars.level}-${i}`;
     console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
     document.getElementById(imageId).addEventListener("click", imageClicked);
   }
@@ -197,7 +200,7 @@ function enableImageChoiceClickEvents() {
 function disableClickEvents() {
   for(let i = 0; i < gameVars.choices; i++) {
     // img-choice-2
-    let imageId = `img-choice-${gameVars.level}-${1}`;
+    let imageId = `img-choice-${gameVars.level}-${i}`;
     document.getElementById(imageId).removeEventListener("click", imageClicked);
   }
 }
