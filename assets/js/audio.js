@@ -1,3 +1,9 @@
+// log is defined in another file
+/* globals log */
+// The following functions are used in other files
+/* exported soundClick, soundSuccess, soundInRoundSuccess, soundFail, 
+	soundRoundFail, soundImageSeq, soundManager, musicManager, defaultVol */
+  "use strict";
 
 // Audio setup
   let audio = {

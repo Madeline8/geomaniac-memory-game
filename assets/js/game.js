@@ -1,3 +1,7 @@
+// The below is to list variables defined in a different script, when using jshint
+/* globals log, soundClick, showHide, soundImageSeq, soundInRoundSuccess,
+				soundSuccess, closeAllModals, soundRoundFail, soundFail, $ */
+
 "use strict";
 
 let gameVars = {
@@ -29,7 +33,8 @@ let gameVars = {
   eventsEnabled : false, //Are click events enabled
   easyResults : [], // record the times for player completions during easy level game
   mediumResults : [], // record the times for player completions during medium level game
-  advancedResults : [] // record the times for player completions during advanced level game
+  advancedResults : [], // record the times for player completions during advanced level game
+  nextImageTimeout : 0
 };
 
 function clearMainImage() {
@@ -257,6 +262,7 @@ function fmtTime(t) {
 // playGame
 function playGame(level) {
   log(`playGame(${level}: choices: ${gameVars.choices}, level: ${gameVars.level}`);
+  scrollWindow(level);
   clearMainImage();
   imageChoiceClickEventsDisable();
   setGameLevel(level);
@@ -267,7 +273,55 @@ function playGame(level) {
   fillImageChoices(gameVars.choices);
   document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
   setTimeout(nextImage, gameVars.pauseTime, 0);
+  document.getElementById(`home-btn-${level}`).addEventListener("click", homeButtonClicked);
+  log(`added event listener to home-btn-${level}`);
   startTimer();
+}
+
+// Clicking the home button can happen at whatever stage the game is at
+// so I have to make sure all timers are stopped, clicks disabled, and
+// any special modal windows closed
+function homeButtonClicked() {
+  clearTimeout(gameVars.nextImageTimeout);
+  log("homeButtonClicked");
+  document.getElementById(`home-btn-${gameVars.level}`).removeEventListener("click", homeButtonClicked);
+  closeAllModals();
+  imageChoiceClickEventsDisable();
+  showHide(true, "home-page-modal");
+  clearInterval(gameVars.userTimeoutInterval);
+  let divs = ["timer-div", "your-turn", "ready-play", "well-done", "first-fail", "second-fail"];
+  for(let i = 0; i < divs.length; i++) {
+    showHide(false, divs[i]);
+  }
+  window.scroll(0, 0);
+}
+
+// https://stackoverflow.com/questions/3437786/get-the-size-of-the-screen-current-web-page-and-browser-window - to set the game grid in the right place once player starts the game
+function scrollWindow(level) {
+  let height = window.screen.height;
+  let width = window.screen.width;
+  let scroll = 0; // Default scroll position
+  switch(level) {
+    case 0: // Easy level
+      scroll = 96;  // The size of the logo (5rem * 16
+      break;
+    case 1: // Medium level
+      scroll = 120;
+      break;
+    case 2: // Advanced level
+      scroll = 120;
+      break;
+  }
+  if(width <= 768) { //Small Devices
+    scroll = 0;
+  }
+  else if(width === 768 || width === 1024) { // Assume iPad
+    scroll = 0;
+  }
+  else if(width >= 1024 && width <= 1366) { // Assume iPad Pro
+    scroll = 0;
+  }
+  window.scroll(0, scroll);
 }
 
 function getPlayerInput() {
@@ -318,11 +372,11 @@ function nextImage(i) {
       soundImageSeq();
       if(++i >= gameVars.round) {
           log("All images shown : next image is -1 : globe");
-          setTimeout(nextImage, gameVars.pauseTime, -1);
+          gameVars.nextImageTimeout = setTimeout(nextImage, gameVars.pauseTime, -1);
       }
       else {
           log("Setting next timeout for image " + i);
-          setTimeout(nextImage, gameVars.pauseTime, i);
+          gameVars.nextImageTimeout = setTimeout(nextImage, gameVars.pauseTime, i);
       }
   }
 }
@@ -378,6 +432,7 @@ function displaySuccess() {
   });
   document.getElementById("success-take-me-home").addEventListener("click", event => {
     soundClick();
+    window.scroll(0, 0);
     showHide(true, "home-page-modal");
     showHide(false, "game-success");
   });
@@ -421,14 +476,13 @@ function displayFail() {
     document.getElementById("play-again").addEventListener("click", event => {
       soundClick();
       showHide(false, "game-fail");
-      // endGame(true);
       showHide(true, "div-difficulty");
     });
     document.getElementById("take-me-home").addEventListener("click", event => {
       soundClick();
       closeAllModals();
       showHide(false, "game-fail");
-      //endGame(false);
+      window.scroll(0, 0);
       showHide(true, "home-page-modal");
     });
     return;

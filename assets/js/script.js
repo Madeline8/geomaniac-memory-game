@@ -1,3 +1,5 @@
+// The below is to list variables defined in a different script, when using jshint
+/* globals soundClick, setGameLevel, gameVars, playGame, soundManager, musicManager */
 "use strict";
 
 // defaultVol(); // reset volumes to the default
