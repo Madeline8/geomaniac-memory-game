@@ -26,6 +26,7 @@ let gameVars = {
   maxTimeBetweenActions : 60 * 1000, // 1 minute in miliseconds
   userTimeoutInterval : "",
   lastUserInteraction : 0, //Last time player did something
+  eventsEnabled : false, //Are click events enabled
   easyResults : [], // record the times for player completions during easy level game
   mediumResults : [], // record the times for player completions during medium level game
   advancedResults : [] // record the times for player completions during advanced level game
@@ -38,7 +39,7 @@ function clearMainImage() {
   log("Set Main Image to Globe");
 }
 
-function showMainImage(n) {
+function showMainImage(n, enableClicks) {
   let imageId = `main-game-image-${gameVars.level}`;
   let fileName = "";
   if(n == -1) {
@@ -55,6 +56,9 @@ function showMainImage(n) {
     document.getElementById(imageId).src = fileName;
     // And fade it In
     $(jId).fadeIn(500);
+    if (enableClicks) {
+      imageChoiceClickEventsEnable();
+    }
   });
 }
 
@@ -149,12 +153,12 @@ function setGameLevel(n) {
 //  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_substring
 // The choiceImages ClickEvent Handler
 function imageClicked() {
+  imageChoiceClickEventsDisable();
   let imgId = this.id;
   // imgId looks like "img-choice-x-y"
   // x = game level, y - choice number
   // choice is the last character in imgId
   let choice = parseInt(imgId.substr(imgId.length - 1));
-  showMainImage(gameVars.usedImages[choice]);
   soundClick();
   gameVars.lastImageClicked = Date.now();
   log("Clicked on " + choice);
@@ -166,19 +170,23 @@ function imageClicked() {
   log(`Clicked on ${choice} : Expected ${expected}`);
   if(choice == expected) {
     // All is OK so far
-    // Have we clicked on all the images required?
+    // Has player clicked on all the images required?
     if(++gameVars.choiceNumber >= gameVars.round) {
-      // In this case, we have won this round
+      // In this case, has player won this round
       // so start a new round
-      //alert("Congratulations - Click OK to start next round");
+      //let player know ("Well done - Click OK to start next round");
       gameVars.round++;
+      showMainImage(gameVars.usedImages[choice], false);
       if (gameVars.round > gameVars.maxRounds) {
         setTimeout(displaySuccess, 1000);
       } else {
         setTimeout(displayWellDone, 1000);
       }
+    } else {
+      showMainImage(gameVars.usedImages[choice], true);
     }
   } else {
+    showMainImage(gameVars.usedImages[choice], false);
     // Failed this round
     if(++gameVars.failCount >= gameVars.maxRoundAttempts) {
       gameVars.failReason = "Failed! You have exceeded maximum number of attempts";
@@ -192,22 +200,28 @@ function imageClicked() {
 
 // enableClickEvents(n)
 // Enable the click events on the user choices
-function enableImageChoiceClickEvents() {
-  for(let i = 0; i < gameVars.choices; i++) {
-    // img-choice-2
-    let imageId = `img-choice-${gameVars.level}-${i}`;
-    console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
-    document.getElementById(imageId).addEventListener("click", imageClicked);
+function imageChoiceClickEventsEnable() {
+  if (!gameVars.eventsEnabled) {
+    for(let i = 0; i < gameVars.choices; i++) {
+      // img-choice-2
+      let imageId = `img-choice-${gameVars.level}-${i}`;
+      console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
+      document.getElementById(imageId).addEventListener("click", imageClicked);
+    }
+    gameVars.eventsEnabled = true;
   }
 }
 
 // disableClickEvents()
-// Remove the click event handlers on the user choices
-function disableClickEvents() {
-  for(let i = 0; i < gameVars.choices; i++) {
-    // img-choice-2
-    let imageId = `img-choice-${gameVars.level}-${i}`;
-    document.getElementById(imageId).removeEventListener("click", imageClicked);
+// Remove the click event handlers on the player choices
+function imageChoiceClickEventsDisable() {
+  if (gameVars.eventsEnabled) {
+    for(let i = 0; i < gameVars.choices; i++) {
+      // img-choice-2
+      let imageId = `img-choice-${gameVars.level}-${i}`;
+      document.getElementById(imageId).removeEventListener("click", imageClicked);
+    }
+    gameVars.eventsEnabled = false;
   }
 }
 
@@ -244,7 +258,7 @@ function fmtTime(t) {
 function playGame(level) {
   log(`playGame(${level}: choices: ${gameVars.choices}, level: ${gameVars.level}`);
   clearMainImage();
-  disableClickEvents();
+  imageChoiceClickEventsDisable();
   setGameLevel(level);
   randomiseImages();
   gameVars.round = 1;
@@ -261,7 +275,7 @@ function getPlayerInput() {
   gameVars.lastUserInteraction = Date.now();
   showHide(false, "your-turn");
   document.getElementById("your-turn").removeEventListener("click", getPlayerInput);
-  enableImageChoiceClickEvents();
+  imageChoiceClickEventsEnable();
   //startTimer();
   //setTimeout(nextImage, gameVars.pauseTime, 0);
 }
@@ -270,7 +284,7 @@ function continueGame(level) {
   log("Continue " + gameVars.round);
   gameVars.lastUserInteraction = Date.now();
   clearMainImage();
-  disableClickEvents();
+  imageChoiceClickEventsDisable();
   fillImageChoices(gameVars.choices);
   document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
   setTimeout(nextImage, gameVars.pauseTime, 0);
@@ -295,11 +309,12 @@ function nextImage(i) {
       gameVars.choiceNumber = 0;
       showHide(true, "your-turn");
       document.getElementById("your-turn").addEventListener("click", getPlayerInput);
+      imageChoiceClickEventsDisable();
       return;
   }
   else {
       log("Display image " + i);
-      showMainImage(gameVars.imageArray[i]);
+      showMainImage(gameVars.imageArray[i], true);
       soundImageSeq();
       if(++i >= gameVars.round) {
           log("All images shown : next image is -1 : globe");
@@ -438,4 +453,3 @@ function checkUserTimeout() {
     displayFail();
   }
 }
-
