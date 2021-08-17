@@ -38,7 +38,7 @@ function clearMainImage() {
   log("Set Main Image to Globe");
 }
 
-function showMainImage(n) { //showMainImage('03')
+function showMainImage(n) {
   let imageId = `main-game-image-${gameVars.level}`;
   let fileName = "";
   if(n == -1) {
@@ -48,7 +48,14 @@ function showMainImage(n) { //showMainImage('03')
       fileName = "assets/images/game-images/img" + n + ".jpg";
   }
   log(`Display Main Image: ${fileName} to ${imageId}`);
-  document.getElementById(imageId).src = fileName;
+  // Fade out the existing image
+  let jId = '#' + imageId; // jQuery needs a # for an id
+  $(jId).fadeOut(500, function() {
+    // Swap in the new image
+    document.getElementById(imageId).src = fileName;
+    // And fade it In
+    $(jId).fadeIn(500);
+  });
 }
 
 // Adds the image choices to the image placeholders
@@ -153,6 +160,7 @@ function imageClicked() {
   log("Clicked on " + choice);
   log("Display image: " + gameVars.usedImages[choice]);
   gameVars.lastMoveTime = Date.now();
+  log(`lastMoveTime: ${gameVars.lastMoveTime}`);
   gameVars.lastImageClicked = choice;
   let expected = gameVars.expectedResult[gameVars.choiceNumber];
   log(`Clicked on ${choice} : Expected ${expected}`);
