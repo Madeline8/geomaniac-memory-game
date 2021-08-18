@@ -2,39 +2,39 @@
 /* globals log, soundClick, showHide, soundImageSeq, soundInRoundSuccess,
 				soundSuccess, closeAllModals, soundRoundFail, soundFail, $ */
 
+
 "use strict";
 
 let gameVars = {
-  imageArray : [],    //array of randomised image numbers
-  maxImages  :  45,   //how many images I have on file in game images
-  choices    : 4,     // Number of images player can choose from
-  maxRounds  : 8,     // Maximum number of rounds
-  pauseTime  :  2000, // intervals between images shown in milliseconds
-  round      : 0,     // Current round being played
-  usedImages : [],    // An array of unique images used in the game
-  failed     : false, // Set to true if the user gets the wrong image
-  failCount  : 0,     // How many times has the user failed in this round?
-  maxRoundAttempts : 3,  // How many time can a round be attempted?
-  level      : 0,     // Current game level
-  startTimer : 0,     // In game time
-  noMoveTime : 60,    // If player makes no move - then after this time it fails
-  lastMoveTime : 0,   // Time the player last clicked a button
-  failedReason : "",  // The reason the player failed
-  lastImageClicked : -1,  // What was the last image the user clicked?
-  maxFailCount     : 3,
-  levelDiv : "", // the div to use for chosen level
-  expectedResult   : [],
+  imageArray: [], //array of randomised image numbers
+  maxImages: 45, //how many images I have on file in game images
+  choices: 4, // Number of images player can choose from
+  maxRounds: 8, // Maximum number of rounds
+  pauseTime: 2000, // intervals between images shown in milliseconds
+  round: 0, // Current round being played
+  usedImages: [], // An array of unique images used in the game
+  failed: false, // Set to true if the user gets the wrong image
+  failCount: 0, // How many times has the user failed in this round?
+  maxRoundAttempts: 3, // How many time can a round be attempted?
+  level: 0, // Current game level
+  startTimer: 0, // In game time
+  noMoveTime: 60, // If player makes no move - then after this time it fails
+  lastMoveTime: 0, // Time the player last clicked a button
+  failedReason: "", // The reason the player failed
+  lastImageClicked: -1, // What was the last image the user clicked?
+  maxFailCount: 3,
+  levelDiv: "", // the div to use for chosen level
+  expectedResult: [],
   // What is the image number (0-3 for easy, 0-5 medium etc.) order expected
-  choiceNumber     : 0,   // Which sequence number user has clicked on
-  timeDisplayInterval : 0,
-  maxTimeBetweenActions : 60 * 1000, // 1 minute in miliseconds
-  userTimeoutInterval : "",
-  lastUserInteraction : 0, //Last time player did something
-  eventsEnabled : false, //Are click events enabled
-  easyResults : [], // record the times for player completions during easy level game
-  mediumResults : [], // record the times for player completions during medium level game
-  advancedResults : [], // record the times for player completions during advanced level game
-  nextImageTimeout : 0
+  choiceNumber: 0, // Which sequence number user has clicked on
+  timeDisplayInterval: 0,
+  maxTimeBetweenActions: 60 * 1000, // 1 minute in miliseconds
+  userTimeoutInterval: "",
+  lastUserInteraction: 0, //Last time player did something
+  easyResults: [], // record the times for player completions during easy level game
+  mediumResults: [], // record the times for player completions during medium level game
+  advancedResults: [], // record the times for player completions during advanced level game
+  nextImageTimeout: 0
 };
 
 function clearMainImage() {
@@ -47,22 +47,21 @@ function clearMainImage() {
 function showMainImage(n, enableClicks) {
   let imageId = `main-game-image-${gameVars.level}`;
   let fileName = "";
-  if(n == -1) {
-      fileName = "assets/images/game-images/globe-icon.jpg";
-  }
-  else {
-      fileName = "assets/images/game-images/img" + n + ".jpg";
+  if (n == -1) {
+    fileName = "assets/images/game-images/globe-icon.jpg";
+  } else {
+    fileName = "assets/images/game-images/img" + n + ".jpg";
   }
   log(`Display Main Image: ${fileName} to ${imageId}`);
   // Fade out the existing image
   let jId = '#' + imageId; // jQuery needs a # for an id
-  $(jId).fadeOut(500, function() {
+  $(jId).fadeOut(500, function () {
     // Swap in the new image
     document.getElementById(imageId).src = fileName;
     // And fade it In
     $(jId).fadeIn(500);
     if (enableClicks) {
-      imageChoiceClickEventsEnable();
+      imageChoiceClickEvents.enable();
     }
   });
 }
@@ -70,13 +69,13 @@ function showMainImage(n, enableClicks) {
 // Adds the image choices to the image placeholders
 function fillImageChoices(n) {
   for (let i = 0; i < n; i++) {
-      // Generate the correct id for the image
-      let id =`img-choice-${gameVars.level}-${i}`;
-      // Generate the image filename
-      let imageFile = "assets/images/game-images/img" + gameVars.usedImages[i] + ".jpg";
-      log(`fillImageChoices: n: ${n}, id: ${id}, imageFile: ${imageFile}`);
-      // Update the DOM with the new image
-      document.getElementById(id).src = imageFile;
+    // Generate the correct id for the image
+    let id = `img-choice-${gameVars.level}-${i}`;
+    // Generate the image filename
+    let imageFile = "assets/images/game-images/img" + gameVars.usedImages[i] + ".jpg";
+    log(`fillImageChoices: n: ${n}, id: ${id}, imageFile: ${imageFile}`);
+    // Update the DOM with the new image
+    document.getElementById(id).src = imageFile;
   }
 }
 
@@ -86,22 +85,22 @@ function randomiseImages() {
   log("In randomiseImages()");
   // Used Images is an array of 4 items from maxImages but must be unique
   for (let i = 0; i < gameVars.choices; i++) {
-      log("i = " + i);
-      // Get a random image number
-      // and check that it is not in usedImages yet
-      // and also not the same as the previous image
-      let OK = false;
-      while(!OK){
-          let n = Math.floor(Math.random() * gameVars.maxImages);
-          OK = true;
-          for(let j = 0; j < i; j++)
-              if(gameVars.usedImages[j] == n){
-                  OK = false;
-              }
-          // Now I know "n" is not already in usedImages
-          // So I can add it to the array
-          gameVars.usedImages[i] = n;
-      }
+    log("i = " + i);
+    // Get a random image number
+    // and check that it is not in usedImages yet
+    // and also not the same as the previous image
+    let OK = false;
+    while (!OK) {
+      let n = Math.floor(Math.random() * gameVars.maxImages);
+      OK = true;
+      for (let j = 0; j < i; j++)
+        if (gameVars.usedImages[j] == n) {
+          OK = false;
+        }
+      // Now I know "n" is not already in usedImages
+      // So I can add it to the array
+      gameVars.usedImages[i] = n;
+    }
   }
   // usedImages is a list of 4 random and unique images
   // Assign randomly one of the 4 to imageArray.
@@ -110,18 +109,18 @@ function randomiseImages() {
   let lastImage = -1;
   var imageNumber;
   for (let i = 0; i < gameVars.maxRounds; i++) {
-      let n = -1;
-      //log("i = " + i);
-      while(n == lastImage || n == -1) {
-          imageNumber = Math.floor(Math.random() * gameVars.choices);
-          n = gameVars.usedImages[imageNumber];
-          //log("n is " + n);
-      }
-      //log("i: " + i + ", n: " + n + ", lastImage: " + lastImage);
-      gameVars.imageArray[i] = n;
-      gameVars.expectedResult[i] = imageNumber;
-      //log("Saved to array at " + i + ", n: " + n + ", lastImage was: " + lastImage);
-      lastImage = n;
+    let n = -1;
+    //log("i = " + i);
+    while (n == lastImage || n == -1) {
+      imageNumber = Math.floor(Math.random() * gameVars.choices);
+      n = gameVars.usedImages[imageNumber];
+      //log("n is " + n);
+    }
+    //log("i: " + i + ", n: " + n + ", lastImage: " + lastImage);
+    gameVars.imageArray[i] = n;
+    gameVars.expectedResult[i] = imageNumber;
+    //log("Saved to array at " + i + ", n: " + n + ", lastImage was: " + lastImage);
+    lastImage = n;
   }
   log("usedImages: " + gameVars.usedImages);
   log("imageArray: " + gameVars.imageArray);
@@ -134,23 +133,21 @@ function randomiseImages() {
 // n = 1 Medium
 // n = 2 Hard
 function setGameLevel(n) {
-  if(n == 0) {
+  if (n == 0) {
     gameVars.level = 0;
-    gameVars.pauseTime = 2000;        // intervals between images shown in milliseconds
-    gameVars.choices = 4;    // Number of images player can choose from
-    gameVars.maxRounds = 8;  // Maximum number of rounds
-  }
-  else if(n == 1) {
+    gameVars.pauseTime = 2000; // intervals between images shown in milliseconds
+    gameVars.choices = 4; // Number of images player can choose from
+    gameVars.maxRounds = 8; // Maximum number of rounds
+  } else if (n == 1) {
     gameVars.level = 1;
-    gameVars.pauseTime = 1600;        // intervals between images shown in milliseconds
-    gameVars.choices = 6;    // Number of images player can choose from
-    gameVars.maxRounds = 8;  // Maximum number of rounds
-  }
-  else {
+    gameVars.pauseTime = 1600; // intervals between images shown in milliseconds
+    gameVars.choices = 6; // Number of images player can choose from
+    gameVars.maxRounds = 8; // Maximum number of rounds
+  } else {
     gameVars.level = 2;
-    gameVars.pauseTime = 1400;        // intervals between images shown in milliseconds
-    gameVars.choices = 8;    // Number of images player can choose from
-    gameVars.maxRounds = 8;  // Maximum number of rounds
+    gameVars.pauseTime = 1400; // intervals between images shown in milliseconds
+    gameVars.choices = 8; // Number of images player can choose from
+    gameVars.maxRounds = 8; // Maximum number of rounds
   }
   clearMainImage();
 }
@@ -158,7 +155,7 @@ function setGameLevel(n) {
 //  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_substring
 // The choiceImages ClickEvent Handler
 function imageClicked() {
-  imageChoiceClickEventsDisable();
+  imageChoiceClickEvents.disable();
   let imgId = this.id;
   // imgId looks like "img-choice-x-y"
   // x = game level, y - choice number
@@ -173,10 +170,10 @@ function imageClicked() {
   gameVars.lastImageClicked = choice;
   let expected = gameVars.expectedResult[gameVars.choiceNumber];
   log(`Clicked on ${choice} : Expected ${expected}`);
-  if(choice == expected) {
+  if (choice == expected) {
     // All is OK so far
     // Has player clicked on all the images required?
-    if(++gameVars.choiceNumber >= gameVars.round) {
+    if (++gameVars.choiceNumber >= gameVars.round) {
       // In this case, has player won this round
       // so start a new round
       //let player know ("Well done - Click OK to start next round");
@@ -193,7 +190,7 @@ function imageClicked() {
   } else {
     showMainImage(gameVars.usedImages[choice], false);
     // Failed this round
-    if(++gameVars.failCount >= gameVars.maxRoundAttempts) {
+    if (++gameVars.failCount >= gameVars.maxRoundAttempts) {
       gameVars.failReason = "Failed! You have exceeded maximum number of attempts";
       endGame(false);
     }
@@ -203,30 +200,36 @@ function imageClicked() {
   }
 }
 
-// enableClickEvents(n)
-// Enable the click events on the user choices
-function imageChoiceClickEventsEnable() {
-  if (!gameVars.eventsEnabled) {
-    for(let i = 0; i < gameVars.choices; i++) {
-      // img-choice-2
-      let imageId = `img-choice-${gameVars.level}-${i}`;
-      console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
-      document.getElementById(imageId).addEventListener("click", imageClicked);
+// Enable or Disable Click Events
+// imageChoiceClickEvents.enable();
+// imageChoiceClickEvents.disable();
+// bool: imageChoiceClickEvents.isEnabled();
+var imageChoiceClickEvents = {
+  eventsEnabled: false,
+  enable() {
+    if (!this.eventsEnabled) {
+      for (let i = 0; i < gameVars.choices; i++) {
+        // img-choice-2
+        let imageId = `img-choice-${gameVars.level}-${i}`;
+        console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
+        document.getElementById(imageId).addEventListener("click", imageClicked);
+      }
     }
-    gameVars.eventsEnabled = true;
-  }
-}
+    this.eventsEnabled = true;
+  },
+  disable() {
+    if (this.eventsEnabled) {
+      for (let i = 0; i < gameVars.choices; i++) {
+        // img-choice-2
+        let imageId = `img-choice-${gameVars.level}-${i}`;
+        document.getElementById(imageId).removeEventListener("click", imageClicked);
+      }
 
-// disableClickEvents()
-// Remove the click event handlers on the player choices
-function imageChoiceClickEventsDisable() {
-  if (gameVars.eventsEnabled) {
-    for(let i = 0; i < gameVars.choices; i++) {
-      // img-choice-2
-      let imageId = `img-choice-${gameVars.level}-${i}`;
-      document.getElementById(imageId).removeEventListener("click", imageClicked);
     }
-    gameVars.eventsEnabled = false;
+    this.eventsEnabled = false;
+  },
+  isEnabled() {
+    return (this.eventsEnabled);
   }
 }
 
@@ -244,7 +247,7 @@ function displayTime() {
   let seconds = Math.floor((Date.now() - gameVars.startTime) / 1000);
   document.getElementById("time-span").innerHTML = fmtTime(seconds);
   // If the game timer has expired, then endGame(failed)
-  if(((Date.now() - gameVars.lastMoveTime) / 1000) > gameVars.noMoveTime) {
+  if (((Date.now() - gameVars.lastMoveTime) / 1000) > gameVars.noMoveTime) {
     gameVars.failedReason = `You haven't done any move for more than ${gameVars.noMoveTime} seconds`;
     endGame(false);
   }
@@ -253,10 +256,10 @@ function displayTime() {
 //convert time in second into a string of minutes and seconds
 function fmtTime(t) {
   let m = Math.floor(t / 60);
-  let s = t %60;
-  if(s < 10)
+  let s = t % 60;
+  if (s < 10)
     s = "0" + s;
-  return(`${m}:${s}`);
+  return (`${m}:${s}`);
 }
 
 // playGame
@@ -264,7 +267,7 @@ function playGame(level) {
   log(`playGame(${level}: choices: ${gameVars.choices}, level: ${gameVars.level}`);
   scrollWindow(level);
   clearMainImage();
-  imageChoiceClickEventsDisable();
+  imageChoiceClickEvents.disable();
   setGameLevel(level);
   randomiseImages();
   gameVars.round = 1;
@@ -286,11 +289,11 @@ function homeButtonClicked() {
   log("homeButtonClicked");
   document.getElementById(`home-btn-${gameVars.level}`).removeEventListener("click", homeButtonClicked);
   closeAllModals();
-  imageChoiceClickEventsDisable();
+  imageChoiceClickEvents.disable();
   showHide(true, "home-page-modal");
   clearInterval(gameVars.userTimeoutInterval);
   let divs = ["timer-div", "your-turn", "ready-play", "well-done", "first-fail", "second-fail"];
-  for(let i = 0; i < divs.length; i++) {
+  for (let i = 0; i < divs.length; i++) {
     showHide(false, divs[i]);
   }
   window.scroll(0, 0);
@@ -301,9 +304,9 @@ function scrollWindow(level) {
   let height = window.screen.height;
   let width = window.screen.width;
   let scroll = 0; // Default scroll position
-  switch(level) {
+  switch (level) {
     case 0: // Easy level
-      scroll = 96;  // The size of the logo (5rem * 16
+      scroll = 96; // The size of the logo (5rem * 16
       break;
     case 1: // Medium level
       scroll = 120;
@@ -312,13 +315,11 @@ function scrollWindow(level) {
       scroll = 120;
       break;
   }
-  if(width <= 768) { //Small Devices
+  if (width <= 768) { //Small Devices
     scroll = 0;
-  }
-  else if(width === 768 || width === 1024) { // Assume iPad
+  } else if (width === 768 || width === 1024) { // Assume iPad
     scroll = 0;
-  }
-  else if(width >= 1024 && width <= 1366) { // Assume iPad Pro
+  } else if (width >= 1024 && width <= 1366) { // Assume iPad Pro
     scroll = 0;
   }
   window.scroll(0, scroll);
@@ -329,7 +330,7 @@ function getPlayerInput() {
   gameVars.lastUserInteraction = Date.now();
   showHide(false, "your-turn");
   document.getElementById("your-turn").removeEventListener("click", getPlayerInput);
-  imageChoiceClickEventsEnable();
+  imageChoiceClickEvents.enable();
   //startTimer();
   //setTimeout(nextImage, gameVars.pauseTime, 0);
 }
@@ -338,15 +339,15 @@ function continueGame(level) {
   log("Continue " + gameVars.round);
   gameVars.lastUserInteraction = Date.now();
   clearMainImage();
-  imageChoiceClickEventsDisable();
+  imageChoiceClickEvents.disable();
   fillImageChoices(gameVars.choices);
   document.getElementById("round-span").innerHTML = gameVars.round + " of " + gameVars.maxRounds;
   setTimeout(nextImage, gameVars.pauseTime, 0);
 }
 
 //end the game for either a win or a loose
-function endGame(result) {  // result can be failed or passed
-  if(result == true) {
+function endGame(result) { // result can be failed or passed
+  if (result == true) {
     clearInterval(gameVars.timeDisplayInterval);
     // The player won the game
   } else {
@@ -357,34 +358,32 @@ function endGame(result) {  // result can be failed or passed
 }
 
 function nextImage(i) {
-  if(i == -1) {
-      log("Showing globe and not setting a timeout");
-      clearMainImage();
-      gameVars.choiceNumber = 0;
-      showHide(true, "your-turn");
-      document.getElementById("your-turn").addEventListener("click", getPlayerInput);
-      imageChoiceClickEventsDisable();
-      return;
-  }
-  else {
-      log("Display image " + i);
-      showMainImage(gameVars.imageArray[i], true);
-      soundImageSeq();
-      if(++i >= gameVars.round) {
-          log("All images shown : next image is -1 : globe");
-          gameVars.nextImageTimeout = setTimeout(nextImage, gameVars.pauseTime, -1);
-      }
-      else {
-          log("Setting next timeout for image " + i);
-          gameVars.nextImageTimeout = setTimeout(nextImage, gameVars.pauseTime, i);
-      }
+  if (i == -1) {
+    log("Showing globe and not setting a timeout");
+    clearMainImage();
+    gameVars.choiceNumber = 0;
+    showHide(true, "your-turn");
+    document.getElementById("your-turn").addEventListener("click", getPlayerInput);
+    imageChoiceClickEvents.disable();
+    return;
+  } else {
+    log("Display image " + i);
+    showMainImage(gameVars.imageArray[i], true);
+    soundImageSeq();
+    if (++i >= gameVars.round) {
+      log("All images shown : next image is -1 : globe");
+      gameVars.nextImageTimeout = setTimeout(nextImage, gameVars.pauseTime, -1);
+    } else {
+      log("Setting next timeout for image " + i);
+      gameVars.nextImageTimeout = setTimeout(nextImage, gameVars.pauseTime, i);
+    }
   }
 }
 
 function displayWellDone() {
   showHide(true, "well-done");
   soundInRoundSuccess();
-   document.getElementById("well-done").addEventListener("click", event => {
+  document.getElementById("well-done").addEventListener("click", event => {
     soundClick();
     showHide(false, "well-done");
     continueGame(gameVars.level);
@@ -395,16 +394,16 @@ function stringFormatTime(s) {
   let m = Math.floor(s / 60);
   s = s % 60;
   let seconds = "";
-  if(s == 0)
+  if (s == 0)
     seconds = "";
-  else if(s == 1)
+  else if (s == 1)
     seconds = "and 1 second";
   else
     seconds = `and ${s} seconds`;
   let plural = "";
-  if(m > 1)
+  if (m > 1)
     plural = "s";
-  return(`${m} minute${plural} ${seconds}`);
+  return (`${m} minute${plural} ${seconds}`);
 }
 
 function displaySuccess() {
@@ -412,7 +411,7 @@ function displaySuccess() {
   document.getElementById("time-completed").innerHTML = stringFormatTime(seconds);
   if (gameVars.level == 0) {
     gameVars.easyResults.push(seconds);
-  } else if(gameVars.level == 1) {
+  } else if (gameVars.level == 1) {
     gameVars.mediumResults.push(seconds);
   } else {
     gameVars.advancedResults.push(seconds);
@@ -451,25 +450,25 @@ function formatResults(results) {
 
 // Allows sort to compare numerically reverse
 function compareNumbers(a, b) {
-  return(b - a);
+  return (b - a);
 }
 
 function displayFail() {
   let failbtn = "";
-  if(gameVars.failCount == 1) {
+  if (gameVars.failCount == 1) {
     failbtn = "first-fail";
     soundRoundFail();
-  } else if(gameVars.failCount == 2) {
+  } else if (gameVars.failCount == 2) {
     failbtn = "second-fail";
     soundRoundFail();
-  } else if(gameVars.failCount == 3 || gameVars.failCount == 4) {
+  } else if (gameVars.failCount == 3 || gameVars.failCount == 4) {
     soundFail();
     clearInterval(gameVars.userTimeoutInterval);
     showHide(false, "timer-div");
     setTimeout(closeAllModals, 1000);
-    if(gameVars.failCount == 3) {
+    if (gameVars.failCount == 3) {
       document.getElementById("fail-reason").innerHTML = "You've failed! Want to try again?";
-    } else if(gameVars.failCount == 4) {
+    } else if (gameVars.failCount == 4) {
       document.getElementById("fail-reason").innerHTML = "Game over! You haven't done any move. <br> Still want to play?";
     }
     showHide(true, "game-fail");
@@ -491,7 +490,7 @@ function displayFail() {
   document.getElementById(failbtn).addEventListener("click", event => {
     soundClick();
     showHide(false, failbtn);
-    if(gameVars.failCount < 3) {
+    if (gameVars.failCount < 3) {
       continueGame(gameVars.level);
     } else {
       endGame();
