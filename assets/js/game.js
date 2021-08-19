@@ -34,14 +34,16 @@ let gameVars = {
   easyResults: [], // record the times for player completions during easy level game
   mediumResults: [], // record the times for player completions during medium level game
   advancedResults: [], // record the times for player completions during advanced level game
+  successWellDone: 0, // save this event so I can cancel it if I have to
+  homeClicked: false, // Has the home button been clicked?
   nextImageTimeout: 0
 };
 
 function clearMainImage() {
   let imageId = `main-game-image-${gameVars.level}`;
-  log(`imageId: ${imageId}`);
+  //log(`imageId: ${imageId}`);
   document.getElementById(imageId).src = "assets/images/game-images/globe-icon.jpg";
-  log("Set Main Image to Globe");
+  //log("Set Main Image to Globe");
 }
 
 function showMainImage(n, enableClicks) {
@@ -52,7 +54,7 @@ function showMainImage(n, enableClicks) {
   } else {
     fileName = "assets/images/game-images/img" + n + ".jpg";
   }
-  log(`Display Main Image: ${fileName} to ${imageId}`);
+  //log(`Display Main Image: ${fileName} to ${imageId}`);
   // Fade out the existing image
   let jId = '#' + imageId; // jQuery needs a # for an id
   $(jId).fadeOut(500, function () {
@@ -73,7 +75,7 @@ function fillImageChoices(n) {
     let id = `img-choice-${gameVars.level}-${i}`;
     // Generate the image filename
     let imageFile = "assets/images/game-images/img" + gameVars.usedImages[i] + ".jpg";
-    log(`fillImageChoices: n: ${n}, id: ${id}, imageFile: ${imageFile}`);
+    //log(`fillImageChoices: n: ${n}, id: ${id}, imageFile: ${imageFile}`);
     // Update the DOM with the new image
     document.getElementById(id).src = imageFile;
   }
@@ -82,10 +84,10 @@ function fillImageChoices(n) {
 // randomiseImage - fills imageArray with maxRounds or random images
 // can be repeated
 function randomiseImages() {
-  log("In randomiseImages()");
+  //log("In randomiseImages()");
   // Used Images is an array of 4 items from maxImages but must be unique
   for (let i = 0; i < gameVars.choices; i++) {
-    log("i = " + i);
+    //log("i = " + i);
     // Get a random image number
     // and check that it is not in usedImages yet
     // and also not the same as the previous image
@@ -122,8 +124,8 @@ function randomiseImages() {
     //log("Saved to array at " + i + ", n: " + n + ", lastImage was: " + lastImage);
     lastImage = n;
   }
-  log("usedImages: " + gameVars.usedImages);
-  log("imageArray: " + gameVars.imageArray);
+  //log("usedImages: " + gameVars.usedImages);
+  //log("imageArray: " + gameVars.imageArray);
   log("expectedResult: " + gameVars.expectedResult);
 }
 
@@ -163,10 +165,10 @@ function imageClicked() {
   let choice = parseInt(imgId.substr(imgId.length - 1));
   soundClick();
   gameVars.lastImageClicked = Date.now();
-  log("Clicked on " + choice);
-  log("Display image: " + gameVars.usedImages[choice]);
+  //log("Clicked on " + choice);
+  //log("Display image: " + gameVars.usedImages[choice]);
   gameVars.lastMoveTime = Date.now();
-  log(`lastMoveTime: ${gameVars.lastMoveTime}`);
+  //log(`lastMoveTime: ${gameVars.lastMoveTime}`);
   gameVars.lastImageClicked = choice;
   let expected = gameVars.expectedResult[gameVars.choiceNumber];
   log(`Clicked on ${choice} : Expected ${expected}`);
@@ -180,9 +182,9 @@ function imageClicked() {
       gameVars.round++;
       showMainImage(gameVars.usedImages[choice], false);
       if (gameVars.round > gameVars.maxRounds) {
-        setTimeout(displaySuccess, 1000);
+        gameVars.successWellDone = setTimeout(displaySuccess, 1000);
       } else {
-        setTimeout(displayWellDone, 1000);
+        gameVars.successWellDone = setTimeout(displayWellDone, 1000);
       }
     } else {
       showMainImage(gameVars.usedImages[choice], true);
@@ -195,7 +197,7 @@ function imageClicked() {
       endGame(false);
     }
     //alert("Failed - try this round again!");
-    setTimeout(displayFail, 1000);
+    gameVars.successWellDone = setTimeout(displayFail, 1000);
     //setTimeout(continueGame, 1000, gameVars.level);
   }
 }
@@ -211,7 +213,7 @@ var imageChoiceClickEvents = {
       for (let i = 0; i < gameVars.choices; i++) {
         // img-choice-2
         let imageId = `img-choice-${gameVars.level}-${i}`;
-        console.log("Enabling Click for choice " + i + ", imageId: " + imageId);
+        //log("Enabling Click for choice " + i + ", imageId: " + imageId);
         document.getElementById(imageId).addEventListener("click", imageClicked);
       }
     }
@@ -264,7 +266,8 @@ function fmtTime(t) {
 
 // playGame
 function playGame(level) {
-  log(`playGame(${level}: choices: ${gameVars.choices}, level: ${gameVars.level}`);
+  // log(`playGame(${level}: choices: ${gameVars.choices}, level: ${gameVars.level}`);
+  gameVars.homeClicked = false;
   scrollWindow(level);
   clearMainImage();
   imageChoiceClickEvents.disable();
@@ -285,18 +288,21 @@ function playGame(level) {
 // so I have to make sure all timers are stopped, clicks disabled, and
 // any special modal windows closed
 function homeButtonClicked() {
-  clearTimeout(gameVars.nextImageTimeout);
   log("homeButtonClicked");
-  document.getElementById(`home-btn-${gameVars.level}`).removeEventListener("click", homeButtonClicked);
+  gameVars.homeClicked = true;
+  clearTimeout(gameVars.nextImageTimeout);
+  clearTimeout(gameVars.successWellDone);
+  clearInterval(gameVars.userTimeoutInterval);
+  clearInterval(gameVars.timeDisplayInterval);
   closeAllModals();
   imageChoiceClickEvents.disable();
   showHide(true, "home-page-modal");
-  clearInterval(gameVars.userTimeoutInterval);
   let divs = ["timer-div", "your-turn", "ready-play", "well-done", "first-fail", "second-fail"];
   for (let i = 0; i < divs.length; i++) {
     showHide(false, divs[i]);
   }
   window.scroll(0, 0);
+  document.getElementById(`home-btn-${gameVars.level}`).removeEventListener("click", homeButtonClicked);
 }
 
 // https://stackoverflow.com/questions/3437786/get-the-size-of-the-screen-current-web-page-and-browser-window - to set the game grid in the right place once player starts the game
@@ -326,7 +332,7 @@ function scrollWindow(level) {
 }
 
 function getPlayerInput() {
-  log("getPlayerInput clicked");
+  //log("getPlayerInput clicked");
   gameVars.lastUserInteraction = Date.now();
   showHide(false, "your-turn");
   document.getElementById("your-turn").removeEventListener("click", getPlayerInput);
@@ -337,6 +343,8 @@ function getPlayerInput() {
 // continueGame
 function continueGame(level) {
   log("Continue " + gameVars.round);
+  if (gameVars.homeClicked)
+    return;
   gameVars.lastUserInteraction = Date.now();
   clearMainImage();
   imageChoiceClickEvents.disable();
@@ -359,7 +367,9 @@ function endGame(result) { // result can be failed or passed
 
 function nextImage(i) {
   if (i == -1) {
-    log("Showing globe and not setting a timeout");
+    //log("Showing globe and not setting a timeout");
+    if (gameVars.homeClicked)
+      return;
     clearMainImage();
     gameVars.choiceNumber = 0;
     showHide(true, "your-turn");
@@ -367,11 +377,13 @@ function nextImage(i) {
     imageChoiceClickEvents.disable();
     return;
   } else {
-    log("Display image " + i);
+    //log("Display image " + i);
+    if (gameVars.homeClicked)
+      return;
     showMainImage(gameVars.imageArray[i], true);
     soundImageSeq();
     if (++i >= gameVars.round) {
-      log("All images shown : next image is -1 : globe");
+      //log("All images shown : next image is -1 : globe");
       gameVars.nextImageTimeout = setTimeout(nextImage, gameVars.pauseTime, -1);
     } else {
       log("Setting next timeout for image " + i);
@@ -381,6 +393,7 @@ function nextImage(i) {
 }
 
 function displayWellDone() {
+  gameVars.successWellDone = 0;
   showHide(true, "well-done");
   soundInRoundSuccess();
   document.getElementById("well-done").addEventListener("click", event => {
@@ -407,6 +420,7 @@ function stringFormatTime(s) {
 }
 
 function displaySuccess() {
+  gameVars.successWellDone = 0;
   let seconds = Math.floor((Date.now() - gameVars.startTime) / 1000);
   document.getElementById("time-completed").innerHTML = stringFormatTime(seconds);
   if (gameVars.level == 0) {

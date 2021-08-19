@@ -247,25 +247,20 @@ button {
     max-height: fit-content;
 }
 
-.home-btn-return,
-.home-btn-return-md,
-.home-btn-return-adv {
+.home-btn-return {
     position: absolute;
-    ;
-    top: 7rem;
-    ;
-    left: 2%;
+    top: 5vh;
+    left: 1%;
     border-width: 2px;
     background-color: #003300;
     color: #E5EAE5;
     border-color: #E5EAE5;
     max-width: fit-content;
     background-color: #CC8400;
+    z-index: 1;
 }
 
-.home-btn-return:hover,
-.home-btn-return-md:hover,
-.home-btn-return-adv:hover {
+.home-btn-return:hover {
     background-color: #009900;
 }
 
@@ -400,8 +395,9 @@ button {
 
     /* Return home button*/
     .home-btn-return {
-        top: 12rem;
+        top: 12vh;
         left: 3%;
+        z-index: 1;
     }
 
     .i-home-btn-return {
@@ -524,6 +520,7 @@ button {
     .home-btn-return {
         top: 0px;
         left: 3%;
+        z-index: 1;
     }
 
     .i-home-btn-return {
@@ -565,6 +562,7 @@ button {
     .home-btn-return {
         top: 10rem;
         left: 3%;
+        z-index: 1;
     }
 
     .i-home-btn-return {
@@ -657,8 +655,8 @@ button {
 
     .home-btn-return {
         top: 0px;
-        ;
         left: 3%;
+        z-index: 1;
     }
 
     .i-home-btn-return {
@@ -739,6 +737,7 @@ button {
     .home-btn-return {
         top: 8rem;
         left: 3%;
+        z-index: 1;
     }
 
     .i-home-btn-return {
@@ -786,8 +785,10 @@ button {
 
     /* Return home button for medium level game */
     .home-btn-return {
-        top: 10rem;
+        position:
+        top: 7rem;
         left: 3%;
+        z-index: 1;
     }
 
     .i-home-btn-return {
