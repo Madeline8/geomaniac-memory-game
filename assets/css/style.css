@@ -77,7 +77,7 @@ button {
 }
 
 /* .window-header {
-    margin-top: 3px;
+margin-top: 3px;
 } */
 
 .go-back-btn-other {
@@ -98,12 +98,12 @@ button {
 
 /* Game area - set background image */
 /* .background-img-game {
-    background-image: url('../images/background-img-game.jpg');
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    height:100vh;
+background-image: url('../images/background-img-game.jpg');
+background-size: cover;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+height:100vh;
 } */
 
 /* Style time and round span */
@@ -196,11 +196,11 @@ button {
 /* -------------------In - game styles ------------------ */
 
 /* .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
-    width: 100%;
-    padding-right: 5px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+width: 100%;
+padding-right: 5px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
 } */
 
 .in-game-button {
@@ -303,21 +303,55 @@ button {
     right: 0;
     margin: auto;
     text-align: center;
-
+    
 }
 
 /* -------------------------------/Footer----------------------------- */
 /* -------------------------------Media Queries----------------------------- */
 
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    
+    /* align home window modal on an iphone 5/SE */
+    .home-page-window {
+        /* width: 19rem;
+        height: 20rem; */
+        margin-top: 5;
+        font-size: 16px !important;
+    }
+    
+    /* Set styles for advanced level on MOBILE phones */
+    .main-game-image-adv {
+        width: 130px;
+        height: 130px;
+        margin: 10px 0 10px 0;
+        border: 2px solid white;
+        padding: 2px;
+    }
+    
+    .small-game-image-adv {
+        border: 2px solid white;
+        height: 100px;
+        width: 100px;
+        padding: 2px;
+    }
+    
+    /* set position of times/round for xs devices */
+    .round-span {
+        margin-left: -6rem;
+    }
+    
+}
+
 /*------------ SMALL DEVICES (landscape phones, less than 768px) ------------*/
 @media (max-width: 767.98px) {
-
+    
     /* Navbar setup */
     .game-logo {
         width: 5rem;
         height: 5rem;
     }
-
+    
     .home-button {
         font-size: 20px;
         border-width: 2px;
@@ -328,12 +362,12 @@ button {
         color: #E5EAE5;
         border-color: #E5EAE5;
     }
-
+    
     /* set smaller font size for smaller devices */
     /* .window-header {
-        font-size: 20px;
+    font-size: 20px;
     } */
-
+    
     /* Set styles for EASY level on MOBILE phones */
     .main-game-image-easy {
         width: 130px;
@@ -342,14 +376,14 @@ button {
         border: 2px solid white;
         padding: 2px;
     }
-
+    
     .small-game-image-easy {
         border: 2px solid white;
         height: 120px;
         width: 120px;
         padding: 2px;
     }
-
+    
     /* Set styles for MEDIUM level on MOBILE phones */
     .main-game-image-md {
         width: 130px;
@@ -357,7 +391,7 @@ button {
         border: 2px solid white;
         padding: 2px;
     }
-
+    
     .small-game-image-md {
         border: 2px solid white;
         height: 120px;
@@ -365,7 +399,7 @@ button {
         padding: 2px;
         margin-top: 5px;
     }
-
+    
     /* Set styles for advanced level on MOBILE phones */
     .main-game-image-adv {
         width: 150px;
@@ -374,132 +408,99 @@ button {
         border: 2px solid white;
         padding: 2px;
     }
-
+    
     .small-game-image-adv {
         border: 2px solid white;
         height: 110px;
         width: 110px;
         padding: 2px;
     }
-
+    
     /* Set timer and rounds div on mobile phones fo all game levels */
     .timer-div-style {
         margin-top: 20px;
         margin-bottom: 10px;
     }
-
+    
     .round-span {
         margin-left: -40px;
         margin-right: 30px;
     }
-
-    /* Return home button*/
+    
+    
+    /* Style Return home button for all game levels*/
     .home-btn-return {
         top: 12vh;
         left: 3%;
         z-index: 1;
     }
-
+    
     .i-home-btn-return {
         font-size: 15px;
     }
 }
 
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-
-    /* align home window modal on an iphone 5/SE */
-    .home-page-window {
-        /* width: 19rem;
-        height: 20rem; */
-        margin-top: 5;
-        font-size: 16px !important;
-    }
-
-    /* Set styles for advanced level on MOBILE phones */
-    .main-game-image-adv {
-        width: 130px;
-        height: 130px;
-        margin: 10px 0 10px 0;
-        border: 2px solid white;
-        padding: 2px;
-    }
-
-    .small-game-image-adv {
-        border: 2px solid white;
-        height: 100px;
-        width: 100px;
-        padding: 2px;
-    }
-
-    /* set position of times/round for xs devices */
-    .round-span {
-        margin-left: -6rem;
-    }
-
-}
-
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
+    
     /* adjust position of home window modal */
     .home-page-window {
         width: 25rem;
         height: 25rem;
         margin-top: 11rem;
     }
-
+    
     .home-button {
         margin-top: 1.5em;
         margin-bottom: 10px;
         width: 11em;
     }
-
+    
     /* Adjust images in the game area */
     /* .small-game-image {
-        height: 150px;
-        width: 150px;
+    height: 150px;
+    width: 150px;
     } */
-
+    
     /* .main-game-image {
-        width: 180px;
-        height: 180px;
-        margin-bottom: 50px;
-        margin-top: 10px;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 50px;
+    margin-top: 10px;
     } */
-
+    
 }
 
-/* Medium devices (tablets, less than 992px) */
+/* NOT USING NOW Medium devices (tablets, less than 992px) */ 
 @media (max-width: 991.98px) {
-
+    
     /* .small-game-image-easy {
-        border: 2px solid white;
-        height: 150px;
-        width: 150px;
-        margin: 10px 0 0 0;
-        padding: 2px;
+    border: 2px solid white;
+    height: 150px;
+    width: 150px;
+    margin: 10px 0 0 0;
+    padding: 2px;
     }
-
+    
     .small-img-col-easy {
-        width: 50px;
+    width: 50px;
     } */
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-
+    
     /* Set position of difficulty window on an IPad */
     .home-page-window {
         margin-top: 18rem;
     }
-
+    
     /* Set styles for easy level on an iPad - medium devices */
     .easy-game-div {
         position: absolute;
         top: 11rem;
     }
-
+    
     .main-game-image-easy {
         width: 200px;
         height: 200px;
@@ -507,7 +508,7 @@ button {
         border: 2px solid white;
         padding: 2px;
     }
-
+    
     .small-game-image-easy {
         border: 2px solid white;
         height: 190px;
@@ -515,208 +516,33 @@ button {
         padding: 2px;
         margin-top: 20px;
     }
-
-    /* Return home button for medium level game */
+    
+    /* Style Return home button for all levels for medium devices (medium level game) */
     .home-btn-return {
         top: 0px;
         left: 3%;
         z-index: 1;
     }
-
+    
     .i-home-btn-return {
         font-size: 15px;
     }
 }
 
-/* Styles for iPad Pro*/
-@media (min-width: 1024px) and (max-width: 1366px) {
-
-    /* Set up easy level styles for iPad Pro */
-
-    /* Set position of difficulty window on an IPad */
-    /* .home-page-window {
-        margin-top: 18rem;
-    } */
-    /* Set styles for easy level on an iPad Pro - medium devices */
-    .easy-game-div {
-        position: absolute;
-        top: 15rem;
-    }
-
-    .main-game-image-easy {
-        width: 220px;
-        height: 220px;
-        margin: 50px 0 30px 0;
-        border: 2px solid white;
-        padding: 2px;
-    }
-
-    .small-game-image-easy {
-        border: 2px solid white;
-        height: 200px;
-        width: 200px;
-        padding: 2px;
-        margin-top: 30px;
-    }
-
-    .home-btn-return {
-        top: 10rem;
-        left: 3%;
-        z-index: 1;
-    }
-
-    .i-home-btn-return {
-        font-size: 25px;
-    }
-
-
-    /* Set styles for medium level on an iPad Pro- medium devices */
-    .medium-game-div {
-        position: absolute;
-        top: 15rem;
-    }
-
-    .small-game-image-md {
-        border: 2px solid white;
-        height: 200px;
-        width: 200px;
-        padding: 2px;
-        margin-top: 20px;
-    }
-
-    .main-game-image-md {
-        width: 230px;
-        height: 230px;
-        margin: 50px 0 30px 0;
-        border: 2px solid white;
-        padding: 2px;
-    }
-
-    /* Set styles for advanced level on an iPadPro - medium devices */
-    .advanced-game-div {
-        position: absolute;
-        top: 15rem;
-    }
-
-    .main-game-image-adv {
-        width: 220px;
-        height: 220px;
-        margin: 50px 0 30px 0;
-        border: 2px solid white;
-        padding: 2px;
-    }
-
-    .small-game-image-adv {
-        border: 2px solid white;
-        height: 200px;
-        width: 200px;
-        padding: 2px;
-        margin-top: 30px;
-    }
-
-    /* Set position of difficulty window on an IPad Pro */
-    .home-page-window {
-        margin-top: 15rem;
-    }
-
-    /* Set timer and rounds div on iPad Pro fo all game levels */
-    .timer-div-style {
-        margin-top: 40px;
-        margin-bottom: 10px;
-    }
-
-    .time-span,
-    .round-span {
-        font-size: 35px;
-    }
-}
-
-/* --------------------------Syles for Ipad----------------------------- */
-@media (min-width: 768px) and (max-width: 1024px) {
-
-    /* Set easy level game styles */
-    .ipad-easy-lastrow {
-        margin-left: 30px;
-        margin-top: 10px;
-    }
-
-    .ipad-easy-lastrow1 {
-        margin-right: 30px;
-        margin-top: 10px;
-    }
-
-    .small-game-image-adv {
-        border: 2px solid white;
-        height: 150px;
-        width: 150px;
-        padding: 2px;
-        margin: 10px;
-    }
-
-    .home-btn-return {
-        top: 0px;
-        left: 3%;
-        z-index: 1;
-    }
-
-    .i-home-btn-return {
-        font-size: 25px;
-    }
-
-    /* set style on iPad for medium level */
-    .main-game-image-md {
-        width: 210px;
-        height: 210px;
-        margin: 50px 0 30px 0;
-        border: 2px solid white;
-        padding: 2px;
-    }
-
-    .small-game-image-md {
-        border: 2px solid white;
-        height: 190px;
-        width: 190px;
-        padding: 2px;
-        margin-top: 20px;
-    }
-
-    /* Set timer and rounds div on iPad for all game levels */
-    .timer-div-style {
-        margin-top: 40px;
-        margin-bottom: 10px;
-    }
-
-    /* set style on iPad for advanced level */
-    .main-game-image-adv {
-        width: 195px;
-        height: 195px;
-        margin: 30px 0 20px 0;
-        border: 2px solid white;
-        padding: 2px;
-    }
-
-    .small-game-image-adv {
-        border: 2px solid white;
-        height: 180px;
-        width: 180px;
-        padding: 2px;
-    }
-}
-
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
+    
     /* Set timer and rounds div on iPad Pro fo all game levels */
     .timer-div-style {
         margin-top: 30px;
         margin-bottom: 20px;
     }
-
+    
     .time-span,
     .round-span {
         font-size: 30px;
     }
-
+    
     /* Set styles for easy game level */
     .main-game-image-easy {
         width: 220px;
@@ -725,7 +551,7 @@ button {
         border: 2px solid white;
         padding: 2px;
     }
-
+    
     .small-game-image-easy {
         border: 2px solid white;
         height: 190px;
@@ -733,17 +559,18 @@ button {
         padding: 2px;
         margin-top: 20px;
     }
-
+    
+    /*Style home return button for all game levels for large devices*/
     .home-btn-return {
         top: 8rem;
         left: 3%;
         z-index: 1;
     }
-
+    
     .i-home-btn-return {
         font-size: 25px;
     }
-
+    
     /* Set styles for medium game level */
     .main-game-image-md {
         width: 200px;
@@ -752,7 +579,7 @@ button {
         border: 2px solid white;
         padding: 2px;
     }
-
+    
     .small-game-image-md {
         border: 2px solid white;
         height: 190px;
@@ -760,8 +587,8 @@ button {
         padding: 2px;
         margin-top: 20px;
     }
-
-
+    
+    
     /* Set styles for advanced game level */
     .main-game-image-adv {
         width: 200px;
@@ -770,7 +597,7 @@ button {
         border: 2px solid white;
         padding: 2px;
     }
-
+    
     .small-game-image-adv {
         border: 2px solid white;
         height: 190px;
@@ -780,9 +607,184 @@ button {
     }
 }
 
+/* --------------Styles for iPad Pro-------------------*/
+@media (min-width: 1024px) and (max-width: 1366px) {
+    
+    /* Set up easy level styles for iPad Pro */
+    
+    /* Set position of difficulty window on an IPad */
+    /* .home-page-window {
+    margin-top: 18rem;
+    } */
+    /* Set styles for easy level on an iPad Pro - medium devices */
+    .easy-game-div {
+        position: absolute;
+        top: 15rem;
+    }
+    
+    .main-game-image-easy {
+        width: 220px;
+        height: 220px;
+        margin: 50px 0 30px 0;
+        border: 2px solid white;
+        padding: 2px;
+    }
+    
+    .small-game-image-easy {
+        border: 2px solid white;
+        height: 200px;
+        width: 200px;
+        padding: 2px;
+        margin-top: 30px;
+    }
+    
+    
+    .home-btn-return {
+        top: 10rem;
+        left: 3%;
+        z-index: 1;
+    }
+    
+    .i-home-btn-return {
+        font-size: 25px;
+    }
+    
+    /* Set styles for medium level on an iPad Pro- medium devices */
+    .medium-game-div {
+        position: absolute;
+        top: 15rem;
+    }
+    
+    .small-game-image-md {
+        border: 2px solid white;
+        height: 200px;
+        width: 200px;
+        padding: 2px;
+        margin-top: 20px;
+    }
+    
+    .main-game-image-md {
+        width: 230px;
+        height: 230px;
+        margin: 50px 0 30px 0;
+        border: 2px solid white;
+        padding: 2px;
+    }
+    
+    /* Set styles for advanced level on an iPadPro - medium devices */
+    .advanced-game-div {
+        position: absolute;
+        top: 15rem;
+    }
+    
+    .main-game-image-adv {
+        width: 220px;
+        height: 220px;
+        margin: 50px 0 30px 0;
+        border: 2px solid white;
+        padding: 2px;
+    }
+    
+    .small-game-image-adv {
+        border: 2px solid white;
+        height: 200px;
+        width: 200px;
+        padding: 2px;
+        margin-top: 30px;
+    }
+    
+    /* Set position of difficulty window on an IPad Pro */
+    .home-page-window {
+        margin-top: 15rem;
+    }
+    
+    /* Set timer and rounds div on iPad Pro fo all game levels */
+    .timer-div-style {
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+    
+    .time-span,
+    .round-span {
+        font-size: 35px;
+    }
+}
+
+/* --------------------------Syles for Ipad----------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+    
+    /* Set easy level game styles */
+    .ipad-easy-lastrow {
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+    
+    .ipad-easy-lastrow1 {
+        margin-right: 30px;
+        margin-top: 10px;
+    }
+    
+    .small-game-image-adv {
+        border: 2px solid white;
+        height: 150px;
+        width: 150px;
+        padding: 2px;
+        margin: 10px;
+    }
+    
+    .home-btn-return {
+        top: 0px;
+        left: 3%;
+        z-index: 1;
+    }
+    
+    .i-home-btn-return {
+        font-size: 25px;
+    }
+    
+    /* set style on iPad for medium level */
+    .main-game-image-md {
+        width: 210px;
+        height: 210px;
+        margin: 50px 0 30px 0;
+        border: 2px solid white;
+        padding: 2px;
+    }
+    
+    .small-game-image-md {
+        border: 2px solid white;
+        height: 190px;
+        width: 190px;
+        padding: 2px;
+        margin-top: 20px;
+    }
+    
+    /* Set timer and rounds div on iPad for all game levels */
+    .timer-div-style {
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+    
+    /* set style on iPad for advanced level */
+    .main-game-image-adv {
+        width: 195px;
+        height: 195px;
+        margin: 30px 0 20px 0;
+        border: 2px solid white;
+        padding: 2px;
+    }
+    
+    .small-game-image-adv {
+        border: 2px solid white;
+        height: 180px;
+        width: 180px;
+        padding: 2px;
+    }
+}
+
 /* ----------------Styles for Surface Duo ----------------*/
 @media (min-width: 540px) and (max-width: 720px) {
-
+    
     /* Return home button for medium level game */
     .home-btn-return {
         position:
@@ -790,9 +792,9 @@ button {
         left: 3%;
         z-index: 1;
     }
-
+    
     .i-home-btn-return {
         font-size: 20px;
     }
-
-    /* -------------------------------/Media Queries----------------------------- */
+    
+    /* -----------------------/Media Queries------------------------ */

@@ -158,6 +158,3 @@ function fadeIn(audioElement, maxVol, startDelay, fadeInTime, steps) {
     }, interval);
   }, startDelay);
 }
-
-
-

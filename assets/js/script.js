@@ -93,20 +93,6 @@ document.getElementById("btn-sound-back").addEventListener("click", event => {
   showHide(true, 'home-page-modal');
 });
 
-// Contact Us Button
-// document.getElementById("btn-contact").addEventListener("click", event => {
-//   soundClick();
-//   closeAllModals();
-//   document.getElementById("contact-page-window").classList.remove("invisible");
-//   document.getElementById("contact-page-window").classList.add("visible");
-// });
-
-// Contact Form Go Back
-// document.getElementById("btn-contact-back").addEventListener("click", event => {
-//   document.getElementById("contact-page-window").classList.add("invisible");
-// });
-
-
 function closeAllModals() {
   //let divs = [ 'home-page-modal', 'div-rules', 'div-sounds', 'contact-page-window',  'div-difficulty' ];
   let divs = [ 
@@ -126,7 +112,6 @@ function closeAllModals() {
     showHide(false, divs[i]);
   }
 }
-
 
 // Show or hide a div (show == true will show it, show == false will hide it)
 function showHide(show, div) {
