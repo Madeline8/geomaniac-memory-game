@@ -106,16 +106,62 @@ background-size: cover;
 height:100vh;
 } */
 
-/* Style time and round span */
-#time-span {
-    margin-right: 12rem;
+/* --------------------General Styles for EASY Game Level------------------ */
+.easy-game-div {
+    position: absolute;
+    top: 9rem;
 }
 
-.timer-div-style {
-    margin: 0px;
+.main-game-image-easy {
+    border: 2px solid white;
+    padding: 2px;
 }
 
-/* ---------------------General styles for all game levels---------------- */
+.small-game-image-easy {
+    border: 2px solid white;
+    padding: 2px;
+}
+
+/* ------------------/General Styles for EASY Game Level -------------------*/
+/* --------------------Genral Styles for MEDIUM Game Level------------------ */
+
+.medium-game-div {
+    position: absolute;
+    top: 9rem;
+}
+
+.col-level-md-game {
+    margin:0;
+}
+
+.main-game-image-md {
+    border: 2px solid white;
+    padding: 2px;
+}
+
+.small-game-image-md {
+    border: 2px solid white;
+    padding: 2px;
+}
+
+/* ----------------/Genral Styles for MEDIUM Game Level------------------ */
+/* -----------------General styles for ADVANCED Game Level -----------------*/
+.advanced-game-div {
+    position: absolute;
+    top: 9rem;
+}
+
+.main-game-image-adv {
+    border: 2px solid white;
+    padding: 2px;
+}
+
+.small-game-image-adv {
+    border: 2px solid white;
+    padding: 2px;
+}
+/* -------------General styles for ADVANCED Game Level ----------------*/
+/* -------------------In - game modal styles ------------------ */
 
 .game-fail-div {
     width: 100%;
@@ -123,86 +169,6 @@ height:100vh;
     padding-left: 15px;
     position: absolute;
 }
-
-/* ---------------------/General styles for all game levels---------------- */
-/* ---------------------------Styles for EASY Level---------------------- */
-.easy-game-div {
-    /* position: absolute; */
-    top: 9rem;
-}
-
-.main-game-image-easy {
-    width: 200px;
-    height: 200px;
-    margin: 10px 0 15px 0;
-    border: 2px solid white;
-    padding: 2px;
-}
-
-.small-game-image-easy {
-    border: 2px solid white;
-    height: 190px;
-    margin-top: 10px;
-    width: 190px;
-    padding: 2px;
-}
-
-/* ----------------------------/Styles for Easy Level -------------------*/
-/* -------------------------Styles for MEDIUM Level---------------------- */
-.medium-game-div {
-    position: absolute;
-    top: 9rem;
-}
-
-.main-game-image-md {
-    width: 200px;
-    height: 200px;
-    /* margin: 10px 0 15px 0; */
-    border: 2px solid white;
-    padding: 2px;
-}
-
-.small-game-image-md {
-    border: 2px solid white;
-    height: 190px;
-    width: 190px;
-    padding: 2px;
-    margin-top: 10px;
-}
-
-/* -------------------------/Styles for Medium Level---------------------- */
-/* ----------------------Styles for ADVANCED Level ----------------------*/
-.advanced-game-div {
-    position: absolute;
-    top: 9rem;
-}
-
-.main-game-image-adv {
-    width: 180px;
-    height: 180px;
-    margin: 10px 0 15px 0;
-    border: 2px solid white;
-    padding: 2px;
-}
-
-.small-game-image-adv {
-    border: 2px solid white;
-    height: 150px;
-    width: 150px;
-    padding: 2px;
-}
-
-/* ----------------------Styles for Advanced Level ----------------------*/
-/* -------------------In - game styles ------------------ */
-
-/* .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
-width: 100%;
-padding-right: 5px;
-padding-left: 15px;
-margin-right: auto;
-margin-left: auto;
-} */
-
 .in-game-button {
     color: antiquewhite;
     height: fit-content;
@@ -248,9 +214,6 @@ margin-left: auto;
 }
 
 .home-btn-return {
-    position: absolute;
-    top: 5vh;
-    left: 1%;
     border-width: 2px;
     background-color: #003300;
     color: #E5EAE5;
@@ -268,7 +231,13 @@ margin-left: auto;
     font-size: 20px;
 }
 
-/* -------------------/In - game styles ------------------ */
+/* Style timer and round div for all game levels */
+.timer-div-style {
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+/* -------------------/In - game modal styles ------------------ */
 /* -------------------------------/Footer----------------------------- */
 .main-footer {
     line-height: 40px;
@@ -290,7 +259,6 @@ margin-left: auto;
 }
 
 /* User notifications */
-
 .user-notification {
     background-color: #003300;
     color: #F8fbf8;
@@ -305,11 +273,10 @@ margin-left: auto;
     text-align: center;
     
 }
-
 /* -------------------------------/Footer----------------------------- */
 /* -------------------------------Media Queries----------------------------- */
 
-/* Extra small devices (portrait phones, less than 576px) */
+/* --------Extra small devices (less than 576px) ---------*/
 @media (max-width: 575.98px) {
     
     /* align home window modal on an iphone 5/SE */
@@ -317,33 +284,66 @@ margin-left: auto;
         /* width: 19rem;
         height: 20rem; */
         margin-top: 5;
-        font-size: 16px !important;
+        font-size: 16px!important;
     }
-    
-    /* Set styles for advanced level on MOBILE phones */
+
+    /* Set styles for easy game level on MOBILE phones */
+    .main-game-image-easy {
+        width: 120px;
+        height: 120px;
+        margin: 5px 0px 5px 0px;
+    }
+
+    .small-game-image-easy {
+        height: 120px;
+        width: 120px;
+    }
+
+    /* Set styles for medium game level */
+    .main-game-image-md {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 4px;
+    }
+
+    .small-game-image-md {
+        height: 100px;
+        width: 100px;
+        margin-top: 2px;
+    }
+
+    /* Set styles for advanced level */
     .main-game-image-adv {
-        width: 130px;
-        height: 130px;
-        margin: 10px 0 10px 0;
-        border: 2px solid white;
-        padding: 2px;
+        width: 105px;
+        height: 100px;
+        margin: 0px 0 2px 0;
     }
     
     .small-game-image-adv {
-        border: 2px solid white;
-        height: 100px;
-        width: 100px;
-        padding: 2px;
+        height: 87px;
+        width: 90px;
     }
-    
-    /* set position of times/round for xs devices */
-    .round-span {
-        margin-left: -6rem;
-    }
-    
 }
 
-/*------------ SMALL DEVICES (landscape phones, less than 768px) ------------*/
+/* -------Small devices (576px and up) ----------*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+    
+    /* Set styles for EASY level */
+    .main-game-image-easy {
+        width: 130px;
+        height: 130px;
+        margin: 3px 0px 1px 0px;
+    }
+    
+    .small-game-image-easy {
+        height: 130px;
+        width: 130px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+/*------------ SMALL DEVICES (less than 768px) ------------*/
 @media (max-width: 767.98px) {
     
     /* Navbar setup */
@@ -363,76 +363,10 @@ margin-left: auto;
         border-color: #E5EAE5;
     }
     
-    /* set smaller font size for smaller devices */
-    /* .window-header {
-    font-size: 20px;
-    } */
-    
-    /* Set styles for EASY level on MOBILE phones */
-    .main-game-image-easy {
-        width: 130px;
-        height: 130px;
-        margin: 0;
-        border: 2px solid white;
-        padding: 2px;
-    }
-    
-    .small-game-image-easy {
-        border: 2px solid white;
-        height: 120px;
-        width: 120px;
-        padding: 2px;
-    }
-    
-    /* Set styles for MEDIUM level on MOBILE phones */
-    .main-game-image-md {
-        width: 130px;
-        height: 130px;
-        border: 2px solid white;
-        padding: 2px;
-    }
-    
-    .small-game-image-md {
-        border: 2px solid white;
-        height: 120px;
-        width: 120px;
-        padding: 2px;
-        margin-top: 5px;
-    }
-    
-    /* Set styles for advanced level on MOBILE phones */
-    .main-game-image-adv {
-        width: 150px;
-        height: 150px;
-        margin: 10px 0 10px 0;
-        border: 2px solid white;
-        padding: 2px;
-    }
-    
-    .small-game-image-adv {
-        border: 2px solid white;
-        height: 110px;
-        width: 110px;
-        padding: 2px;
-    }
-    
     /* Set timer and rounds div on mobile phones fo all game levels */
     .timer-div-style {
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-    
-    .round-span {
-        margin-left: -40px;
-        margin-right: 30px;
-    }
-    
-    
-    /* Style Return home button for all game levels*/
-    .home-btn-return {
-        top: 12vh;
-        left: 3%;
-        z-index: 1;
+        font-size: 1.2rem;
+        margin: 1px 2px;
     }
     
     .i-home-btn-return {
@@ -444,7 +378,7 @@ margin-left: auto;
 @media (min-width: 768px) {
     
     /* adjust position of home window modal */
-    .home-page-window {
+    /* .home-page-window {
         width: 25rem;
         height: 25rem;
         margin-top: 11rem;
@@ -454,40 +388,11 @@ margin-left: auto;
         margin-top: 1.5em;
         margin-bottom: 10px;
         width: 11em;
-    }
-    
-    /* Adjust images in the game area */
-    /* .small-game-image {
-    height: 150px;
-    width: 150px;
-    } */
-    
-    /* .main-game-image {
-    width: 180px;
-    height: 180px;
-    margin-bottom: 50px;
-    margin-top: 10px;
     } */
     
 }
 
-/* NOT USING NOW Medium devices (tablets, less than 992px) */ 
-@media (max-width: 991.98px) {
-    
-    /* .small-game-image-easy {
-    border: 2px solid white;
-    height: 150px;
-    width: 150px;
-    margin: 10px 0 0 0;
-    padding: 2px;
-    }
-    
-    .small-img-col-easy {
-    width: 50px;
-    } */
-}
-
-/* Medium devices (tablets, 768px and up) */
+/* -------Medium devices (tablets, 768px and up) ---------*/
 @media (min-width: 768px) and (max-width: 991.98px) {
     
     /* Set position of difficulty window on an IPad */
@@ -495,33 +400,22 @@ margin-left: auto;
         margin-top: 18rem;
     }
     
-    /* Set styles for easy level on an iPad - medium devices */
+    /* Set styles for easy game level */
     .easy-game-div {
         position: absolute;
         top: 11rem;
     }
-    
+
     .main-game-image-easy {
-        width: 200px;
+        margin: 10px 0px 10px 0px;
         height: 200px;
-        margin: 10px 0 20px 0;
-        border: 2px solid white;
-        padding: 2px;
+        width: 200px;
     }
     
     .small-game-image-easy {
-        border: 2px solid white;
         height: 190px;
         width: 190px;
-        padding: 2px;
-        margin-top: 20px;
-    }
-    
-    /* Style Return home button for all levels for medium devices (medium level game) */
-    .home-btn-return {
-        top: 0px;
-        left: 3%;
-        z-index: 1;
+        margin: 10px 0px 10px 0px;
     }
     
     .i-home-btn-return {
@@ -529,7 +423,22 @@ margin-left: auto;
     }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
+/* ----------Large devices (desktops, 992px and up) ---------*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .main-game-image-md {
+        width: 195px;
+        height: 198px;
+        margin-bottom: 1px;
+    }
+    
+    .small-game-image-md {
+        height: 165px;
+        width: 170px;
+        margin-top: 2px;
+    }
+}
+
+/* -----------Extra large devices (large desktops, 1200px and up) ---------*/
 @media (min-width: 1200px) {
     
     /* Set timer and rounds div on iPad Pro fo all game levels */
@@ -542,29 +451,22 @@ margin-left: auto;
     .round-span {
         font-size: 30px;
     }
-    
-    /* Set styles for easy game level */
+
     .main-game-image-easy {
-        width: 220px;
-        height: 220px;
-        margin: 40px 0 20px 0;
-        border: 2px solid white;
-        padding: 2px;
+        height: 200px;
+        width: 200px;
+        margin: 15px 0px 15px 0px;
     }
     
     .small-game-image-easy {
-        border: 2px solid white;
         height: 190px;
         width: 190px;
-        padding: 2px;
         margin-top: 20px;
     }
-    
-    /*Style home return button for all game levels for large devices*/
-    .home-btn-return {
-        top: 8rem;
-        left: 3%;
-        z-index: 1;
+
+    .timer-div-style {
+        margin-top: 5px;
+        font-size: 25px;
     }
     
     .i-home-btn-return {
@@ -573,37 +475,32 @@ margin-left: auto;
     
     /* Set styles for medium game level */
     .main-game-image-md {
-        width: 200px;
-        height: 200px;
-        margin: 40px 0 20px 0;
+        width: 170px;
+        height: 170px;
+        margin: 0px 0 1px 0;
         border: 2px solid white;
         padding: 2px;
     }
     
     .small-game-image-md {
         border: 2px solid white;
-        height: 190px;
-        width: 190px;
+        height: 150x;
+        width: 150px;
         padding: 2px;
-        margin-top: 20px;
+        margin-bottom: 1px;
     }
-    
     
     /* Set styles for advanced game level */
     .main-game-image-adv {
-        width: 200px;
-        height: 200px;
-        margin: 40px 0 20px 0;
-        border: 2px solid white;
-        padding: 2px;
+        width: 180px;
+        height: 180px;
+        margin: 1px 0 1px 0;
     }
     
     .small-game-image-adv {
-        border: 2px solid white;
-        height: 190px;
-        width: 190px;
-        padding: 2px;
-        margin-top: 20px;
+        height: 143px;
+        width: 150px;
+        margin-top: 6px;
     }
 }
 
@@ -628,21 +525,12 @@ margin-left: auto;
         margin: 50px 0 30px 0;
         border: 2px solid white;
         padding: 2px;
-    }
-    
+    } */
+
     .small-game-image-easy {
-        border: 2px solid white;
         height: 200px;
         width: 200px;
-        padding: 2px;
-        margin-top: 30px;
-    }
-    
-    
-    .home-btn-return {
-        top: 10rem;
-        left: 3%;
-        z-index: 1;
+        margin: 10px 0px 5px 0px;
     }
     
     .i-home-btn-return {
@@ -655,22 +543,6 @@ margin-left: auto;
         top: 15rem;
     }
     
-    .small-game-image-md {
-        border: 2px solid white;
-        height: 200px;
-        width: 200px;
-        padding: 2px;
-        margin-top: 20px;
-    }
-    
-    .main-game-image-md {
-        width: 230px;
-        height: 230px;
-        margin: 50px 0 30px 0;
-        border: 2px solid white;
-        padding: 2px;
-    }
-    
     /* Set styles for advanced level on an iPadPro - medium devices */
     .advanced-game-div {
         position: absolute;
@@ -681,15 +553,11 @@ margin-left: auto;
         width: 220px;
         height: 220px;
         margin: 50px 0 30px 0;
-        border: 2px solid white;
-        padding: 2px;
     }
     
     .small-game-image-adv {
-        border: 2px solid white;
         height: 200px;
         width: 200px;
-        padding: 2px;
         margin-top: 30px;
     }
     
@@ -714,7 +582,7 @@ margin-left: auto;
 @media (min-width: 768px) and (max-width: 1024px) {
     
     /* Set easy level game styles */
-    .ipad-easy-lastrow {
+    /* .ipad-easy-lastrow {
         margin-left: 30px;
         margin-top: 10px;
     }
@@ -722,20 +590,18 @@ margin-left: auto;
     .ipad-easy-lastrow1 {
         margin-right: 30px;
         margin-top: 10px;
+    } */
+
+    .main-game-image-easy {
+        height: 200px;
+        width: 200px;
+        margin: 15px 0px 15px 0px;
     }
     
-    .small-game-image-adv {
-        border: 2px solid white;
-        height: 150px;
-        width: 150px;
-        padding: 2px;
-        margin: 10px;
-    }
-    
-    .home-btn-return {
-        top: 0px;
-        left: 3%;
-        z-index: 1;
+    .small-game-image-easy {
+        height: 190px;
+        width: 190px;
+        margin: 10px 0px 5px 0px;
     }
     
     .i-home-btn-return {
@@ -744,19 +610,15 @@ margin-left: auto;
     
     /* set style on iPad for medium level */
     .main-game-image-md {
-        width: 210px;
-        height: 210px;
-        margin: 50px 0 30px 0;
-        border: 2px solid white;
-        padding: 2px;
+        width: 208px;
+        height: 205px;
+        margin: 10px 0 30px 0;
     }
     
     .small-game-image-md {
-        border: 2px solid white;
-        height: 190px;
-        width: 190px;
-        padding: 2px;
-        margin-top: 20px;
+        height: 166px;
+        width: 172px;
+        margin-bottom: 2px;
     }
     
     /* Set timer and rounds div on iPad for all game levels */
@@ -770,15 +632,11 @@ margin-left: auto;
         width: 195px;
         height: 195px;
         margin: 30px 0 20px 0;
-        border: 2px solid white;
-        padding: 2px;
     }
     
     .small-game-image-adv {
-        border: 2px solid white;
-        height: 180px;
+        height: 2180px;
         width: 180px;
-        padding: 2px;
     }
 }
 
@@ -786,15 +644,131 @@ margin-left: auto;
 @media (min-width: 540px) and (max-width: 720px) {
     
     /* Return home button for medium level game */
-    .home-btn-return {
-        position:
+    /* .home-btn-return {
+        position: absolute;
         top: 7rem;
         left: 3%;
         z-index: 1;
-    }
+    } */
     
     .i-home-btn-return {
         font-size: 20px;
     }
+
+    /* style main game image */
+    .main-game-image-adv {
+        width: 120px;
+        height: 120px;
+        margin: 0px;
+        border: 2px solid white;
+        padding: 2px;
+    }
+
+    .small-game-image-adv {
+        height: 95px;
+        width: 95px;
+    }
+}
+
+/* iPhone 6/7/8 Plus */
+@media (min-width: 414px) and (max-width: 736px) {
+    .main-game-image-easy {
+        width: 140px;
+        height: 140px;
+        margin: 10px 0px 5px 0px;
+    }
     
-    /* -----------------------/Media Queries------------------------ */
+    .small-game-image-easy {
+        height: 120px;
+        width: 120px;
+        margin: 10px 0px 10px 0px;
+    }
+}
+
+/* Styles specifically for iPhone 5/SE and GalxyS5*/
+@media (max-width: 360px) {
+
+    /* Style medium game level */
+    .main-game-image-md {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 2px;
+    }
+
+    .small-game-image-md {
+        height: 85px;
+        width: 85px;
+        margin-top: 2px;
+    }
+
+/* Style advanced game level */
+    .main-game-image-adv {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 1px;
+    }
+
+    .small-game-image-adv {
+        height: 68px;
+        width: 72px;
+        margin-top: 2px;
+    }
+
+}
+
+/* Style for iPhone 6/7/8 Plus */
+@media (width: 414px) {
+    /* style images in advanced game level */
+.main-game-image-adv {
+    width: 108px;
+    height: 105px;
+    margin: 0px 0 3px 0;
+}
+
+.small-game-image-adv {
+    height: 96px;
+    width: 100px;
+}
+
+/* style images in medium game level */
+.main-game-image-md {
+    width: 125px;
+    height: 125px;
+    margin: 0px 0 5px 0;
+}
+
+.small-game-image-md {
+    height: 115px;
+    width: 115px;
+    margin-bottom: 4px;
+}
+
+}
+
+/* Styles for iPhone X and iPhone 6/7/8 */
+@media (width: 375px) {
+
+/* Style images for medium game level */
+.main-game-image-md {
+    margin-bottom: 4px;
+}
+
+.small-game-image-md {
+    margin-bottom: 4px;
+}
+
+/* Style images for advanced game level */
+.main-game-image-adv {
+    width: 105px;
+    height: 100px;
+    margin: 1px 0 3px 0;
+}
+
+.small-game-image-adv {
+    height: 81px;
+    width: 85px;
+    margin-bottom: 5px;
+}
+}
+
+/* ---------------------Media Queries ------------------*/
