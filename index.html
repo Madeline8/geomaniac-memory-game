@@ -34,15 +34,15 @@
   </header>
   <main class="main-div-style">
     <!-- Home Page Modal Window -->
-    <div class="visible container home-page-window flex-column d-flex   align-items-center text-center" id="home-page-modal">
+    <div class="invisible container home-page-window flex-column d-flex   align-items-center text-center" id="home-page-modal">
       <button class="btn btn-block home-button text-center" id="btn-play">PLAY</button>
       <button class="btn btn-block home-button" id="btn-rules">RULES</button>
       <button class="btn btn-block home-button" id="btn-sounds">SOUNDS</button>
     </div>
     <!-- Difficulty Level Modal Window. It appears once player clicks on the 'Play' button -->
-    <div class="invisible container home-page-window flex-column d-flex align-items-center" id="div-difficulty">
+    <div class="invisible container home-page-window difficulty-window flex-column d-flex align-items-center" id="div-difficulty">
       <h4 class="window-header">CHOOSE LEVEL OF DIFFICULTY</h4>
-      <button class="btn btn-block home-button" id="easy-level-button"
+      <button class="btn btn-block home-button home-button-easy" id="easy-level-button"
       >EASY</button>
       <button class="btn btn-block home-button" id="medium-level-button"
       >MEDIUM</button>
@@ -53,16 +53,36 @@
       </a>
     </div>
      <!-- Rules Modal Window -->
-    <div class="invisible container home-page-window flex-column d-flex align-items-center" id="div-rules">
+    <div class="visible container flex-column d-flex align-items-center text-center" id="div-rules">
+      <div class="container rules-container">
       <h4 class="window-header" id="rules-btn">RULES</h4>
-      <p>Rules to be added at a later stage</p>
-      <a href="#">
-        <i class="fas fa-arrow-circle-left go-back-btn-other" id="btn-rules-back"> Go Back</i>
-      </a>
+      <div class="row">
+        <div class="col-12">
+          Click play to start the game.<br>
+            Choose easy, medium or advanced level.<br>
+            
+            There are 8 rounds and with each round the sequence shows one additional image. <br>
+            You win if you guess the correct sequence of images in all 8 rounds. <br>
+            You are allowed to fail twice during the game. <br> 
+            The game is over if you haven’t made any more for 1 minute.<br>
+            You will get your time scores saved.
+            <ul>
+              <li>Easy Level: You have 4 images to choose from.<br></li>
+              <li>Medium Level: You have 6 images to choose from.</li>
+              <li>Advanced Level: You have 8 images to choose from.<br></li>  
+          </ul>
+        </div>
+        <a href="#">
+          <i class="fas fa-arrow-circle-left go-back-btn-other text-center" id="btn-rules-back"> Go Back</i>
+        </a>
+
+      </div>
+    </div>
+
     </div>
      <!-- Sounds Modal Window -->
     <!-- Used this resource: https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
-    <div class="invisible container home-page-window flex-column d-flex        align-items-center"
+    <div class="invisible container home-page-window flex-column d-flex        align-items-center text-center"
       id="div-sounds">
       <div class="slidecontainer">
         <h4>SOUND EFFECT</h4>

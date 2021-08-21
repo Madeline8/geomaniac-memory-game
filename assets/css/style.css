@@ -49,9 +49,9 @@ button {
     /* border-radius: 15%; */
     text-align: center;
     /* background-color: #b5e7b5; */
-    height: 22rem;
-    width: 21rem;
-    position: absolute;
+    height: 25rem;
+    width: 25rem;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -62,9 +62,8 @@ button {
 .home-button {
     font-size: 25px;
     border: 1px solid black;
-    margin-top: 2em;
     border-width: 2px;
-    background-color: #003300;
+    background-color: #2F592F;
     position: relative;
     margin-bottom: 4px;
     width: 10em;
@@ -72,13 +71,26 @@ button {
     border-color: #E5EAE5;
 }
 
+/* .home-button-easy {
+    font-size: 25px;
+    border: 1px solid black;
+ 
+    border-width: 2px;
+    background-color: #2F592F;
+    position: relative;
+    margin-bottom: 4px;
+    width: 10em;
+    color: #E5EAE5;
+    border-color: #E5EAE5;
+} */
+
 .home-button:hover {
     background-color: #009900;
 }
 
-/* .window-header {
-margin-top: 3px;
-} */
+.window-header {
+font-size: 25px;
+}
 
 .go-back-btn-other {
     color: #323232;
@@ -94,7 +106,23 @@ margin-top: 3px;
     margin-top: 3px;
 }
 
+
+
 /* ---------------/Choose Level of Difficulty - Window Modal---------------- */
+/* ---------------Rules - Window Modal---------------- */
+.rules-container {
+    position: absolute;
+    /* z-index: 2; */
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    /* overflow: auto; */
+
+}
+
+/* ---------------/Rules - Window Modal---------------- */
 
 /* Game area - set background image */
 /* .background-img-game {
@@ -199,7 +227,7 @@ height:100vh;
 }
 
 .time-records-div {
-    background-color: #003300;
+    background-color: #2F592F;
     color: #F8fbf8;
     opacity: 0.7;
     max-width: 27rem;
@@ -215,7 +243,7 @@ height:100vh;
 
 .home-btn-return {
     border-width: 2px;
-    background-color: #003300;
+    background-color: #2F592F;
     color: #E5EAE5;
     border-color: #E5EAE5;
     max-width: fit-content;
@@ -260,7 +288,7 @@ height:100vh;
 
 /* User notifications */
 .user-notification {
-    background-color: #003300;
+    background-color: #2F592F;
     color: #F8fbf8;
     opacity: 0.7;
     height: 6rem;
@@ -285,6 +313,18 @@ height:100vh;
         height: 20rem; */
         margin-top: 5;
         font-size: 16px!important;
+    }
+
+    .difficulty-window {
+        border-radius: 15%;
+        text-align: center;
+        /* background-color: #b5e7b5; */
+        height: 19rem;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 
     /* Set styles for easy game level on MOBILE phones */
@@ -355,7 +395,7 @@ height:100vh;
     .home-button {
         font-size: 20px;
         border-width: 2px;
-        background-color: #003300;
+        background-color: #2F592F;
         position: relative;
         margin-bottom: 4px;
         width: 13rem;
@@ -378,17 +418,17 @@ height:100vh;
 @media (min-width: 768px) {
     
     /* adjust position of home window modal */
-    /* .home-page-window {
+    .home-page-window {
         width: 25rem;
         height: 25rem;
-        margin-top: 11rem;
+        margin-top: 13rem;
     }
     
     .home-button {
-        margin-top: 1.5em;
+        /* margin-top: 1.5em; */
         margin-bottom: 10px;
         width: 11em;
-    } */
+    }
     
 }
 
@@ -505,14 +545,14 @@ height:100vh;
 }
 
 /* --------------Styles for iPad Pro-------------------*/
-@media (min-width: 1024px) and (max-width: 1366px) {
+@media (width: 1024px)  {
     
+    /* and (max-width: 1366px) */
     /* Set up easy level styles for iPad Pro */
-    
     /* Set position of difficulty window on an IPad */
     /* .home-page-window {
     margin-top: 18rem;
-    } */
+    } *        
     /* Set styles for easy level on an iPad Pro - medium devices */
     .easy-game-div {
         position: absolute;
@@ -525,7 +565,7 @@ height:100vh;
         margin: 50px 0 30px 0;
         border: 2px solid white;
         padding: 2px;
-    } */
+    }
 
     .small-game-image-easy {
         height: 200px;
@@ -563,7 +603,7 @@ height:100vh;
     
     /* Set position of difficulty window on an IPad Pro */
     .home-page-window {
-        margin-top: 15rem;
+        margin-top: 25rem;
     }
     
     /* Set timer and rounds div on iPad Pro fo all game levels */
@@ -635,7 +675,7 @@ height:100vh;
     }
     
     .small-game-image-adv {
-        height: 2180px;
+        height: 180px;
         width: 180px;
     }
 }
