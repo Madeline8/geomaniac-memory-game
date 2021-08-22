@@ -95,7 +95,7 @@ font-size: 25px;
 .go-back-btn-other {
     color: #323232;
     font-size: 14px;
-    margin-top: 3px;
+    margin-top: 3px
 }
 
 /* -------------------/General settings - Window Modal ------------------ */
@@ -104,22 +104,32 @@ font-size: 25px;
     color: #323232;
     font-size: 19px;
     margin-top: 3px;
+    font-family: 'Poppins';
 }
 
 
 
 /* ---------------/Choose Level of Difficulty - Window Modal---------------- */
 /* ---------------Rules - Window Modal---------------- */
-.rules-container {
-    position: absolute;
-    /* z-index: 2; */
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    /* overflow: auto; */
+.rules-div {
+    margin-top: 0;
+    max-height: 73%;
+    height: auto;
+    /* background: #009900;   */
+    background-color: #2F592F;
+    opacity: 0.8;
+    color:#E5EAE5;
+    border-radius: 5%;
+}
 
+.text-center {
+    text-align: center!important;
+}
+
+.go-back-btn-rules {
+    color: #E5EAE5;
+    font-size: 15px;
+    margin-top: 2px;
 }
 
 /* ---------------/Rules - Window Modal---------------- */
@@ -327,6 +337,13 @@ height:100vh;
         margin: auto;
     }
 
+    /* Rules */
+    .rules-div {
+        margin-top: 4px;
+        max-height: 73%;
+        max-width: 90%;
+    }
+
     /* Set styles for easy game level on MOBILE phones */
     .main-game-image-easy {
         width: 120px;
@@ -480,6 +497,14 @@ height:100vh;
 
 /* -----------Extra large devices (large desktops, 1200px and up) ---------*/
 @media (min-width: 1200px) {
+
+        /* Rules div */
+        .rules-div {
+            margin-top: 10px;
+            max-height: 70%;
+            max-width: 50%;
+            font-size: 18px;
+        }
     
     /* Set timer and rounds div on iPad Pro fo all game levels */
     .timer-div-style {
@@ -552,7 +577,8 @@ height:100vh;
     /* Set position of difficulty window on an IPad */
     /* .home-page-window {
     margin-top: 18rem;
-    } *        
+    } *      
+    
     /* Set styles for easy level on an iPad Pro - medium devices */
     .easy-game-div {
         position: absolute;
@@ -621,16 +647,14 @@ height:100vh;
 /* --------------------------Syles for Ipad----------------------------- */
 @media (min-width: 768px) and (max-width: 1024px) {
     
-    /* Set easy level game styles */
-    /* .ipad-easy-lastrow {
-        margin-left: 30px;
-        margin-top: 10px;
+    /* Rules */
+    .rules-div {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        max-height: 76%;
+        max-width: 70%;
+        font-size: 20px;
     }
-    
-    .ipad-easy-lastrow1 {
-        margin-right: 30px;
-        margin-top: 10px;
-    } */
 
     .main-game-image-easy {
         height: 200px;
@@ -741,6 +765,13 @@ height:100vh;
         margin-top: 2px;
     }
 
+    .rules-div {
+        margin-top: 2px;
+        max-height: 73%;
+        max-width: 99%;
+        font-size: 11.5px;
+    }
+
 /* Style advanced game level */
     .main-game-image-adv {
         width: 90px;
@@ -808,6 +839,14 @@ height:100vh;
     height: 81px;
     width: 85px;
     margin-bottom: 5px;
+}
+
+/* Rules */
+.rules-div {
+    margin-top: 4px;
+    max-height: 70%;
+    max-width: 90%;
+    font-size: 14px;
 }
 }
 

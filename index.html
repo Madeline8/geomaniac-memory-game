@@ -53,31 +53,38 @@
       </a>
     </div>
      <!-- Rules Modal Window -->
-    <div class="visible container flex-column d-flex align-items-center text-center" id="div-rules">
+    <div class="rules-window visible container rules-div flex-column d-flex align-items-center text-center"
+      id="div-rules">
       <div class="container rules-container">
-      <h4 class="window-header" id="rules-btn">RULES</h4>
-      <div class="row">
-        <div class="col-12">
-          Click play to start the game.<br>
-            Choose easy, medium or advanced level.<br>
-            
-            There are 8 rounds and with each round the sequence shows one additional image. <br>
-            You win if you guess the correct sequence of images in all 8 rounds. <br>
-            You are allowed to fail twice during the game. <br> 
-            The game is over if you haven’t made any more for 1 minute.<br>
-            You will get your time scores saved.
+        <h4 class="window-header" id="rules-btn">GAME RULES</h4>
+        <div class="row">
+          <div class="col-12 px-1 pt-2 pb-0 d-flex flex-column text-left">
             <ul>
-              <li>Easy Level: You have 4 images to choose from.<br></li>
-              <li>Medium Level: You have 6 images to choose from.</li>
-              <li>Advanced Level: You have 8 images to choose from.<br></li>  
-          </ul>
+              <li>Click play to start the game.</li>
+              <li>Choose easy, medium or advanced level.</li>
+              <ol>
+                <li>Easy: You have 4 images to choose from and 1.8 seconds to memorise each image shown in the sequence.
+                </li>
+                <li>Medium: You have 4 images to choose from and 1.6 seconds to memorise each image shown in the
+                  sequence.</li>
+                <li>Advanced: You have 4 images to choose from and 1.4 seconds to memorise each image shown in the
+                  sequence.</li>
+              </ol>
+              <li>There are 8 rounds and with each round the sequence shows one additional image.</li>
+              <li>You win if you guess the correct sequence of images in all 8 rounds. </li>
+              <li>You are allowed to fail twice during the game.</li>
+              <li>The game is over if you haven’t made any more for 1 minute.</li>
+              <li>You will get your time scores saved.</li>
+            </ul>
+          </div>
+          <div class="p-2 text-center">
+            <a href="#">
+              <i class="fas fa-arrow-circle-left go-back-btn-other go-back-btn-rules text-center" id="btn-rules-back">
+                Go Back</i>
+            </a>
+          </div>
         </div>
-        <a href="#">
-          <i class="fas fa-arrow-circle-left go-back-btn-other text-center" id="btn-rules-back"> Go Back</i>
-        </a>
-
       </div>
-    </div>
 
     </div>
      <!-- Sounds Modal Window -->
