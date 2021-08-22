@@ -230,7 +230,7 @@ function startTimer() {
 //check that a player has clicked an image in the last 'noMoveTime' seconds
 function displayTime() {
   let seconds = Math.floor((Date.now() - gameVars.startTime) / 1000);
-  document.getElementById("time-span").innerHTML = fmtTime(seconds);
+  document.getElementById("time-span").innerHTML= fmtTime(seconds);
   // If the game timer has expired, then endGame(failed)
   if (((Date.now() - gameVars.lastMoveTime) / 1000) > gameVars.noMoveTime) {
     gameVars.failedReason = `You haven't made any move for more than ${gameVars.noMoveTime} seconds`;

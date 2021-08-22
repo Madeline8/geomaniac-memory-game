@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,11 +20,13 @@
   <!-- Other styling -->
   <script src="https://kit.fontawesome.com/48c5969d7a.js" crossorigin="anonymous"></script>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
+    type="text/css" />
   <!-- javascript and jquery -->
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
 </head>
+
 <body class="background-image" onload="defaultVol();">
   <header>
     <nav class="navbar navbar-nav text-center">
@@ -34,48 +37,40 @@
   </header>
   <main class="main-div-style">
     <!-- Home Page Modal Window -->
-    <div class="invisible container home-page-window flex-column d-flex   align-items-center text-center" id="home-page-modal">
+    <div class="visible container home-page-window  d-flex flex-column align-items-center text-center"
+      id="home-page-modal">
       <button class="btn btn-block home-button text-center" id="btn-play">PLAY</button>
       <button class="btn btn-block home-button" id="btn-rules">RULES</button>
       <button class="btn btn-block home-button" id="btn-sounds">SOUNDS</button>
     </div>
     <!-- Difficulty Level Modal Window. It appears once player clicks on the 'Play' button -->
-    <div class="invisible container home-page-window difficulty-window flex-column d-flex align-items-center" id="div-difficulty">
+    <div class="invisible container home-page-window difficulty-window flex-column d-flex align-items-center"
+      id="div-difficulty">
       <h4 class="window-header">CHOOSE LEVEL OF DIFFICULTY</h4>
-      <button class="btn btn-block home-button home-button-easy" id="easy-level-button"
-      >EASY</button>
-      <button class="btn btn-block home-button" id="medium-level-button"
-      >MEDIUM</button>
-      <button class="btn btn-block home-button" id="advanced-level-button"
-      >ADVANCED</button>
+      <button class="btn btn-block home-button home-button-easy" id="easy-level-button">EASY</button>
+      <button class="btn btn-block home-button" id="medium-level-button">MEDIUM</button>
+      <button class="btn btn-block home-button" id="advanced-level-button">ADVANCED</button>
       <a href="#">
         <i class="fas fa-arrow-circle-left go-back-btn" id="diff-level-go-back"> Go Back</i>
       </a>
     </div>
-     <!-- Rules Modal Window -->
-    <div class="rules-window visible container rules-div flex-column d-flex align-items-center text-center"
-      id="div-rules">
-      <div class="container rules-container">
+    <!-- Rules Modal Window -->
+    <div class="rules-window invisible container flex-column d-flex align-items-center text-center" id="div-rules">
+      <div class="rules-container">
         <h4 class="window-header" id="rules-btn">GAME RULES</h4>
         <div class="row">
-          <div class="col-12 px-1 pt-2 pb-0 d-flex flex-column text-left">
-            <ul>
-              <li>Click play to start the game.</li>
-              <li>Choose easy, medium or advanced level.</li>
-              <ol>
-                <li>Easy: You have 4 images to choose from and 1.8 seconds to memorise each image shown in the sequence.
-                </li>
-                <li>Medium: You have 4 images to choose from and 1.6 seconds to memorise each image shown in the
-                  sequence.</li>
-                <li>Advanced: You have 4 images to choose from and 1.4 seconds to memorise each image shown in the
-                  sequence.</li>
-              </ol>
-              <li>There are 8 rounds and with each round the sequence shows one additional image.</li>
-              <li>You win if you guess the correct sequence of images in all 8 rounds. </li>
-              <li>You are allowed to fail twice during the game.</li>
-              <li>The game is over if you haven’t made any more for 1 minute.</li>
-              <li>You will get your time scores saved.</li>
-            </ul>
+          <div class="col-12 px-1 pt-2 pb-0 d-flex  flex-column text-left">
+            Click play to start the game.<br>
+            Choose easy, medium or advanced level.<br><br>
+            Easy: You have 4 images to choose from and 1.8 seconds to memorise each image shown in the sequence.<br>
+            Medium: You have 4 images to choose from and 1.6 seconds to memorise each image shown in the sequence.<br>
+            Advanced: You have 4 images to choose from and 1.4 seconds to memorise each image shown in the
+            sequence.<br><br>
+            There are 8 rounds and with each round the sequence shows one additional image.<br>
+            You win if you guess the correct sequence of images in all 8 rounds.<br>
+            You are allowed to fail twice during the game.<br>
+            The game is over if you haven’t made any more for 1 minute<br>
+            You will get your time scores saved.<br>
           </div>
           <div class="p-2 text-center">
             <a href="#">
@@ -85,9 +80,8 @@
           </div>
         </div>
       </div>
-
     </div>
-     <!-- Sounds Modal Window -->
+    <!-- Sounds Modal Window -->
     <!-- Used this resource: https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
     <div class="invisible container home-page-window flex-column d-flex        align-items-center text-center"
       id="div-sounds">
@@ -108,185 +102,190 @@
         <audio loop id="music">
           <source src="assets/audio/water-melody.mp3" type="audio/mp3">
           <p>Your browser doesn't support HTML5 audio.</p>
-      </audio>
+        </audio>
       </div>
     </div>
-  <!-- Timer div -->
-  <div class="container-fluid invisible timer-div-style" id="timer-div">
-    <div class="row text-center">
-      <div class="col-6">
-        <span>Time: </span><span class="time-span" id="time-span"></span>
-      </div>
-      <div class="col-6">
-        <span>Round: </span><span class="round-span" id="round-span"></span>
-      </div>
-    </div>
-  </div>
-  
-   <!-- Easy Level Game Area -->
-   <div class="invisible container-fluid easy-game-div background-img-game" id="easy-level-game">
-    <div class="btn btn-block home-btn-return" id="home-btn-0"><i class="i-home-btn-return fas fa-home"></i>
-    </div>
-     <div class="container">
-       <div class="row justify-content-center text-center">
-         <div class="col-12">
-           <img class="main-game-image main-game-image-easy" id="main-game-image-0"
-             src="assets/images/game-images/img1.jpg">
-         </div>
-       </div>
-       <div class="row justify-content-center text-center row-cols-2">
-         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 small-img-col-easy"><img class="small-game-image-easy"
-             id="img-choice-0-0" src="assets/images/game-images/globe-icon.jpg">
-         </div>
-         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 small-img-col-easy"><img class="small-game-image-easy"
-             id="img-choice-0-1" src="assets/images/game-images/globe-icon.jpg">
-         </div>
-         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 small-img-col-easy"><img class="small-game-image-easy"
-             id="img-choice-0-2" src="assets/images/game-images/globe-icon.jpg">
-         </div>
-         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 small-img-col-easy"><img class="small-game-image-easy"
-             id="img-choice-0-3" src="assets/images/game-images/globe-icon.jpg">
-         </div>
-       </div>
-     </div>
-   </div>
-  <!-- Medium level game area -->
-  <div class="invisible container-fluid medium-game-div" id="medium-level-game">
-    <div class="btn btn-block home-btn-return home-btn-return-md" id="home-btn-1">
-      <i class="i-home-btn-return fas fa-home"></i>
-    </div>
-    <div class="container">
-      <div class="row justify-content-center text-center">
-        <div class="col-12 col-level-md-game">
-          <img class="main-game-image main-game-image-md" id="main-game-image-1"
-            src="assets/images/game-images/img1.jpg">
+    <!-- Timer div -->
+    <div class="container-fluid invisible timer-div-style align-top" id="timer-div">
+      <div class="row text-center">
+        <div class="col-6">
+          <span>Time: </span><span class="time-span" id="time-span"></span>
+        </div>
+        <div class="col-6">
+          <span>Round: </span><span class="round-span" id="round-span"></span>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row justify-content-center text-center row-cols-2">
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-0"
-            src="assets/images/game-images/globe-icon.jpg">
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-1"
-            src="assets/images/game-images/globe-icon.jpg">
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 medium-col-first-row"><img class="small-game-image-md"
-            id="img-choice-1-2" src="assets/images/game-images/globe-icon.jpg">
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-3"
-            src="assets/images/game-images/globe-icon.jpg">
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-4"
-            src="assets/images/game-images/globe-icon.jpg">
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-5"
-            src="assets/images/game-images/globe-icon.jpg">
-        </div>
+
+    <!-- Easy Level Game Area -->
+    <div class="invisible container-fluid easy-game-div background-img-game" id="easy-level-game">
+      <div class="btn btn-block home-btn-return" id="home-btn-0"><i class="i-home-btn-return fas fa-home"></i>
       </div>
-    </div>
-  </div>
-  <!-- Advanced level game area -->
-<div class="invisible container-fluid advanced-game-div" id="advanced-level-game">
-  <div class="btn btn-block home-btn-return home-btn-return-adv" id="home-btn-2"><i class="i-home-btn-return fas fas fa-home"></i></div>
-  <div class="container">
-    <div class="container">
-      <div class="row justify-content-center text-center">
-        <div class="col-12">
-          <img class="main-game-image main-game-image-md main-game-image-adv" id="main-game-image-2" src="assets/images/game-images/img1.jpg">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-12">
+            <img class="main-game-image main-game-image-easy" id="main-game-image-0"
+              src="assets/images/game-images/img1.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+        </div>
+        <div class="row justify-content-center text-center row-cols-2">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 small-img-col-easy"><img class="small-game-image-easy"
+              id="img-choice-0-0" src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 small-img-col-easy"><img class="small-game-image-easy"
+              id="img-choice-0-1" src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world." >
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 small-img-col-easy"><img class="small-game-image-easy"
+              id="img-choice-0-2" src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 small-img-col-easy"><img class="small-game-image-easy"
+              id="img-choice-0-3" src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="row justify-content-center text-center row-cols-2">
-      <div class="col-sm-6 col-md-4 col-lg-3"><img class ="small-game-image-adv" id = "img-choice-2-0" src="assets/images/game-images/globe-icon.jpg">
+    <!-- Medium level game area -->
+    <div class="invisible container-fluid medium-game-div" id="medium-level-game">
+      <div class="btn btn-block home-btn-return home-btn-return-md" id="home-btn-1">
+        <i class="i-home-btn-return fas fa-home"></i>
       </div>
-      <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-1"
-        src="assets/images/game-images/globe-icon.jpg">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-12 col-level-md-game">
+            <img class="main-game-image main-game-image-md" id="main-game-image-1"
+              src="assets/images/game-images/img1.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+        </div>
       </div>
-      <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-2"
-        src="assets/images/game-images/globe-icon.jpg">
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-3"
-        src="assets/images/game-images/globe-icon.jpg">
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-4"
-        src="assets/images/game-images/globe-icon.jpg">
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-5"
-        src="assets/images/game-images/globe-icon.jpg">
-      </div>
-      <div class="col-sm-6 col-md-6 col-lg-3"><img class="ipad-easy-lastrow small-game-image-adv" id="img-choice-2-6"
-        src="assets/images/game-images/globe-icon.jpg">
-      </div>
-      <div class="col-sm-6 col-md-6 col-lg-3"><img class="ipad-easy-lastrow1 small-game-image-adv" id="img-choice-2-7"
-        src="assets/images/game-images/globe-icon.jpg">
+      <div class="container">
+        <div class="row justify-content-center text-center row-cols-2">
+          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-0"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-1"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 medium-col-first-row"><img class="small-game-image-md"
+              id="img-choice-1-2" src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-3"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-4"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><img class="small-game-image-md" id="img-choice-1-5"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-  <section id="game-div"></section>
+    <!-- Advanced level game area -->
+    <div class="invisible container-fluid advanced-game-div" id="advanced-level-game">
+      <div class="btn btn-block home-btn-return home-btn-return-adv" id="home-btn-2"><i
+          class="i-home-btn-return fas fas fa-home"></i></div>
+      <div class="container">
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-12">
+              <img class="main-game-image main-game-image-md main-game-image-adv" id="main-game-image-2"
+                src="assets/images/game-images/img1.jpg" alt="Image group - randomised. Wonders of the world.">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row justify-content-center text-center row-cols-2">
+          <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-0"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-1"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-2"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-3"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-4"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3"><img class="small-game-image-adv" id="img-choice-2-5"
+              src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-3"><img class="ipad-easy-lastrow small-game-image-adv"
+              id="img-choice-2-6" src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-3"><img class="ipad-easy-lastrow1 small-game-image-adv"
+              id="img-choice-2-7" src="assets/images/game-images/globe-icon.jpg" alt="Image group - randomised. Wonders of the world.">
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="game-div"></section>
     <!-- Ready?Go! - Start game button-->
-  <div class="invisible" id="ready-play"><button class="
+    <div class="invisible" id="ready-play"><button class="
     btn in-game-button text-cente hvr-glow">Ready? Play!</button>
- </div>
-   <!-- "Now it's your turn!" - If a player clicks on this button, they need to make a guess of image sequence-->
-   <div class="invisible" id="your-turn"><button class="
-     btn in-game-button text-cente hvr-glow">It's your turn!</button>
-  </div>
-
-  <!-- Well Done! Go to the next round. - Player gets this message displayed after each successfull guess/round. -->
-  <div class="invisible" id="well-done"><button class="
-    btn in-game-button text-cente hvr-glow">Well done! Go to the next round.</button>
-  </div>
-
-   <!-- "Oops, you've two more tries! Ready to repeat this round?" - When a player fails for the first time, this button appears -->
-   <div class="invisible in-game-div" id="first-fail"><button class="
-     btn in-game-button text-cente hvr-glow">Oops, you've got two more tries! <br> Ready to repeat this round?</button>
-   </div>
-
-   <!-- "Oops, you've got one more try! Ready?" - When a player fails for the second time, this button appears -->
-   <div class="invisible in-game-div" id="second-fail"><button class="
-     btn in-game-button text-cente hvr-glow">Oops, you've got one more try! <br> Ready to repeat this round?</button>
-   </div>
-
-  <!-- Notification - how long it has taken the user to complete the game -->
-  <div class="invisible container time-records-div flex-column d-flex align-items-center" id="game-success">
-    <h4 class="window-header">You've won! It took you <span id="time-completed"></span> to complete this level! Do want to better your time? </h4>
-    <h4 class="window-header">Your Records</h4>
-    <h4>Easy Level</h4>
-    <p id="eTimeRecords"></p>
-    <h4>Medium Level</h4>
-    <p id="mTimeRecords"></p>
-    <h4>Advanced Level</h4>
-    <p id="aTimeRecords"></p>
-    <button class="btn btn-block home-button" id="success-play-again">PLAY AGAIN</button>
-    <button class="btn btn-block home-button" id="success-take-me-home">TAKE ME HOME</button>
-  </div>
-
-  <!-- Notification - game over -->
-  <div class="invisible container user-notification flex-column d-flex align-items-center game-fail-div" id="game-fail">
-    <h4 class="window-header" id="fail-reason"> You've failed! Want to try again? </h4>
-    <button class="btn btn-block home-button" id="play-again">PLAY AGAIN</button>
-    <button class="btn btn-block home-button" id="take-me-home">TAKE ME HOME</button>
-  </div>
-
-</main>
-  <footer class="containter-fluid fixed-bottom main-footer">
-    <div class="row">
-      <div class="col"></div>
-      <div class="col" id="footer-links">
-        <a target="_blank" rel="noreferrer" href="https://github.com/Madeline8/geomaniac-memory-game"><i
-            class="fab fa-github footer-icon" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
-        <a target="_blank" href="https://www.linkedin.com/in/magdalena-slapek/"><i
-            class="fab fa-linkedin-in footer-icon" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
-      </div>
-      <div class="col d-none d-sm-block" id="copyright-text-align">
-        <i class="far fa-copyright footer-icon" aria-hidden="true">2021 Magdalena Slapek</i>
-      </div>
     </div>
-  </footer>
+    <!-- "Now it's your turn!" - If a player clicks on this button, they need to make a guess of image sequence-->
+    <div class="invisible" id="your-turn"><button class="
+     btn in-game-button text-cente hvr-glow">It's your turn!</button>
+    </div>
+
+    <!-- Well Done! Go to the next round. - Player gets this message displayed after each successfull guess/round. -->
+    <div class="invisible" id="well-done"><button class="
+    btn in-game-button text-cente hvr-glow">Well done! Go to the next round.</button>
+    </div>
+
+    <!-- "Oops, you've two more tries! Ready to repeat this round?" - When a player fails for the first time, this button appears -->
+    <div class="invisible in-game-div" id="first-fail"><button class="
+     btn in-game-button text-cente hvr-glow">Oops, you've got two more tries! <br> Ready to repeat this round?</button>
+    </div>
+
+    <!-- "Oops, you've got one more try! Ready?" - When a player fails for the second time, this button appears -->
+    <div class="invisible in-game-div" id="second-fail"><button class="
+     btn in-game-button text-cente hvr-glow">Oops, you've got one more try! <br> Ready to repeat this round?</button>
+    </div>
+
+    <!-- Notification - how long it has taken the user to complete the game -->
+    <div class="invisible container time-records-div flex-column d-flex align-items-center" id="game-success">
+      <h4 class="window-header">You've won! It took you <span id="time-completed"></span> to complete this level! Do
+        want to better your time? </h4>
+      <h4 class="window-header">Your Records</h4>
+      <h4>Easy Level</h4>
+      <p id="eTimeRecords"></p>
+      <h4>Medium Level</h4>
+      <p id="mTimeRecords"></p>
+      <h4>Advanced Level</h4>
+      <p id="aTimeRecords"></p>
+      <button class="btn btn-block home-button" id="success-play-again">PLAY AGAIN</button>
+      <button class="btn btn-block home-button" id="success-take-me-home">TAKE ME HOME</button>
+    </div>
+
+    <!-- Notification - game over -->
+    <div class="invisible container user-notification flex-column d-flex align-items-center game-fail-div"
+      id="game-fail">
+      <h4 class="window-header" id="fail-reason"> You've failed! Want to try again? </h4>
+      <button class="btn btn-block home-button" id="play-again">PLAY AGAIN</button>
+      <button class="btn btn-block home-button" id="take-me-home">TAKE ME HOME</button>
+    </div>
+    <footer class="containter-fluid fixed-bottom main-footer">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col" id="footer-links">
+          <a target="_blank" rel="noreferrer" href="https://github.com/Madeline8/geomaniac-memory-game"><i
+              class="fab fa-github footer-icon" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
+          <a target="_blank" href="https://www.linkedin.com/in/magdalena-slapek/"><i
+              class="fab fa-linkedin-in footer-icon" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
+        </div>
+        <div class="col d-none d-sm-block" id="copyright-text-align">
+          <i class="far fa-copyright footer-icon" aria-hidden="true">2021 Magdalena Slapek</i>
+        </div>
+      </div>
+    </footer>
+  </main>
+
   <script src="assets/js/script.js"></script>
   <script src="assets/js/game.js"></script>
   <script src="assets/js/audio.js"></script>
