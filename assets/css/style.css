@@ -26,6 +26,7 @@ button {
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 100vh;
+    width: 100%;
 }
 
 /* ----------------------------------/Default-------------------------------- */
@@ -71,19 +72,6 @@ button {
     border-color: #E5EAE5;
 }
 
-/* .home-button-easy {
-    font-size: 25px;
-    border: 1px solid black;
- 
-    border-width: 2px;
-    background-color: #2F592F;
-    position: relative;
-    margin-bottom: 4px;
-    width: 10em;
-    color: #E5EAE5;
-    border-color: #E5EAE5;
-} */
-
 .home-button:hover {
     background-color: #009900;
 }
@@ -107,15 +95,12 @@ button {
     font-family: 'Poppins';
 }
 
-
-
 /* ---------------/Choose Level of Difficulty - Window Modal---------------- */
 /* ---------------Rules - Window Modal---------------- */
 .rules-window {
     margin-top: 0;
     max-height: 73%;
     height: auto;
-    /* background: #009900;   */
     background-color: #2F592F;
     opacity: 0.8;
     color: #E5EAE5;
@@ -130,17 +115,6 @@ button {
 }
 
 /* ---------------/Rules - Window Modal---------------- */
-
-/* Game area - set background image */
-/* .background-img-game {
-background-image: url('../images/background-img-game.jpg');
-background-size: cover;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-height:100vh;
-} */
-
 /* --------------------General Styles for EASY Game Level------------------ */
 .easy-game-div {
     position: absolute;
@@ -327,7 +301,6 @@ height:100vh;
     .difficulty-window {
         border-radius: 15%;
         text-align: center;
-        /* background-color: #b5e7b5; */
         height: 19rem;
         top: 0;
         bottom: 0;
@@ -339,9 +312,11 @@ height:100vh;
     /* Rules */
     .rules-window {
         margin-top: 4px;
-        max-height: 73%;
-        max-width: 90%;
+        max-height: 75%;
+        max-width: 92%;
         position: absolute;
+        margin-left: .7rem;
+        font-size: 12px;
     }
 
     /* Set styles for easy game level on MOBILE phones */
@@ -495,9 +470,21 @@ height:100vh;
     }
 
     .timer-div-style {
-        /* margin-top: -30%; */
         margin: 1px 2px;
         font-size: 25px;
+    }
+
+    .rules-window {
+        margin-top: 0;
+        max-height: 73%;
+        height: auto;
+        background-color: #2F592F;
+        opacity: 0.8;
+        color: #E5EAE5;
+        border-radius: 5%;
+        position: absolute;
+        max-width: 50%;
+        margin-left: 15rem;
     }
 }
 
@@ -511,12 +498,14 @@ height:100vh;
         max-width: 50%;
         font-size: 18px;
         position: absolute;
+        margin-left: 15rem;
     }
 
     /* Set timer and rounds div on iPad Pro fo all game levels */
     .timer-div-style {
         margin-top: 30px;
         margin-bottom: 20px;
+        font-size: 23px;
     } 
 
     .time-span,
@@ -534,12 +523,6 @@ height:100vh;
         height: 190px;
         width: 190px;
         margin-top: 20px;
-    }
-
-    .timer-div-style {
-        /* margin-top: 5px;
-        margin: 1px 2px; */
-        font-size: 25px;
     }
 
     .i-home-btn-return {
@@ -636,7 +619,6 @@ height:100vh;
 
     /* Set timer and rounds div on iPad Pro fo all game levels */
     .timer-div-style {
-        /* margin-top: 140px; */
         margin: 1px 2px;
         margin-bottom: 10px;
     }
@@ -659,6 +641,7 @@ height:100vh;
         max-height: 76%;
         max-width: 70%;
         font-size: 20px;
+        margin-left: 8rem;
     }
 
     .main-game-image-easy {
@@ -712,14 +695,6 @@ height:100vh;
 /* ----------------Styles for Surface Duo ----------------*/
 @media (min-width: 540px) and (max-width: 720px) {
 
-    /* Return home button for medium level game */
-    /* .home-btn-return {
-        position: absolute;
-        top: 7rem;
-        left: 3%;
-        z-index: 1;
-    } */
-
     .i-home-btn-return {
         font-size: 20px;
     }
@@ -740,7 +715,6 @@ height:100vh;
 
     .timer-div-style {
         font-size: 1.2rem;
-        /* margin-top: -85%; */
         margin: 1px 2px;
     }
 
@@ -794,8 +768,6 @@ height:100vh;
             width: 72px;
             margin-top: 2px;
         }
-
-
     }
 
 }
@@ -827,7 +799,6 @@ height:100vh;
         width: 115px;
         margin-bottom: 4px;
     }
-
 }
 
 /* Styles for iPhone X and iPhone 6/7/8 */
@@ -858,10 +829,13 @@ height:100vh;
     /* Rules */
     .rules-window {
         margin-top: 4px;
-        max-height: 70%;
+        max-height: 79%;
         max-width: 90%;
         font-size: 14px;
-    }
+        margin-left: 1.2rem;
 }
+
+    }
+
 
 /* ---------------------Media Queries ------------------*/
