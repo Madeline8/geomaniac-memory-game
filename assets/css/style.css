@@ -15,7 +15,7 @@ body {
 }
 
 button {
-    font-family: 'Poppins', 'sans-serif';
+    font-family: 'Poppins', 'roboto';
     font-weight: 400;
 }
 
@@ -498,7 +498,7 @@ button {
         max-width: 50%;
         font-size: 18px;
         position: absolute;
-        margin-left: 15rem;
+        margin-left: 23rem;
     }
 
     /* Set timer and rounds div on iPad Pro fo all game levels */
