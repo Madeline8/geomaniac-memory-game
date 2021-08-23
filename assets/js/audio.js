@@ -24,7 +24,6 @@
 
 // Sound click rule
 function soundClick() {
-  log ("soundClick()");
   if (audio.soundMuted === false) {
     audio.click.play();
   }
@@ -59,7 +58,6 @@ function soundFail() {
 
 //Sound is played when a player fails one of the game rounds
 function soundRoundFail() {
-  log("SoundRoundFail");
   if (audio.soundMuted === false) {
     audio.roundFail.play();
   }
@@ -148,11 +146,9 @@ function fadeIn(audioElement, maxVol, startDelay, fadeInTime, steps) {
   let i = 0;
   let interval = fadeInTime / steps;
   setTimeout(function () {
-    log("start fade-in");
     let intervalId = setInterval(function() {
       let volume = (maxVol / steps) * i;
       audioElement.volume = volume;
-      log(`Volume set to ${volume}`);
       if(++i >= steps)
         clearInterval(intervalId);
     }, interval);

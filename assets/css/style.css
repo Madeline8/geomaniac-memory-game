@@ -480,6 +480,15 @@ button {
     .win-style {
         font-size: 18px;
     }
+
+    .rules-window {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        max-height: 85%;
+        max-width: 70%;
+        font-size: 20px;
+        margin-left: 8rem;
+    }
 }
 
 /* ----------Large devices (desktops, 992px and up) ---------*/
@@ -734,6 +743,15 @@ button {
     .small-game-image-adv {
         height: 180px;
         width: 180px;
+    }
+
+    .rules-window {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        max-height: 85%;
+        max-width: 70%;
+        font-size: 20px;
+        margin-left: 8rem;
     }
 }
 

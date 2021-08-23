@@ -41,9 +41,7 @@ let gameVars = {
 
 function clearMainImage() {
   let imageId = `main-game-image-${gameVars.level}`;
-  //log(`imageId: ${imageId}`);
   document.getElementById(imageId).src = "assets/images/game-images/globe-icon.jpg";
-  //log("Set Main Image to Globe");
 }
 
 // Display the main image
@@ -153,7 +151,6 @@ function imageClicked() {
   gameVars.lastMoveTime = Date.now();
   gameVars.lastImageClicked = choice;
   let expected = gameVars.expectedResult[gameVars.choiceNumber];
-  log(`Clicked on ${choice} : Expected ${expected}`);
   if (choice == expected) {
     // All is OK so far
     // Has player clicked on all the images required?

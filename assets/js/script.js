@@ -2,15 +2,6 @@
 /* globals soundClick, setGameLevel, gameVars, playGame, soundManager, musicManager */
 "use strict";
 
-// defaultVol(); // reset volumes to the default
-
-// Functions to log to console with a timestamp
-function log(txt) {
-  let currentDateTime = new Date();
-  let formattedTime = currentDateTime.getHours() + ":" + currentDateTime.getMinutes() + ":" + currentDateTime.getSeconds() + "." + currentDateTime.getMilliseconds();
-  console.log(formattedTime + ": " + txt);
-}
-
 // Play Button
 document.getElementById("btn-play").addEventListener("click", () => {
   soundClick();
@@ -57,7 +48,6 @@ document.getElementById('ready-play').addEventListener('click', event => {
 
 // Difficulty level - Go Back
 document.getElementById("diff-level-go-back").addEventListener("click", event => {
-  log("diff level.go back clicked");
   soundClick();
   showHide(false, 'div-difficulty');
   showHide(true, 'home-page-modal');
@@ -73,7 +63,6 @@ document.getElementById("btn-rules").addEventListener("click", event => {
 
 // Rules form Go Back
 document.getElementById("btn-rules-back").addEventListener("click", event => {
-  log("btn-rules-back calling sound click");
   soundClick();
   showHide(false, 'div-rules');
   showHide(true, 'home-page-modal');
@@ -108,7 +97,6 @@ function closeAllModals() {
   'advanced-level-game', 
 ];
   for(let i = 0; i < divs.length; i++) {
-   log(`Hiding ${divs[i]}`);
     showHide(false, divs[i]);
   }
 }
@@ -117,7 +105,6 @@ function closeAllModals() {
 function showHide(show, div) {
   let elm = document.getElementById(div);
   if(!elm) {
-    log("Cannot set element - not found: " + div);
     return;
   }
   if(show) {
