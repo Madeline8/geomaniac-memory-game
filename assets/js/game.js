@@ -84,7 +84,6 @@ function fillImageChoices(n) {
 function randomiseImages() {
   // Used Images is an array of 4 items from maxImages but must be unique
   for (let i = 0; i < gameVars.choices; i++) {
-    //log("i = " + i);
     // Get a random image number and check that it is not in usedImages yet and also not the same as the previous image
     let OK = false;
     while (!OK) {
@@ -113,7 +112,6 @@ function randomiseImages() {
     gameVars.expectedResult[i] = imageNumber;
     lastImage = n;
   }
-  log("expectedResult: " + gameVars.expectedResult);
 }
 
 // setGameLevel(n)

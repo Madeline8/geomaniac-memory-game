@@ -1,104 +1,366 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome Magda,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+# ‘GeoManiac – Memory Game’
 
-## Gitpod Reminders
+[Mock-up pic – paste in here]
+[Geomaniac](assets/images/testing-images/amiresponsive-image.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+View the repository in GitHub [here](https://github.com/Madeline8/geomaniac-memory-game)
+View the live project [here](https://madeline8.github.io/geomaniac-memory-game/)
 
-`python3 -m http.server`
+CONTENTS
 
-A blue button should appear to click: _Make Public_,
+USER EXPERIENCE (UX)
+Strategy
+User Stories­
+Scope
+Structure
+Skeleton
+Wireframes
+Surface
 
-Another blue button should appear to click: _Open Browser_.
+FEATURES
+Content about Features:
+Features to Implement:
+Technologies Used
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+TESTING (On a separate page?)
+Code Validation
+User Stories
+Further Testing
+Browser Compatibility
+Respons­iveness / Device Compatibility
+Manual Device Testing­
+Solved Bugs
+Known Bugs
+Lighthouse
 
-A blue button should appear to click: _Make Public_,
+DEPLOYMENT
+GitHub Pages
+Forking the GitHub Repository
+Making a Local Clone
 
-Another blue button should appear to click: _Open Browser_.
+CREDITS
+Code
+Content
+Media
+ACKNOWLEDGMENTS
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## USER EXPERIENCE (UX)
 
-To log into the Heroku toolbelt CLI:
+**STRATEGY**
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+‘GEOMANIAC’ is an online game for all those who enjoy playing memory games as well as have interests in travelling and like to discover new places around the world. The aim of this game is to create a positive experience for a player so they enjoy the game, or they have a desire to visit new places shown in the game.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+**USER STORIES**
 
-------
+Player’s goals
 
-## Release History
+- As a player, I want to see a clearly structured page so I can    navigate around easily.
+- As a player, I want to have fun while playing the game.
+- As a player, I want to be able to learn about the rules of the game.
+- As a player, I want to be able to challenge myself to a difficulty    level of my preference.
+- As a player, I want to be able to turn the sounds on and off.
+- As a player, I want to be able to adjust the volume of the sound /    music.
+- As a player, I want to continuous feedback on how I am doing    throughout the game. I want to be in control.
+- As a player, I want to see the time it takes me to complete the game.
+- As a player want to be able to see who designed and developed the    game.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Website Developer’s / Business Goals
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- As the website developer, I want anyone who enters this page to understand immediately what it offers.
+- As the website developer, I want anyone who enters the page to see who created it and the year of creation.
+- As the website developer, I want anyone who enters the page to be able to check out my GitHub or LinkedIn profiles.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+**SCOPE**
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+This section explains in more detail what a user can expect, once they’ve accessed this web page. I have taken an agile approach and kept it simple. Any additional ideas are documented under ‘Features to implement’ section.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+The main feature set that will add value and more importantly will allow user to navigate around easily and have fun using the website consists are:
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+-- Home page include 3 main buttons: Play, Rules, and Sounds.
+-- Play button: Once clicked, a player has a choice between easy, medium or advance game level. I used bootstrap grid system for all game levels to make sure everything is aligned correctly and consistently. There is a ‘home return’ button if a player wants to return home while playing the game. It allows the player to keep the sound settings as they are, and not reset it to default. If a player clicks on the logo, it will also take them to a home page, however it will default all the settings.
+-- Rules button: Once clicked, the player will learn the rules of the game.
+-- Sounds button: Adjust the volume of music background and sound effects with an option to completely turn it off.
+-- Footer: a simple footer including name of the creator, year of creation, and links to LinkedIn and GitHub of the game creator.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+**STRUCTURE**
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+Structure has been provided to the features and content. The relationship between the options above have been considered, so all options/navigation elements have been organised in terms of priority of content and the correct, predictable patterns, e.g: Once a player clicks on the ‘Play” button, they will be taken to the next modal that gives the player the option to choose a difficulty level. Another example is when a player completes one session of the game, they get notified and have a choice between selecting another game, or going to the main page/home.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+**SKELETON**
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Once the scope and structure have been defined, the next step is to define and explain how the information has ben implemented. This section includes the interface design and navigation design. This is best explained by providing wireframes that show the page has been constructed and the features arranged.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Wireframes were firstly sketched on a whiteboard. Please find the links to sketched wireframes below:
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+Home Page on desktop, whiteboard wireframe
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+[Home Page on mobile, whiteboard wireframe](https://github.com/Madeline8/shake-up-milestone-one/blob/master/assets/images/wireframes/whiteboard-header-and-footer-mobile.jpg)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Home Page on a tablet, whiteboard wireframe
+  
+[Balsamiq](https://balsamiq.com/) (provide hyperlink) was the tool used in this project to finalise previously sketched wireframes. Below are low fidelity mock-ups.
 
-------
+[Mobiles, Tablet and desktop Wireframes](assets/images/wireframes/geomaniac-memory-game-wireframes.pdf)
 
-## FAQ about the uptime script
+Note: During the design stage, I decided to make some changes in order to provide a better user experience. 
 
-**Why have you added this script?**
+**SURFACE**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+The final product has been completed, with the goal to emphasise the meaning of the content throughout the page, navigate around the page in an intuitive way with a natural flow.
 
-**How will this affect me?**
+I went for a basic, and clear visual design. 
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+In terms of the colour scheme, one of the aims was to create positive emotions for the player, therefore the main colours on the page are in green and orange shades. Both colours relate to the topic of the game, which are the wonders of the world / geography. 
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+Orange colour created some warmth and comfort. It is a 'fun' colour. 
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+Green colour is affiliated with harmony, balance, or environmental awareness. 
 
-**So….?**
+## FEATURES
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+**Existing Features**
 
-**Can I opt out?**
+Features implemented in this game followed from the game logic, which you can read below. 
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+**Game Logic**
+*The game consists of 3 levels: easy, medium and advanced.
+Easy level:
+Once a difficulty level is chosen, player clicks the button to start a game, a sequence of images appears on the screen. Once it’s completed, player gets notified that it is their turn to click in the right order on the images they have just seen. There are 8 rounds, with each round the sequence shows one additional image.
+There are 4 images that player needs to choose from.
+After each round the player gets notified if they have successfully followed the pattern and needs to click in order to continue to the next round. Player wins if they successfully follow the right order in each round. Once all rounds have been completed, the player gets notified of how long it took to complete this level, and has a choice to continue playing or going to the home screen. If the player chooses to continue playing, they get a pop up window to chose the level of difficulty.
+The player can make two mistakes during each game. If the player fails to follow the sequence correctly, he gets notified and needs to repeat the same round again. If the player fails to follow a sequence for the second time during the game, he also gets notified and needs to repeat the failed round. Game ends with the third failed attempt to follow the correct sequence; the player gets notified and has choice between playing again or going to the home screen.
+Medium level: Same as above with the difference that there are 6 images for the player to choose from. Also, the player has less time to memorise each image than in the easy level.
+Advanced level: Same as above with the difference that there are 8 images for the player to choose from. Also, the player has less time to memorise each image than in the medium level.*
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+**Features Still to Implement**
+ - Create additional link where user can learn more about wonders of the
+   world shown in game images.
+ - Create a map of where the wonders are located.
+ - Contact page: Contact the website developer with any query they might have.
+ - More visual effects using jQuery
 
-**Anything more?**
+## **TECHNOLOGIES USED**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+**Languages Used**
+[HTML](https://en.wikipedia.org/wiki/HTML5)  -Mmarkup language used to structure and present content for my website.
+ [CSS](https://en.wikipedia.org/wiki/CSS)  - to style all elements, also using different media queries. 
+ [JavaScript](https://en.wikipedia.org/wiki/JavaScript)  - to create overall logic of the game as well as manage audio and all buttons/windows. 
+https://jquery.com/
+ 
+ **Frameworks, Libraries and Programs used**
+ [Am I Responsive?](http://ami.responsivedesign.is/)  - used to preview my site across a variety of devices.
+[Autoprefixer](https://autoprefixer.github.io/)  - used to parse the CSS and to add vendor prefixes to CSS rules.
+[Balsamiq](https://balsamiq.com/)  - used to create the wireframes.
+[Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)  - to create flexible grids and ensure consistency across all windows. 
+[Canva](https://www.canva.com/)  - for logo design.
+[Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)  - to check responsiveness of the page on different devices, as well as manage all logs and run tests when working with JavaScript.
+[Font Awesome](https://fontawesome.com/)  - to improve a design; used return and home buttons
+[Google Fonts](https://fonts.google.com/)  - used to provide the fonts 'Srirarcha' for the body ('Cursive and 
+'Roboto as the second option), 'Poppins' for the buttons ('Roboto' as as a second option).
+[Gitpod](https://gitpod.io/)  - used to develop the website.
+[GitHub](https://github.com/)  - to store my repository and keep log of my commits    
+[GitHub Pages](https://pages.github.com/)  - to deploy the website.
+ [jQuery](https://jquery.com/)  - for additional effects. This is a JavaScript library.
+ [StackEdit](https://stackedit.io/)  - used to write my README.md file.
+[W3C Markup Validation Service](https://validator.w3.org/)  - to validate my HTML code.
+[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator)  - to validate my CSS file.
+[jshint Validator](https://jshint.com/)  - to check and review all errors in Javascript code.
 
----
+TESTING
 
-Happy coding!
+Please click [here](https://github.com/Madeline8/shake-up-milestone-one/blob/master/TESTING.md) to see the testing information.
+
+**Code Validation**
+I used [W3C Markup](https://validator.w3.org/) and [CSS Validation Service](https://jigsaw.w3.org/css-validator/) by coping the contents from my index.html and style.css file and pasting into ‘Validate by Direct Input’ field. There were no errors in the end:
+![CSS Validator](assets/images/testing-images/geomaniac-css-validation.png)
+
+![HTML Validator](assets/images/testing-images/geomaniac-html-validation.png)
+
+I also used jshint validator to check for errors in JavaScript code. Final results below.
+
+![game.js validator](assets/images/testing-images/game_jshint.png)
+![script.js validator](assets/images/testing-images/script_jshint.png)
+![audio.js validator](assets/images/testing-images/audio_jshint.png)
+when running jshint there were some undefined variables but this is due to the fact I am using variables defined in one js file, in the other one. B looking at jshint documentation I worked out how to list variables defined in a different script, so it doesn't show me any warning about undefined variables. 
+E.g. before I pasted in my code on to jshint, I included the following message on top of:
+ - On top of game.js file:
+// The below is to list variables defined in a different script, when using jshint
+/* globals log, soundClick, showHide, soundImageSeq, soundInRoundSuccess,
+soundSuccess, closeAllModals, soundRoundFail, soundFail, $ */
+- On top of script.js file:
+-// The below is to list variables defined in a different script, when using jshint
+/* globals soundClick, setGameLevel, gameVars, playGame, soundManager, musicManager */
+- On top of audio.js file:
+- // The below is to list variables defined in a different script, when using jshint
+/* globals soundClick, setGameLevel, gameVars, playGame, soundManager, musicManager */
+
+**User Stories**
+
+Player’s goals
+- As a player, I want to see a clearly structured page so I can navigate around easily. 
+	- The main page has got all essential information clearly laid out. The first choice player needs to make is whether to play immediately, read the game rules, or set sounds; as per the screenshots below:
+![Home Page](assets/images/testing-images/home-page.png)
+
+- As a player, I want to have fun while playing the game.
+  - This game was designed for memory game lovers.
+- As a player, I want to be able to learn about the rules of the game.
+	Player can access the game rules from the home page modal
+![Game Rules Modal](assets/images/testing-images/game-rules-modal.png)
+- As a player, I want to be able to challenge myself to a difficulty level of my preference.
+Player can choose between easy, medium and advance game level. With each level there are more images to choose from, as well as the playes has got less time to memorise each image shown.
+![Difficulty Level Modal](assets/images/testing-images/diff-level-modal.png)
+- As a player, I want to be able to turn the sounds on and off.
+Player can turn the sounds as well as the music On or Off. 
+![Sounds Modal](assets/images/testing-images/music-sounds-modal.png)
+- As a player, I want to be able to adjust the volume of the sound /    music.
+Player can adjust the music and sounds volume. Screenshot above. 
+
+- As a player, I want to continuous feedback on how I am doing  throughout the game. I want to be in control.
+Player get continuous feedback after each move throughout the game. Player gets notified in the following situations:
+Player, only once ready, can click the button and start the game. 
+Player is notified when it's his turn to guess the correct sequence of images.
+Player is notified once each round is correctly guessed.
+Player is notified when he fails for the first as well as the second time.
+Player is notified when he fails for the third time, and therefore fails the game.  
+Player is notified that they have been inactive therefore the game is failed. 
+
+- As a player, I want to see the time it takes me to complete the game.
+Player is notified how long it has taken to complete the game. 
+- As a player want to be able to see who designed and developed the game.
+Player can find the details in the footer section, available at all times. 
+
+Website Developer’s / Business Goals
+- As the website developer, I want anyone who enters this page to understand immediately what it offers.
+Logo is clearly saying that 'Geomaniac' is a memory game. Rules are clearly explained. 
+- As the website developer, I want anyone who enters the page to see who created it and the year of creation.
+Visible in the footer. 
+- As the website developer, I want anyone who enters the page to be able to check out my GitHub or LinkedIn profiles.
+Visible in the footer.
+**Further Testing**
+
+**Browser Compatibility**
+Site was tested across various browsers:
+
+Everything has correctly rendered when it comes to the browsers below:
+Google Chrome - OK
+Safari - OK
+Mozilla Firefox - 
+Microsoft Edge - 
+
+However, 
+
+
+**Responsiveness / Device Compatibility**
+
+Galaxy S5
+Pixel 2 
+Pixel 2XL - all working correctly
+iPhone 5/SE
+iPhone 6/7/8 - all working correctly
+iPhone 6/7/8 Plus - all working correctly
+iPhone X - all working correctly
+iPad - all working correctly
+iPad Pro -all working correctly
+Surface Duo - all working correctly
+
+I had issue with alignment on iphone 5/SE, Galaxy S5, and iPhone X, as per the screenshots below:
+![iPhone 5/SE](assets/images/testing-images/html-notaligned-iphone5se.png)
+![iPhone X](assets/images/testing-images/html-notaligned-iphonex.png)
+![Galaxy S5](assets/images/testing-images/html-notaligned-galaxys5.png)
+
+**Manual Device testing**
+
+**Solved Bugs**
+ - When displaying images in turn, the screen was not updating because the program was busy in a sleep loop. I needed to find a way to let other processes run so the screen gets updated when I’m waiting. 
+Solution: I used [this](https://stackoverflow.com/questions/16623852/how-to-pause-javascript-code-execution-for-2-seconds) resource that helped me with a better understanding of the issue and finding a solution. I managed to refactor PlayGame function to use a time out methods instead of in-function pauses.
+ - Using same Id’s in multiple divs: I realised that I had to differentiate between game levels, and I had to rename the divs for easy, medium and advanced game level, for instance: 
+ for easy level: img-choice-0-0
+ for medium level: img-choice-1-0
+ for advanced level: img-choice-2-0
+
+- When it’s the players turn to guess the images, if they clicked on a few images quickly, the system firstly allowed for this to happen, and secondly, two messages were shown on top of each other, depending on whether the player clicked on the correct or incorrect image. I tried disabling clicks in imageClicked and re-enabling them in showMainImage. I also tried using a gameVariable to show when click events were needed to be re-enabled. I realised the problems was that the click events were set to be enabled and in fact they had already been enabled, and this was causing the issue of the player being able to click multiple times, and multiple modals showing on top of each other. To solve this, after an image is clicked, I immediately disabled clicks on choice images, and then delayed enabling them until the main image choice started to be displayed again.
+ 
+Lighthouse
+
+## DEPLOYMENT
+**Github Pages**
+This site has been directly deployed from the master branch (steps in the following link have been followed: [https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)) and hosted using GitHub pages.
+
+**Steps taken in order to deploy the page:**
+
+1. Find the repository: [**https://github.com/Madeline8/geomaniac-memory-game**](https://github.com/Madeline8/geomaniac-memory-game)
+2. On the repository page, go to “Settings”.
+3. In the left hand side menu, go to “Pages”.
+4. Decide whether to keep the repository public or set it as “private”.
+5. Scroll down the page and find a notification under GitHub Pages “Pages settings now has its own dedicated tab! [Check it out here!](https://github.com/Madeline8/geomaniac-memory-game/settings/pages)”. Click on the link.
+6. Under the source select the “main” branch and click “save”.
+7. Notification received: “ Your site is ready to be published at [**https://madeline8.github.io/geomaniac-memory-game/**](https://madeline8.github.io/geomaniac-memory-game/)”. It might take up to 20 minutes for changes to be published.
+
+**Forking the Github Repository**
+It allows to make a copy of the original repository and make changes without having any effect on the original one. To fork the repository:
+1.  Log into GitHub and find the [repository](https://github.com/Madeline8/geomaniac-memory-game)  you wish to fork.
+2.  At the top-right of the repository underneath the navbar, click the "Fork" button.
+3.  Copy of the original repository should be in your own Github account. 
+
+**Making a Local Clone**
+1.  Go to the main page of the repository on Github.
+2.  Click 'Clone or download'.
+3.  Clone with HTTPS, and copy the URL.
+4.  Open terminal.
+5.  Navigate to any location/directory of your choice.
+6.  Type  `git clone`  and paste  [https://github.com/Madeline8/geomaniac-memory-game](https://github.com/Madeline8/geomaniac-memory-game).
+
+More about the cloning process can be found in:  [https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+## CREDITS
+
+**Code**
+
+[Create slider in sounds div](https://www.w3schools.com/howto/howto_js_rangeslider.asp): 
+[Substring Method](https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_substring)
+
+**Content**
+
+ - Background image was taken from
+   [here](https://unsplash.com/photos/sDCG1hTV8mI):
+   https://unsplash.com/photos/sDCG1hTV8mI
+ - All image choices were taken from
+   [here](https://www.listchallenges.com/100-wonders-of-the-world). 
+   [https://www.listchallenges.com/100-wonders-of-the-world](https://www.listchallenges.com/100-wonders-of-the-world)
+To design this logo I used [this](https://www.freelogodesign.org/) resource.      [**https://www.freelogodesign.org/**](https://www.freelogodesign.org/)
+ - Content relating to colours was taken from [here](http://www.colour-affects.co.uk/psychological-properties-of-colours). 
+
+**Media**
+Music and sound were taken from [here](https://freesound.org/).
+Specifically, sound effects were taken from the following resources:
+
+Clicks – sound of taking a photo with camera: [https://freesound.org/people/ArrowheadProductions/sounds/566366/](https://freesound.org/people/ArrowheadProductions/sounds/566366/)
+
+ - Sound for successful round:      
+   https://freesound.org/people/FunWithSound/sounds/456965/
+ - Sound for       the end of successful game:      
+   [https://freesound.org/people/Fupicat/sounds/521644/](https://freesound.org/people/Fupicat/sounds/521644/)
+ - Sound for game over:      
+   [https://freesound.org/people/Leszek_Szary/sounds/133283/](https://freesound.org/people/Leszek_Szary/sounds/133283/)
+ - Fail sound during round of the game:      
+   [https://freesound.org/people/themusicalnomad/sounds/253886/](https://freesound.org/people/themusicalnomad/sounds/253886/)
+ - Sound for the main images when showing up:      
+   [https://freesound.org/people/NoiseCollector/sounds/43025/](https://freesound.org/people/NoiseCollector/sounds/43025/)
+ - Background music:      
+Water-sound – background music taken from here:       [https://freemp3cloud.com/](https://freemp3cloud.com/)
+
+## Acknowledgements
+
+I would like to thank:
+-   My mentor, Gerry McBride for his support.
+-   Tutor support at Code Institute for their help on issues I encountered throughout the project.
+-   My friend Antony, for his help with the testing on his devices, and the spelling check across the website.
+
+
+
+
+
+
+
+

@@ -47,11 +47,8 @@ button {
 
 /* This resource has been used to center a div in the middle of the page: https://stackoverflow.com/questions/39085355/bootstrap-center-a-div-in-the-middle */
 .home-page-window {
-    /* border-radius: 15%; */
     text-align: center;
-    /* background-color: #b5e7b5; */
     height: 25rem;
-    width: 25rem;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -411,7 +408,7 @@ button {
 
     /* adjust position of home window modal */
     .home-page-window {
-        width: 25rem;
+        /* width: 25rem; */
         height: 25rem;
         margin-top: 13rem;
     }
