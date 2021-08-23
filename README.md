@@ -38,11 +38,11 @@ Website Developer’s / Business Goals
 
 This section explains in more detail what a user can expect, once they’ve accessed this web page. I have taken an agile approach and kept it simple. Any additional ideas are documented under ‘Features to implement’ section.
 
-The main feature set that will add value and more importantly will allow user to navigate around easily and have fun using the website consists are:
+The main feature set that will add value and more importantly will allow user to navigate around easily and have fun using the website  are:
 
 - Home page include 3 main buttons: Play, Rules, and Sounds.
 
-- Play button: Once clicked, a player has a choice between easy, medium or advance game level. I used bootstrap grid system for all game levels to make sure everything is aligned correctly and consistently. There is a ‘home return’ button if a player wants to return home while playing the game. It allows the player to keep the sound settings as they are, and not reset it to default. If a player clicks on the logo, it will also take them to a home page, however it will default all the settings.
+- Play button: Once clicked, a player has a choice between easy, medium or advance game level. I used a bootstrap grid system for all game levels to make sure everything is aligned correctly and consistently. There is a ‘home return’ button if a player wants to return home while playing the game. It allows the player to keep the sound settings as they are, and not reset it to default. If a player clicks on the logo, it will also take them to a home page, however it will default all the settings.
 
 - Rules button: Once clicked, the player will learn the rules of the game.
 
@@ -56,7 +56,7 @@ Structure has been provided to the features and content. The relationship betwee
 
 **SKELETON**
 
-Once the scope and structure have been defined, the next step is to define and explain how the information has ben implemented. This section includes the interface design and navigation design. This is best explained by providing wireframes that show the page has been constructed and the features arranged.
+Once the scope and structure have been defined, the next step is to define and explain how the information has ben implemented. This section includes the interface design and navigation design. This is best explained by providing wireframes that show how the page has been constructed and the features arranged.
 
 [Balsamiq](https://balsamiq.com/) was the tool used in this project to finalise previously sketched wireframes. Below are low fidelity mock-ups.
 
@@ -89,13 +89,13 @@ Features implemented in this game followed from the game logic, which you can re
 **Game Logic**
 *The game consists of 3 levels: easy, medium and advanced.
 Easy level:
-Once a difficulty level is chosen, player clicks the button to start a game, a sequence of images appears on the screen. Once it’s completed, player gets notified that it is their turn to click in the right order on the images they have just seen. There are 8 rounds, with each round the sequence shows one additional image.
+Once a difficulty level is chosen and the player clicks the button to start a game, a sequence of images appears on the screen. Once it’s completed, the player gets notified that it is their turn to click in the right order on the images they have just seen. There are 8 rounds, with each round the sequence shows one additional image.
 
-There are 4 images that player needs to choose from.
+There are 4 images that the player needs to choose from.
 
-After each round the player gets notified if they have successfully followed the pattern and needs to click in order to continue to the next round. Player wins if they successfully follow the right order in each round. Once all rounds have been completed, the player gets notified of how long it took to complete this level, and has a choice to continue playing or going to the home screen. If the player chooses to continue playing, they get a pop up window to chose the level of difficulty.
+After each round the player gets notified if they have successfully followed the pattern and needs to click in order to continue to the next round. The player wins if they successfully follow the right order in each round. Once all rounds have been completed, the player gets notified of how long it took to complete this level and has a choice to continue playing or going to the home screen. If the player chooses to continue playing, they get a pop up window to chose the level of difficulty.
 
-The player can make two mistakes during each game. If the player fails to follow the sequence correctly, he gets notified and needs to repeat the same round again. If the player fails to follow a sequence for the second time during the game, he also gets notified and needs to repeat the failed round. Game ends with the third failed attempt to follow the correct sequence; the player gets notified and has choice between playing again or going to the home screen.
+The player can make two mistakes during each game. If the player fails to follow the sequence correctly, he gets notified and needs to repeat the same round again. If the player fails to follow a sequence for the second time during the game, he also gets notified and needs to repeat the failed round. Game ends with the third failed attempt to follow the correct sequence; the player gets notified and has a choice between playing again or going to the home screen.
 
 Medium level: Same as above with the difference that there are 6 images for the player to choose from. Also, the player has less time to memorise each image than in the easy level.
 Advanced level: Same as above with the difference that there are 8 images for the player to choose from. Also, the player has less time to memorise each image than in the medium level.*
@@ -104,38 +104,60 @@ Advanced level: Same as above with the difference that there are 8 images for th
 **Features Still to Implement**
  - Create additional link where user can learn more about wonders of the
    world shown in game images.
+
  - Create a map of where the wonders are located.
+
  - Contact page: Contact the website developer with any query they might have.
+
  - More visual effects using jQuery
 
 ## **TECHNOLOGIES USED**
 
 **Languages Used**
+
 [HTML](https://en.wikipedia.org/wiki/HTML5)  -Mmarkup language used to structure and present content for my website.
+
  [CSS](https://en.wikipedia.org/wiki/CSS)  - to style all elements, also using different media queries. 
+
  [JavaScript](https://en.wikipedia.org/wiki/JavaScript)  - to create overall logic of the game as well as manage audio and all buttons/windows. 
-https://jquery.com/
  
  **Frameworks, Libraries and Programs used**
+
  [Am I Responsive?](http://ami.responsivedesign.is/)  - used to preview my site across a variety of devices.
+
 [Autoprefixer](https://autoprefixer.github.io/)  - used to parse the CSS and to add vendor prefixes to CSS rules.
+
 [Balsamiq](https://balsamiq.com/)  - used to create the wireframes.
-[Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)  - to create flexible grids and ensure consistency across all windows. 
+
+[Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)  - to create flexible grids and ensure consistency across all windows.
+
 [Canva](https://www.canva.com/)  - for logo design.
+
 [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)  - to check responsiveness of the page on different devices, as well as manage all logs and run tests when working with JavaScript.
+
 [Font Awesome](https://fontawesome.com/)  - to improve a design; used return and home buttons
+
 [Google Fonts](https://fonts.google.com/)  - used to provide the fonts 'Srirarcha' for the body ('Cursive and 
 'Roboto as the second option), 'Poppins' for the buttons ('Roboto' as as a second option).
+
 [Gitpod](https://gitpod.io/)  - used to develop the website.
-[GitHub](https://github.com/)  - to store my repository and keep log of my commits    
+
+[GitHub](https://github.com/)  - to store my repository and keep log of my commits 
+
 [GitHub Pages](https://pages.github.com/)  - to deploy the website.
+
  [jQuery](https://jquery.com/)  - for additional effects. This is a JavaScript library.
- [StackEdit](https://stackedit.io/)  - used to write my README.md file.
+
+ [StackEdit](https://stackedit.io/)  - used to write my README file.
+
 [W3C Markup Validation Service](https://validator.w3.org/)  - to validate my HTML code.
+
 [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator)  - to validate my CSS file.
+
 [jshint Validator](https://jshint.com/)  - to check and review all errors in Javascript code.
 
-TESTING
+
+## TESTING
 
 Please click [here](https://github.com/Madeline8/shake-up-milestone-one/blob/master/TESTING.md) to see the testing information.
 
@@ -153,33 +175,37 @@ I also used jshint validator to check for errors in JavaScript code. Final resul
 ![script.js validator](assets/images/testing-images/script_jshint.png)
 
 ![audio.js validator](assets/images/testing-images/audio_jshint.png)
+
 when running jshint there were some undefined variables but this is due to the fact I am using variables defined in one js file, in the other one. B looking at jshint documentation I worked out how to list variables defined in a different script, so it doesn't show me any warning about undefined variables. 
 E.g. before I pasted in my code on to jshint, I included the following message on top of:
- - On top of game.js file:
+- On top of game.js file:
 
 // The below is to list variables defined in a different script, when using jshint
 /* globals log, soundClick, showHide, soundImageSeq, soundInRoundSuccess,
 soundSuccess, closeAllModals, soundRoundFail, soundFail, $ */
 
 - On top of script.js file:
--// The below is to list variables defined in a different script, when using jshint
+
+// The below is to list variables defined in a different script, when using jshint
 /* globals soundClick, setGameLevel, gameVars, playGame, soundManager, musicManager */
 
 - On top of audio.js file:
 
-- // The below is to list variables defined in a different script, when using jshint
+// The below is to list variables defined in a different script, when using jshint
 /* globals soundClick, setGameLevel, gameVars, playGame, soundManager, musicManager */
 
 **User Stories**
 
 Player’s goals
 - As a player, I want to see a clearly structured page so I can navigate around easily. 
-	- The main page has got all essential information clearly laid out. The first choice player needs to make is whether to play immediately, read the game rules, or set sounds; as per the screenshots below:
+	- The main page contains all essential information clearly laid out. The first choice player needs to make is whether to play immediately, read the game rules, or set sounds; as per the screenshots below:
 
   ![Home Page](assets/images/testing-images/home-page.png)
 
 - As a player, I want to have fun while playing the game.
+
   This game was designed for memory game lovers.
+
 - As a player, I want to be able to learn about the rules of the game.
 
 	Player can access the game rules from the home page modal
@@ -199,36 +225,47 @@ Player can choose between easy, medium and advance game level. With each level t
 Player can adjust the music and sounds volume. Screenshot above. 
 
 - As a player, I want to continuous feedback on how I am doing  throughout the game. I want to be in control.
+
 Player get continuous feedback after each move throughout the game. Player gets notified in the following situations:
+
 Player, only once ready, can click the button and start the game. 
+
 Player is notified when it's his turn to guess the correct sequence of images.
 Player is notified once each round is correctly guessed.
+
 Player is notified when he fails for the first as well as the second time.
+
 Player is notified when he fails for the third time, and therefore fails the game.  
-Player is notified that they have been inactive therefore the game is failed. 
+
+Player is notified that they have been inactive therefore the game is failed.
+
 
 - As a player, I want to see the time it takes me to complete the game.
 Player is notified how long it has taken to complete the game. 
+
 - As a player want to be able to see who designed and developed the game.
 Player can find the details in the footer section, available at all times. 
 
 Website Developer’s / Business Goals
 - As the website developer, I want anyone who enters this page to understand immediately what it offers.
 Logo is clearly saying that 'Geomaniac' is a memory game. Rules are clearly explained. 
+
 - As the website developer, I want anyone who enters the page to see who created it and the year of creation.
 Visible in the footer. 
+
 - As the website developer, I want anyone who enters the page to be able to check out my GitHub or LinkedIn profiles.
 Visible in the footer.
-**Further Testing**
 
 **Browser Compatibility**
 Site was tested across various browsers:
 
 Everything has correctly rendered when it comes to the browsers below:
+
 Google Chrome - OK
+
 Safari - OK
-Mozilla Firefox - 
-Microsoft Edge - 
+
+Mozilla Firefox and Microsoft Edge it all worked ok however I noticed that the 'i-game'button' doesn't have the right height. I changed it to fit the content, but this still hasn;t fixed it. Due to lack of time I had to leave it. This is something I look look into in the future, as well as I would do the testing on more browsers. 
 
 However, 
 
@@ -301,12 +338,9 @@ It allows to make a copy of the original repository and make changes without hav
 More about the cloning process can be found in:  [https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 ## CREDITS
 
-**Code**
-
 [Create slider in sounds div](https://www.w3schools.com/howto/howto_js_rangeslider.asp): 
 [Substring Method](https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_substring)
 
-**Content**
 
  - Background image was taken from
    [here](https://unsplash.com/photos/sDCG1hTV8mI):
@@ -317,7 +351,6 @@ More about the cloning process can be found in:  [https://docs.github.com/en/git
 To design this logo I used [this](https://www.freelogodesign.org/) resource.      [**https://www.freelogodesign.org/**](https://www.freelogodesign.org/)
  - Content relating to colours was taken from [here](http://www.colour-affects.co.uk/psychological-properties-of-colours). 
 
-**Media**
 Music and sound were taken from [here](https://freesound.org/).
 Specifically, sound effects were taken from the following resources:
 
@@ -341,12 +374,5 @@ Water-sound – background music taken from here:       [https://freemp3cloud.co
 I would like to thank:
 -   My mentor, Gerry McBride for his support.
 -   Tutor support at Code Institute for their help on issues I encountered throughout the project.
--   My friend Antony, for his help with the testing on his devices, and the spelling check across the website.
-
-
-
-
-
-
-
+-   My friend Antony, for spelling check across the website and mental support.
 
