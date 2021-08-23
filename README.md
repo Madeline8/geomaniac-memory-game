@@ -1,50 +1,12 @@
-
-
 # ‘GeoManiac – Memory Game’
 
-[Mock-up pic – paste in here]
-[Geomaniac](assets/images/testing-images/amiresponsive-image.png)
+![Responsiveness](assets/images/testing-images/amiresponsive-image.png)
+
 
 View the repository in GitHub [here](https://github.com/Madeline8/geomaniac-memory-game)
+
 View the live project [here](https://madeline8.github.io/geomaniac-memory-game/)
 
-CONTENTS
-
-USER EXPERIENCE (UX)
-Strategy
-User Stories­
-Scope
-Structure
-Skeleton
-Wireframes
-Surface
-
-FEATURES
-Content about Features:
-Features to Implement:
-Technologies Used
-
-TESTING (On a separate page?)
-Code Validation
-User Stories
-Further Testing
-Browser Compatibility
-Respons­iveness / Device Compatibility
-Manual Device Testing­
-Solved Bugs
-Known Bugs
-Lighthouse
-
-DEPLOYMENT
-GitHub Pages
-Forking the GitHub Repository
-Making a Local Clone
-
-CREDITS
-Code
-Content
-Media
-ACKNOWLEDGMENTS
 
 ## USER EXPERIENCE (UX)
 
@@ -78,11 +40,15 @@ This section explains in more detail what a user can expect, once they’ve acce
 
 The main feature set that will add value and more importantly will allow user to navigate around easily and have fun using the website consists are:
 
--- Home page include 3 main buttons: Play, Rules, and Sounds.
--- Play button: Once clicked, a player has a choice between easy, medium or advance game level. I used bootstrap grid system for all game levels to make sure everything is aligned correctly and consistently. There is a ‘home return’ button if a player wants to return home while playing the game. It allows the player to keep the sound settings as they are, and not reset it to default. If a player clicks on the logo, it will also take them to a home page, however it will default all the settings.
--- Rules button: Once clicked, the player will learn the rules of the game.
--- Sounds button: Adjust the volume of music background and sound effects with an option to completely turn it off.
--- Footer: a simple footer including name of the creator, year of creation, and links to LinkedIn and GitHub of the game creator.
+- Home page include 3 main buttons: Play, Rules, and Sounds.
+
+- Play button: Once clicked, a player has a choice between easy, medium or advance game level. I used bootstrap grid system for all game levels to make sure everything is aligned correctly and consistently. There is a ‘home return’ button if a player wants to return home while playing the game. It allows the player to keep the sound settings as they are, and not reset it to default. If a player clicks on the logo, it will also take them to a home page, however it will default all the settings.
+
+- Rules button: Once clicked, the player will learn the rules of the game.
+
+- Sounds button: Adjust the volume of music background and sound effects with an option to completely turn it off.
+
+- Footer: a simple footer including name of the creator, year of creation, and links to LinkedIn and GitHub of the game creator.
 
 **STRUCTURE**
 
@@ -92,17 +58,13 @@ Structure has been provided to the features and content. The relationship betwee
 
 Once the scope and structure have been defined, the next step is to define and explain how the information has ben implemented. This section includes the interface design and navigation design. This is best explained by providing wireframes that show the page has been constructed and the features arranged.
 
-Wireframes were firstly sketched on a whiteboard. Please find the links to sketched wireframes below:
+[Balsamiq](https://balsamiq.com/) was the tool used in this project to finalise previously sketched wireframes. Below are low fidelity mock-ups.
 
-Home Page on desktop, whiteboard wireframe
+[Desktop Wireframe](assets/images/wireframes/Desktop%20Wireframes.png)
 
-[Home Page on mobile, whiteboard wireframe](https://github.com/Madeline8/shake-up-milestone-one/blob/master/assets/images/wireframes/whiteboard-header-and-footer-mobile.jpg)
+[Mobile Wireframe](assets/images/wireframes/Mobile%20Wireframe.png)
 
-Home Page on a tablet, whiteboard wireframe
-  
-[Balsamiq](https://balsamiq.com/) (provide hyperlink) was the tool used in this project to finalise previously sketched wireframes. Below are low fidelity mock-ups.
-
-[Mobiles, Tablet and desktop Wireframes](assets/images/wireframes/geomaniac-memory-game-wireframes.pdf)
+[Tablet Wireframe](assets/images/wireframes/Tablet%20Wireframes.png)
 
 Note: During the design stage, I decided to make some changes in order to provide a better user experience. 
 
@@ -128,11 +90,16 @@ Features implemented in this game followed from the game logic, which you can re
 *The game consists of 3 levels: easy, medium and advanced.
 Easy level:
 Once a difficulty level is chosen, player clicks the button to start a game, a sequence of images appears on the screen. Once it’s completed, player gets notified that it is their turn to click in the right order on the images they have just seen. There are 8 rounds, with each round the sequence shows one additional image.
+
 There are 4 images that player needs to choose from.
+
 After each round the player gets notified if they have successfully followed the pattern and needs to click in order to continue to the next round. Player wins if they successfully follow the right order in each round. Once all rounds have been completed, the player gets notified of how long it took to complete this level, and has a choice to continue playing or going to the home screen. If the player chooses to continue playing, they get a pop up window to chose the level of difficulty.
+
 The player can make two mistakes during each game. If the player fails to follow the sequence correctly, he gets notified and needs to repeat the same round again. If the player fails to follow a sequence for the second time during the game, he also gets notified and needs to repeat the failed round. Game ends with the third failed attempt to follow the correct sequence; the player gets notified and has choice between playing again or going to the home screen.
+
 Medium level: Same as above with the difference that there are 6 images for the player to choose from. Also, the player has less time to memorise each image than in the easy level.
 Advanced level: Same as above with the difference that there are 8 images for the player to choose from. Also, the player has less time to memorise each image than in the medium level.*
+
 
 **Features Still to Implement**
  - Create additional link where user can learn more about wonders of the
@@ -174,6 +141,7 @@ Please click [here](https://github.com/Madeline8/shake-up-milestone-one/blob/mas
 
 **Code Validation**
 I used [W3C Markup](https://validator.w3.org/) and [CSS Validation Service](https://jigsaw.w3.org/css-validator/) by coping the contents from my index.html and style.css file and pasting into ‘Validate by Direct Input’ field. There were no errors in the end:
+
 ![CSS Validator](assets/images/testing-images/geomaniac-css-validation.png)
 
 ![HTML Validator](assets/images/testing-images/geomaniac-html-validation.png)
@@ -181,18 +149,24 @@ I used [W3C Markup](https://validator.w3.org/) and [CSS Validation Service](http
 I also used jshint validator to check for errors in JavaScript code. Final results below.
 
 ![game.js validator](assets/images/testing-images/game_jshint.png)
+
 ![script.js validator](assets/images/testing-images/script_jshint.png)
+
 ![audio.js validator](assets/images/testing-images/audio_jshint.png)
 when running jshint there were some undefined variables but this is due to the fact I am using variables defined in one js file, in the other one. B looking at jshint documentation I worked out how to list variables defined in a different script, so it doesn't show me any warning about undefined variables. 
 E.g. before I pasted in my code on to jshint, I included the following message on top of:
  - On top of game.js file:
+
 // The below is to list variables defined in a different script, when using jshint
 /* globals log, soundClick, showHide, soundImageSeq, soundInRoundSuccess,
 soundSuccess, closeAllModals, soundRoundFail, soundFail, $ */
+
 - On top of script.js file:
 -// The below is to list variables defined in a different script, when using jshint
 /* globals soundClick, setGameLevel, gameVars, playGame, soundManager, musicManager */
+
 - On top of audio.js file:
+
 - // The below is to list variables defined in a different script, when using jshint
 /* globals soundClick, setGameLevel, gameVars, playGame, soundManager, musicManager */
 
@@ -201,19 +175,26 @@ soundSuccess, closeAllModals, soundRoundFail, soundFail, $ */
 Player’s goals
 - As a player, I want to see a clearly structured page so I can navigate around easily. 
 	- The main page has got all essential information clearly laid out. The first choice player needs to make is whether to play immediately, read the game rules, or set sounds; as per the screenshots below:
-![Home Page](assets/images/testing-images/home-page.png)
+
+  ![Home Page](assets/images/testing-images/home-page.png)
 
 - As a player, I want to have fun while playing the game.
-  - This game was designed for memory game lovers.
+  This game was designed for memory game lovers.
 - As a player, I want to be able to learn about the rules of the game.
+
 	Player can access the game rules from the home page modal
-![Game Rules Modal](assets/images/testing-images/game-rules-modal.png)
+
+  ![Game Rules Modal](assets/images/testing-images/game-rules-modal.png)
+
 - As a player, I want to be able to challenge myself to a difficulty level of my preference.
 Player can choose between easy, medium and advance game level. With each level there are more images to choose from, as well as the playes has got less time to memorise each image shown.
-![Difficulty Level Modal](assets/images/testing-images/diff-level-modal.png)
-- As a player, I want to be able to turn the sounds on and off.
-Player can turn the sounds as well as the music On or Off. 
-![Sounds Modal](assets/images/testing-images/music-sounds-modal.png)
+
+  ![Difficulty Level Modal](assets/images/testing-images/diff-level-modal.png)
+
+- Player can turn the sounds as well as the music On or Off. 
+
+  ![Sounds Modal](assets/images/testing-images/music-sounds-modal.png)
+
 - As a player, I want to be able to adjust the volume of the sound /    music.
 Player can adjust the music and sounds volume. Screenshot above. 
 
@@ -254,23 +235,30 @@ However,
 
 **Responsiveness / Device Compatibility**
 
+I used Chrome Dev tools to check responsiveness across the following devices:
+
 Galaxy S5
+
 Pixel 2 
+
 Pixel 2XL - all working correctly
+
 iPhone 5/SE
+
 iPhone 6/7/8 - all working correctly
+
 iPhone 6/7/8 Plus - all working correctly
+
 iPhone X - all working correctly
+
 iPad - all working correctly
+
 iPad Pro -all working correctly
+
 Surface Duo - all working correctly
 
-I had issue with alignment on iphone 5/SE, Galaxy S5, and iPhone X, as per the screenshots below:
-![iPhone 5/SE](assets/images/testing-images/html-notaligned-iphone5se.png)
-![iPhone X](assets/images/testing-images/html-notaligned-iphonex.png)
-![Galaxy S5](assets/images/testing-images/html-notaligned-galaxys5.png)
 
-**Manual Device testing**
+I had some issue with alignment on small devices i.e iPhone 5/SE and Samsun S5, however this has been fixed and I can confirm it's all working correctly. 
 
 **Solved Bugs**
  - When displaying images in turn, the screen was not updating because the program was busy in a sleep loop. I needed to find a way to let other processes run so the screen gets updated when I’m waiting. 
@@ -281,8 +269,6 @@ Solution: I used [this](https://stackoverflow.com/questions/16623852/how-to-paus
  for advanced level: img-choice-2-0
 
 - When it’s the players turn to guess the images, if they clicked on a few images quickly, the system firstly allowed for this to happen, and secondly, two messages were shown on top of each other, depending on whether the player clicked on the correct or incorrect image. I tried disabling clicks in imageClicked and re-enabling them in showMainImage. I also tried using a gameVariable to show when click events were needed to be re-enabled. I realised the problems was that the click events were set to be enabled and in fact they had already been enabled, and this was causing the issue of the player being able to click multiple times, and multiple modals showing on top of each other. To solve this, after an image is clicked, I immediately disabled clicks on choice images, and then delayed enabling them until the main image choice started to be displayed again.
- 
-Lighthouse
 
 ## DEPLOYMENT
 **Github Pages**
