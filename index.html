@@ -105,6 +105,7 @@
         </audio>
       </div>
     </div>
+
     <!-- Timer div -->
     <div class="container-fluid invisible timer-div-style align-top" id="timer-div">
       <div class="row text-center">
@@ -144,6 +145,7 @@
         </div>
       </div>
     </div>
+
     <!-- Medium level game area -->
     <div class="invisible container-fluid medium-game-div" id="medium-level-game">
       <div class="btn btn-block home-btn-return home-btn-return-md" id="home-btn-1">
@@ -180,6 +182,7 @@
         </div>
       </div>
     </div>
+
     <!-- Advanced level game area -->
     <div class="invisible container-fluid advanced-game-div" id="advanced-level-game">
       <div class="btn btn-block home-btn-return home-btn-return-adv" id="home-btn-2"><i
@@ -224,10 +227,12 @@
       </div>
     </div>
     <section id="game-div"></section>
+
     <!-- Ready?Go! - Start game button-->
     <div class="invisible" id="ready-play"><button class="
     btn in-game-button text-cente hvr-glow">Ready? Play!</button>
     </div>
+
     <!-- "Now it's your turn!" - If a player clicks on this button, they need to make a guess of image sequence-->
     <div class="invisible" id="your-turn"><button class="
      btn in-game-button text-cente hvr-glow">It's your turn!</button>
@@ -250,14 +255,14 @@
 
     <!-- Notification - how long it has taken the user to complete the game -->
     <div class="invisible container time-records-div flex-column d-flex align-items-center" id="game-success">
-      <h4 class="window-header">You've won! It took you <span id="time-completed"></span> to complete this level! Do
+      <h4 class="window-header win-style">You've won!<br> It took you <span id="time-completed"></span> to complete this level! Do
         want to better your time? </h4>
-      <h4 class="window-header">Your Records</h4>
-      <h4>Easy Level</h4>
+      <h4 class="window-header win-style">Your Records</h4>
+      <h4 class="win-style">Easy Level</h4>
       <p id="eTimeRecords"></p>
-      <h4>Medium Level</h4>
+      <h4 class="win-style">Medium Level</h4>
       <p id="mTimeRecords"></p>
-      <h4>Advanced Level</h4>
+      <h4 class="win-style">Advanced Level</h4>
       <p id="aTimeRecords"></p>
       <button class="btn btn-block home-button" id="success-play-again">PLAY AGAIN</button>
       <button class="btn btn-block home-button" id="success-take-me-home">TAKE ME HOME</button>
@@ -273,7 +278,7 @@
     <!-- Footer -->
     <footer class="containter-fluid fixed-bottom main-footer">
       <div class="row">
-        <div class="col"></div>
+        <div class="col d-none d-sm-block"></div>
         <div class="col" id="footer-links">
           <a target="_blank" rel="noreferrer" href="https://github.com/Madeline8/geomaniac-memory-game"><i
               class="fab fa-github footer-icon" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
@@ -291,5 +296,4 @@
   <script src="assets/js/game.js"></script>
   <script src="assets/js/audio.js"></script>
 </body>
-
 </html>
